@@ -88,6 +88,17 @@ def parse_args(args):
         help="Debug mode",
         action="store_true",
     )
+    parser.add_argument(
+        "--check-only",
+        help="Check the benchmarks only",
+        action="store_true",
+    )
+    parser.add_argument(
+        "--input-log",
+        help="Input log file",
+        type=str,
+        default="",
+    )
 
     return parser.parse_args(args)
 
@@ -101,7 +112,13 @@ def main(args):
 
     p = p.set_config(args.config_file, args.no_preprocess)
 
-    if args.termination_analysis:
+    if args.check_only:
+        p.check_invariants(
+            max_benchmarks=args.max_benchmarks,
+            start_index=args.start_index,
+            input_log=args.input_log,
+        )
+    elif args.termination_analysis:
         p.termination_analysis(
             max_benchmarks=args.max_benchmarks,
             start_index=args.start_index,

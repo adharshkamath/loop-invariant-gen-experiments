@@ -1,0 +1,169 @@
+{
+    "logs": {
+        "file": "../dataset/loop_invariants/code2inv/84.c",
+        "benchmark_code": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = -50);\n  \n  while ((x < 0)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (y > 0) );\n}\n\n}",
+        "success": false,
+        "annotation_blocks": [
+            "```\n/*@\nloop invariant 0 <= y;\nloop invariant -50 <= x;\nloop invariant x == -50 + y * y / 2;\nloop invariant y > 0 ==> x < 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= y <= 100000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= y <= 100000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= y <= 100000; loop invariant x >= (1 + (y - 1) * y / 2); loop invariant x >= -50; loop invariant y >= 1; loop invariant y <= 100000; loop invariant x >= -50 + (y - 1) * y / 2; loop invariant x <= 100000 - 50;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= y;\nloop invariant x >= -50 + (y - 1) * y / 2;\nloop invariant y > 0 ==> x >= -50 + (y - 1) * y / 2;\n*/\n```",
+            "```\n/*@\nloop invariant 1 <= y;\nloop invariant 0 >= x;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= y <= 100000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= y <= x;\nloop invariant y >= 1;\nloop invariant x >= -50;\nloop invariant x == -50 + y * (y + 1) / 2;\nloop invariant y == x + 50;\n*/\n```",
+            "```\n/*@\n\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= y <= 100000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+            "```\n/*@\nloop invariant x <= 0;\nloop invariant y >= 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= y <= -50;\nloop invariant x >= (y - 1) * y / 2 - 50;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= y <= 50;\nloop invariant x <= (50 - y) * y / 2;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= -50;\nloop invariant 1 <= y <= 50;\nloop invariant x + y <= 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= -50;\nloop invariant 1 <= y <= -50;\nloop invariant x + y >= -50;\nloop invariant x + y <= -50;\nloop invariant x <= y;\n*/\n```"
+        ],
+        "completions": [
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= y;\nloop invariant -50 <= x;\nloop invariant x == -50 + y * y / 2;\nloop invariant y > 0 ==> x < 0;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= y is preserved but not established.\nloop invariant -50 <= x is partially proven to be inductive.\nloop invariant x == -50 + y * y / 2 is neither established nor preserved.\nloop invariant y > 0 ==> x < 0 is partially proven to be inductive.\nAssertion y > 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = -50);\n  \n  /*@\n\n\n\n\n*/\nwhile ((x < 0)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (y > 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= y <= 100000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= y <= 100000 is preserved but not established.\nloop invariant x >= (1 + (y - 1) * y / 2) is preserved but not established.\nAssertion y > 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = -50);\n  \n  /*@\n\n\n*/\nwhile ((x < 0)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (y > 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= y <= 100000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= y <= 100000 is preserved but not established.\nloop invariant x >= (1 + (y - 1) * y / 2) is preserved but not established.\nAssertion y > 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = -50);\n  \n  /*@\n\n\n*/\nwhile ((x < 0)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (y > 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= y <= 100000; loop invariant x >= (1 + (y - 1) * y / 2); loop invariant x >= -50; loop invariant y >= 1; loop invariant y <= 100000; loop invariant x >= -50 + (y - 1) * y / 2; loop invariant x <= 100000 - 50;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= y <= 100000; loop invariant x >= (1 + (y - 1) * y / 2); loop invariant x >= -50; loop invariant y >= 1; loop invariant y <= 100000; loop invariant x >= -50 + (y - 1) * y / 2; loop invariant x <= 100000 - 50 is preserved but not established.\nAssertion y > 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = -50);\n  \n  /*@\n\n*/\nwhile ((x < 0)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (y > 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= y;\nloop invariant x >= -50 + (y - 1) * y / 2;\nloop invariant y > 0 ==> x >= -50 + (y - 1) * y / 2;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= y is preserved but not established.\nloop invariant x >= -50 + (y - 1) * y / 2 is preserved but not established.\nloop invariant y > 0 ==> x >= -50 + (y - 1) * y / 2 is partially proven to be inductive.\nAssertion y > 0: Unproven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = -50);\n  \n  /*@\n\n\n\n*/\nwhile ((x < 0)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (y > 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 1 <= y;\nloop invariant 0 >= x;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 1 <= y is preserved but not established.\nloop invariant 0 >= x is established but not preserved.\nAssertion y > 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = -50);\n  \n  /*@\n\n\n*/\nwhile ((x < 0)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (y > 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= y <= 100000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= y <= 100000 is preserved but not established.\nloop invariant x >= (1 + (y - 1) * y / 2) is preserved but not established.\nAssertion y > 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = -50);\n  \n  /*@\n\n\n*/\nwhile ((x < 0)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (y > 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 5,
+                "annotations": "```\n/*@\nloop invariant 0 <= y <= x;\nloop invariant y >= 1;\nloop invariant x >= -50;\nloop invariant x == -50 + y * (y + 1) / 2;\nloop invariant y == x + 50;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= y <= x is preserved but not established.\nloop invariant y >= 1 is partially proven to be inductive.\nloop invariant x >= -50 is partially proven to be inductive.\nloop invariant x == -50 + y * (y + 1) / 2 is partially proven to be inductive.\nloop invariant y == x + 50 is partially proven to be inductive.\nAssertion y > 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = -50);\n  \n  /*@\n\n\n\n\n\n*/\nwhile ((x < 0)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (y > 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\n\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 15: unexpected token ''",
+                "houdini_error": "No annotations found"
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= y <= 100000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= y <= 100000 is preserved but not established.\nloop invariant x >= (1 + (y - 1) * y / 2) is preserved but not established.\nAssertion y > 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = -50);\n  \n  /*@\n\n\n*/\nwhile ((x < 0)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (y > 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant x <= 0;\nloop invariant y >= 0;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant x <= 0 is established but not preserved.\nloop invariant y >= 0 is preserved but not established.\nAssertion y > 0: Unproven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = -50);\n  \n  /*@\n\n\n*/\nwhile ((x < 0)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (y > 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= y <= -50;\nloop invariant x >= (y - 1) * y / 2 - 50;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= y <= -50 is preserved but not established.\nloop invariant x >= (y - 1) * y / 2 - 50 is partially proven to be inductive.\nAssertion y > 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = -50);\n  \n  /*@\n\n\n*/\nwhile ((x < 0)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (y > 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= y <= 50;\nloop invariant x <= (50 - y) * y / 2;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= y <= 50 is neither established nor preserved.\nloop invariant x <= (50 - y) * y / 2 is established but not preserved.\nAssertion y > 0: Unproven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = -50);\n  \n  /*@\n\n\n*/\nwhile ((x < 0)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (y > 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= -50;\nloop invariant 1 <= y <= 50;\nloop invariant x + y <= 0;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= x <= -50 is preserved but not established.\nloop invariant 1 <= y <= 50 is partially proven to be inductive.\nloop invariant x + y <= 0 is partially proven to be inductive.\nAssertion y > 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = -50);\n  \n  /*@\n\n\n\n*/\nwhile ((x < 0)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (y > 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 5,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= -50;\nloop invariant 1 <= y <= -50;\nloop invariant x + y >= -50;\nloop invariant x + y <= -50;\nloop invariant x <= y;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= x <= -50 is preserved but not established.\nloop invariant 1 <= y <= -50 is partially proven to be inductive.\nloop invariant x + y >= -50 is partially proven to be inductive.\nloop invariant x + y <= -50 is partially proven to be inductive.\nloop invariant x <= y is partially proven to be inductive.\nAssertion y > 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = -50);\n  \n  /*@\n\n\n\n\n\n*/\nwhile ((x < 0)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (y > 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            }
+        ],
+        "checker_output_for_combined_annotations": false,
+        "checker_message_for_combined_annotations": "loop invariant 0 <= y is preserved but not established.\nloop invariant -50 <= x is partially proven to be inductive.\nloop invariant x == -50 + y * y / 2 is preserved but not established.\nloop invariant y > 0 ==> x < 0 is partially proven to be inductive.\nloop invariant 0 <= y <= 100000 is partially proven to be inductive.\nloop invariant x >= (1 + (y - 1) * y / 2) is preserved but not established.\nloop invariant 0 <= y <= 100000; loop invariant x >= (1 + (y - 1) * y / 2); loop invariant x >= -50; loop invariant y >= 1; loop invariant y <= 100000; loop invariant x >= -50 + (y - 1) * y / 2; loop invariant x <= 100000 - 50 is partially proven to be inductive.\nloop invariant x >= -50 + (y - 1) * y / 2 is partially proven to be inductive.\nloop invariant y > 0 ==> x >= -50 + (y - 1) * y / 2 is partially proven to be inductive.\nloop invariant 1 <= y is partially proven to be inductive.\nloop invariant 0 >= x is partially proven to be inductive.\nloop invariant 0 <= y <= x is partially proven to be inductive.\nloop invariant y >= 1 is partially proven to be inductive.\nloop invariant x >= -50 is partially proven to be inductive.\nloop invariant x == -50 + y * (y + 1) / 2 is partially proven to be inductive.\nloop invariant y == x + 50 is partially proven to be inductive.\nloop invariant x <= 0 is partially proven to be inductive.\nloop invariant y >= 0 is partially proven to be inductive.\nloop invariant 0 <= y <= -50 is partially proven to be inductive.\nloop invariant x >= (y - 1) * y / 2 - 50 is partially proven to be inductive.\nloop invariant 0 <= y <= 50 is partially proven to be inductive.\nloop invariant x <= (50 - y) * y / 2 is partially proven to be inductive.\nloop invariant 0 <= x <= -50 is partially proven to be inductive.\nloop invariant 1 <= y <= 50 is partially proven to be inductive.\nloop invariant x + y <= 0 is partially proven to be inductive.\nloop invariant 1 <= y <= -50 is partially proven to be inductive.\nloop invariant x + y >= -50 is partially proven to be inductive.\nloop invariant x + y <= -50 is partially proven to be inductive.\nloop invariant x <= y is partially proven to be inductive.\nAssertion y > 0: Partially proven",
+        "code_with_combined_annotations": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = -50);\n  \n  /*@\nloop invariant i1: 0 <= y;\nloop invariant i2: -50 <= x;\nloop invariant i3: x == -50 + y * y / 2;\nloop invariant i4: y > 0 ==> x < 0;\nloop invariant i5: 0 <= y <= 100000;\nloop invariant i6: x >= (1 + (y - 1) * y / 2);\nloop invariant i7: 0 <= y <= 100000; loop invariant x >= (1 + (y - 1) * y / 2); loop invariant x >= -50; loop invariant y >= 1; loop invariant y <= 100000; loop invariant x >= -50 + (y - 1) * y / 2; loop invariant x <= 100000 - 50;\nloop invariant i8: x >= -50 + (y - 1) * y / 2;\nloop invariant i9: y > 0 ==> x >= -50 + (y - 1) * y / 2;\nloop invariant i10: 1 <= y;\nloop invariant i11: 0 >= x;\nloop invariant i12: 0 <= y <= x;\nloop invariant i13: y >= 1;\nloop invariant i14: x >= -50;\nloop invariant i15: x == -50 + y * (y + 1) / 2;\nloop invariant i16: y == x + 50;\nloop invariant i17: x <= 0;\nloop invariant i18: y >= 0;\nloop invariant i19: 0 <= y <= -50;\nloop invariant i20: x >= (y - 1) * y / 2 - 50;\nloop invariant i21: 0 <= y <= 50;\nloop invariant i22: x <= (50 - y) * y / 2;\nloop invariant i23: 0 <= x <= -50;\nloop invariant i24: 1 <= y <= 50;\nloop invariant i25: x + y <= 0;\nloop invariant i26: 1 <= y <= -50;\nloop invariant i27: x + y >= -50;\nloop invariant i28: x + y <= -50;\nloop invariant i29: x <= y;\n*/\nwhile ((x < 0)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (y > 0) );\n}\n\n}",
+        "combined_annotation_num_solver_calls": 13,
+        "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = -50);\n  \n  /*@\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n*/\nwhile ((x < 0)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (y > 0) );\n}\n\n}",
+        "checker_output_after_prune": false
+    },
+    "stats": {
+        "success": [
+            "../dataset/loop_invariants/accelerating_invariant_generation/invgen/MADWiFi-encode_ie_ok.c",
+            "../dataset/loop_invariants/accelerating_invariant_generation/dagger/fig2.c"
+        ],
+        "failure": [
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-invgen/MADWiFi-encode_ie_ok_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/sv-benchmarks/loops-crafted-1/vnew2.c",
+            "../dataset/loop_invariants/sv-benchmarks/loop-invariants/bin-suffix-5.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/pie/ICE/benchmarks/cggmp2005_true-unreach-call.c",
+            "../dataset/loop_invariants/code2inv/84.c"
+        ],
+        "skipped": [],
+        "total": 7,
+        "success_count": 2,
+        "failure_count": 5,
+        "success_rate": 0.2857142857142857
+    }
+}

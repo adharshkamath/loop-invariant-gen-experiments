@@ -1,0 +1,178 @@
+{
+    "logs": {
+        "file": "../dataset/loop_invariants/sv-benchmarks/loop-acceleration/overflow_1-1.c",
+        "benchmark_code": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 10;\n\n  while (x >= 10) {\n    x += 2;\n  }\n\n  {;\n//@ assert(!(x % 2));\n}\n\n}",
+        "success": false,
+        "annotation_blocks": [
+            "```\n/*@\nloop invariant 0 <= x <= 10 + 2 * (x - 10);\nloop invariant x % 2 == 0;\nloop invariant !(x % 2);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x;\nloop invariant x <= 10;\nloop invariant x % 2 == 0;\n*/\n```",
+            "```\n/*@\nloop invariant x >= 10;\nloop invariant !(x % 2);\nloop invariant !(x % 2) ==> (x >= 10);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 64;\nloop invariant !(x % 2);\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 6;\n*/\n```",
+            "```\n/*@\nloop invariant 10 <= x <= 20;\nloop invariant !(x % 2);\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant !(x % 2);\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= y <= 100000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+            "```\n/*@\nloop invariant x == 10;\nloop invariant x >= 10 ==> x % 2 == 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 100000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x < (10 + 2 * (x - 10) / 2);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 10;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\n*/\n```",
+            "```\n/*@\nloop invariant 10 <= x <= 10;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 100000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 100000;\nloop invariant y = x - 10;\nloop invariant x % 2 == 1;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\n*/\n```"
+        ],
+        "completions": [
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 10 + 2 * (x - 10);\nloop invariant x % 2 == 0;\nloop invariant !(x % 2);\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= x <= 10 + 2 * (x - 10) is established but not preserved.\nloop invariant x % 2 == 0 is established but not preserved.\nloop invariant !(x % 2) is partially proven to be inductive.\nAssertion x % 2 == 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 10;\n\n  /*@\n\n\n\n*/\nwhile (x >= 10) {\n    x += 2;\n  }\n\n  {;\n//@ assert(!(x % 2));\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 4,
+                "annotations": "```\n/*@\nloop invariant 0 <= x;\nloop invariant x <= 10;\nloop invariant x % 2 == 0;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= x is partially proven to be inductive.\nloop invariant x <= 10 is established but not preserved.\nloop invariant x % 2 == 0 is partially proven to be inductive.\nAssertion x % 2 == 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 10;\n\n  /*@\nloop invariant i1: 0 <= x;\n\n\n*/\nwhile (x >= 10) {\n    x += 2;\n  }\n\n  {;\n//@ assert(!(x % 2));\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant x >= 10;\nloop invariant !(x % 2);\nloop invariant !(x % 2) ==> (x >= 10);\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant x >= 10 is established but not preserved.\nloop invariant !(x % 2) is established but not preserved.\nloop invariant !(x % 2) ==> (x >= 10) is partially proven to be inductive.\nAssertion x % 2 == 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 10;\n\n  /*@\n\n\n\n*/\nwhile (x >= 10) {\n    x += 2;\n  }\n\n  {;\n//@ assert(!(x % 2));\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 4,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 64;\nloop invariant !(x % 2);\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= x <= 64 is established but not preserved.\nloop invariant !(x % 2) is partially proven to be inductive.\nloop invariant x >= 10 is partially proven to be inductive.\nloop invariant x % 2 == 0 is partially proven to be inductive.\nAssertion x % 2 == 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 10;\n\n  /*@\n\n\n\n\n*/\nwhile (x >= 10) {\n    x += 2;\n  }\n\n  {;\n//@ assert(!(x % 2));\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 6;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= x <= 6 is preserved but not established.\nAssertion x % 2 == 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 10;\n\n  /*@\n\n*/\nwhile (x >= 10) {\n    x += 2;\n  }\n\n  {;\n//@ assert(!(x % 2));\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 5,
+                "annotations": "```\n/*@\nloop invariant 10 <= x <= 20;\nloop invariant !(x % 2);\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant !(x % 2);\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x <= 20;\nloop invariant x % 2 == 0;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 10 <= x <= 20 is established but not preserved.\nloop invariant !(x % 2) is partially proven to be inductive.\nloop invariant x % 2 == 0 is partially proven to be inductive.\nloop invariant x >= 10 is partially proven to be inductive.\nloop invariant x <= 20 is partially proven to be inductive.\nAssertion x % 2 == 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 10;\n\n  /*@\n\n\n\n\n\n*/\nwhile (x >= 10) {\n    x += 2;\n  }\n\n  {;\n//@ assert(!(x % 2));\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= y <= 100000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 11: unbound logic variable y. Ignoring loop annotation",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 10;\n\n  /*@\n\n\n*/\nwhile (x >= 10) {\n    x += 2;\n  }\n\n  {;\n//@ assert(!(x % 2));\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant x == 10;\nloop invariant x >= 10 ==> x % 2 == 0;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant x == 10 is established but not preserved.\nloop invariant x >= 10 ==> x % 2 == 0 is partially proven to be inductive.\nAssertion x % 2 == 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 10;\n\n  /*@\n\n\n*/\nwhile (x >= 10) {\n    x += 2;\n  }\n\n  {;\n//@ assert(!(x % 2));\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 100000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 12: unbound logic variable y. Ignoring loop annotation",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 10;\n\n  /*@\n\n\n*/\nwhile (x >= 10) {\n    x += 2;\n  }\n\n  {;\n//@ assert(!(x % 2));\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 4,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 10;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\nloop invariant x < (10 + 2 * (x - 10) / 2);\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= x <= 10 is partially proven to be inductive.\nloop invariant x % 2 == 0 is partially proven to be inductive.\nloop invariant x >= 10 is partially proven to be inductive.\nloop invariant x < (10 + 2 * (x - 10) / 2) is preserved but not established.\nAssertion x % 2 == 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 10;\n\n  /*@\n\n\n\n\n*/\nwhile (x >= 10) {\n    x += 2;\n  }\n\n  {;\n//@ assert(!(x % 2));\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 10;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\nloop invariant x % 2 == 0 ==> x % 2 == 0;\nloop invariant x % 2 != 0 ==> x % 2 != 0;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= x <= 10 is established but not preserved.\nloop invariant x % 2 == 0 ==> x % 2 == 0 is partially proven to be inductive.\nloop invariant x % 2 != 0 ==> x % 2 != 0 is partially proven to be inductive.\nAssertion x % 2 == 0: Unproven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 10;\n\n  /*@\n\nloop invariant i2: x % 2 == 0 ==> x % 2 == 0;\nloop invariant i3: x % 2 != 0 ==> x % 2 != 0;\n*/\nwhile (x >= 10) {\n    x += 2;\n  }\n\n  {;\n//@ assert(!(x % 2));\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 10 <= x <= 10;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 10 <= x <= 10 is established but not preserved.\nAssertion x % 2 == 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 10;\n\n  /*@\n\n*/\nwhile (x >= 10) {\n    x += 2;\n  }\n\n  {;\n//@ assert(!(x % 2));\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 100000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 12: unbound logic variable y. Ignoring loop annotation",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 10;\n\n  /*@\n\n\n*/\nwhile (x >= 10) {\n    x += 2;\n  }\n\n  {;\n//@ assert(!(x % 2));\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 4,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 100000;\nloop invariant y = x - 10;\nloop invariant x % 2 == 1;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 12: Assignment operators not allowed in annotations.",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 10;\n\n  /*@\n\n\n\n*/\nwhile (x >= 10) {\n    x += 2;\n  }\n\n  {;\n//@ assert(!(x % 2));\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 20;\nloop invariant x % 2 == 0;\nloop invariant x >= 10;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= x <= 20 is established but not preserved.\nloop invariant x % 2 == 0 is partially proven to be inductive.\nloop invariant x >= 10 is partially proven to be inductive.\nAssertion x % 2 == 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 10;\n\n  /*@\n\n\n\n*/\nwhile (x >= 10) {\n    x += 2;\n  }\n\n  {;\n//@ assert(!(x % 2));\n}\n\n}",
+                "checker_output_after_prune": false
+            }
+        ],
+        "checker_output_for_combined_annotations": false,
+        "checker_message_for_combined_annotations": "Annotation error on line 32: Assignment operators not allowed in annotations.",
+        "code_with_combined_annotations": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 10;\n\n  /*@\nloop invariant i1: 0 <= x <= 10 + 2 * (x - 10);\nloop invariant i2: x % 2 == 0;\nloop invariant i3: !(x % 2);\nloop invariant i4: 0 <= x;\nloop invariant i5: x <= 10;\nloop invariant i6: x >= 10;\nloop invariant i7: !(x % 2) ==> (x >= 10);\nloop invariant i8: 0 <= x <= 64;\nloop invariant i9: 0 <= x <= 6;\nloop invariant i10: 10 <= x <= 20;\nloop invariant i11: x <= 20;\nloop invariant i12: 0 <= y <= 100000;\nloop invariant i13: x >= (1 + (y - 1) * y / 2);\nloop invariant i14: x == 10;\nloop invariant i15: x >= 10 ==> x % 2 == 0;\nloop invariant i16: 0 <= x <= 100000;\nloop invariant i17: 0 <= x <= 10;\nloop invariant i18: x < (10 + 2 * (x - 10) / 2);\nloop invariant i19: x % 2 == 0 ==> x % 2 == 0;\nloop invariant i20: x % 2 != 0 ==> x % 2 != 0;\nloop invariant i21: 10 <= x <= 10;\nloop invariant i22: y = x - 10;\nloop invariant i23: x % 2 == 1;\nloop invariant i24: 0 <= x <= 20;\n*/\nwhile (x >= 10) {\n    x += 2;\n  }\n\n  {;\n//@ assert(!(x % 2));\n}\n\n}",
+        "combined_annotation_num_solver_calls": 20,
+        "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 10;\n\n  /*@\n\n\n\nloop invariant i4: 0 <= x;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nloop invariant i19: x % 2 == 0 ==> x % 2 == 0;\nloop invariant i20: x % 2 != 0 ==> x % 2 != 0;\n\n\n\n\n*/\nwhile (x >= 10) {\n    x += 2;\n  }\n\n  {;\n//@ assert(!(x % 2));\n}\n\n}",
+        "checker_output_after_prune": false
+    },
+    "stats": {
+        "success": [
+            "../dataset/loop_invariants/accelerating_invariant_generation/invgen/MADWiFi-encode_ie_ok.c",
+            "../dataset/loop_invariants/accelerating_invariant_generation/dagger/fig2.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/gj2007b_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/code2inv/33.c"
+        ],
+        "failure": [
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-invgen/MADWiFi-encode_ie_ok_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/sv-benchmarks/loops-crafted-1/vnew2.c",
+            "../dataset/loop_invariants/sv-benchmarks/loop-invariants/bin-suffix-5.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/pie/ICE/benchmarks/cggmp2005_true-unreach-call.c",
+            "../dataset/loop_invariants/code2inv/84.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/pie/ICE/benchmarks/fig1.v.c",
+            "../dataset/loop_invariants/code2inv/70.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/pie/hola/21.c",
+            "../dataset/loop_invariants/code2inv/66.c",
+            "../dataset/loop_invariants/sv-benchmarks/loop-invgen/MADWiFi-encode_ie_ok.c",
+            "../dataset/loop_invariants/sv-benchmarks/loop-acceleration/overflow_1-1.c"
+        ],
+        "skipped": [],
+        "total": 15,
+        "success_count": 4,
+        "failure_count": 11,
+        "success_rate": 0.26666666666666666
+    }
+}

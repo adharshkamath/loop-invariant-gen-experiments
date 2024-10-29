@@ -112,7 +112,7 @@ class Loopy:
 
     @staticmethod
     def run_parallel(inputs, func):
-        assert len(inputs) <= 32
+        assert len(inputs) <= 24, "Too many inputs for parallel processing"
 
         pool = multiprocessing.Pool(processes=len(inputs))
         results = pool.map(func, inputs)

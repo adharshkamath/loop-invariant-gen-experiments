@@ -1,0 +1,182 @@
+{
+    "logs": {
+        "file": "../dataset/loop_invariants/code2inv/101.c",
+        "benchmark_code": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  \n  while ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \nif ( (x != n) )\n{;\n//@ assert( (n < 0) );\n}\n\n}",
+        "success": false,
+        "annotation_blocks": [
+            "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x >= 0;\nloop invariant x < n;\nloop invariant x >= n ==> (n < 0);\n*/\n```",
+            "```\n/*@\nloop invariant ( ( x <= n ) ==> (x >= 0) );\nloop invariant ( ( x <= n ) ==> (x <= n) );\nloop invariant ( ( x <= n ) ==> (n >= 0) );\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x >= 0;\nloop invariant x <= n;\nloop invariant (x >= 0) ==> (x <= n);\nloop invariant (x >= 0) ==> (x < n);\nloop invariant (x < n) ==> (x >= 0);\nloop invariant (x < n) ==> (x <= n);\nloop invariant (x >= 0) ==> (x < n) ==> (x <= n);\nloop invariant (x < n) ==> (x >= 0) ==> (x <= n);\nloop invariant (x >= 0) ==> (x <= n) ==> (x < n);\nloop invariant (x <= n) ==> (x >= 0) ==> (x < n);\nloop invariant (x >= 0) ==> (x < n) ==> (x <= n) ==> (n >= 0);\nloop invariant (x < n) ==> (x >= 0) ==> (x <= n) ==> (n >= 0);\nloop invariant (x <= n) ==> (x >= 0) ==> (x < n) ==> (n >= 0);\nloop invariant (x >= 0) ==> (x < n) ==> (x <= n) ==> (n >= 0);\nloop invariant (x < n) ==> (x >= 0) ==> (x <= n) ==> (n >= 0);\nloop invariant (x <= n) ==> (x >= 0) ==> (x < n) ==> (n >= 0);\nloop invariant (x >= 0) ==> (x < n) ==> (x <= n) ==> (n >= 0);\nloop invariant (x < n) ==> (x >= 0) ==> (x <= n) ==> (n >= 0);\nloop invariant (x <= n) ==> (x >= 0) ==> (x < n) ==> (n >= 0);\nloop invariant (x >= 0) ==> (x < n) ==> (x <= n) ==> (n >= 0);\nloop invariant (x < n) ==> (x >= 0) ==> (x <= n) ==> (n >= 0);\nloop invariant (x <= n) ==> (x >= 0) ==> (x < n) ==> (n >= 0);\nloop invariant (x >= 0) ==> (x < n) ==> (x <= n) ==> (n >= 0);\nloop invariant (x < n) ==> (x >= 0) ==> (x <= n) ==> (n >= 0);\nloop invariant (x <= n) ==> (x >= 0) ==> (x < n) ==> (n >= 0);\nloop invariant (x >= 0) ==> (x < n) ==> (x <= n) ==> (n >= 0);\nloop invariant (x < n) ==> (x >= 0) ==> (x <= n) ==> (n >= 0);\nloop invariant (x <= n) ==> (x >= 0) ==> (x < n) ==> (n >= 0);\nloop invariant (x >= 0) ==> (x < n) ==> (x <= n) ==> (n >= 0);\nloop invariant (x < n) ==> (x >= 0) ==> (x <= n) ==> (n >= 0);\nloop invariant (x <= n) ==> (x >= 0) ==> (x < n) ==> (n >= 0);\nloop invariant (x >= 0) ==> (x < n) ==> (x <= n) ==> (n >= 0);\nloop invariant (x < n) ==> (x >= 0) ==> (x <= n) ==> (n >= 0);\nloop invariant (x <= n) ==> (x >= 0) ==> (x < n) ==> (n >= 0);\nloop invariant (x >= 0) ==> (x < n) ==> (x <= n) ==> (n >= 0);\nloop invariant (x < n) ==> (x >= 0) ==> (x <= n) ==> (n >= 0);\nloop invariant (x <= n) ==> (x >= 0) ==> (x < n) ==> (n >= 0);\nloop invariant (x >= 0) ==> (x < n) ==> (x <= n) ==> (n >= 0);\nloop invariant (x < n) ==> (x >= 0) ==> (x <= n) ==> (n >= 0);\nloop invariant (x <= n) ==> (x >= 0) ==> (x < n) ==> (n >= 0);\nloop invariant (x >= 0) ==> (x < n) ==> (x <= n) ==> (n >= 0);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x < n ==> (x >= 0);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x <= n - 1;\nloop invariant x < n;\nloop invariant x <= n - 2;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant n >= 0;\n*/\n```",
+            "```\n/*@\nloop invariant y >= -1;\nloop invariant x >= 0 && x <= n;\nloop invariant y >= x;\nloop invariant y >= -1 ==> (n >= 0);\nloop invariant y >= x ==> (n >= 0);\nloop invariant x <= n ==> (n >= 0);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x;\nloop invariant n <= x;\nloop invariant x <= n;\nloop invariant x == n;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= n;\nloop invariant 0 <= x <= n;\nloop invariant (x == n) ==> (x == n);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x <= n;\nloop invariant x >= 0;\nloop invariant x == n ==> n >= 0;\nloop invariant x < n ==> n < 0 ==> n == x - 1 ==> n < 0 ==> n == x - 1 ==> n != x;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x < n;\nloop invariant x == n ==> n >= 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant (x + 1) == n ==> n >= 0;\nloop invariant x == n ==> n >= 0;\nloop invariant x == n ==> n < 0 ==> false;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= n;\n*/\n```",
+            "```\n/*@\n\n*/\n```"
+        ],
+        "completions": [
+            {
+                "num_solver_calls": 4,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x >= 0;\nloop invariant x < n;\nloop invariant x >= n ==> (n < 0);\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= x <= n is preserved but not established.\nloop invariant x >= 0 is partially proven to be inductive.\nloop invariant x < n is neither established nor preserved.\nloop invariant x >= n ==> (n < 0) is partially proven to be inductive.\nAssertion n < 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  \n  /*@\n\nloop invariant i2: x >= 0;\n\n\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \nif ( (x != n) )\n{;\n//@ assert( (n < 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant ( ( x <= n ) ==> (x >= 0) );\nloop invariant ( ( x <= n ) ==> (x <= n) );\nloop invariant ( ( x <= n ) ==> (n >= 0) );\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant ( ( x <= n ) ==> (x >= 0) ) is inductive.\nloop invariant ( ( x <= n ) ==> (x <= n) ) is inductive.\nloop invariant ( ( x <= n ) ==> (n >= 0) ) is inductive.\nAssertion n < 0: Unproven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  \n  /*@\nloop invariant i1: ( ( x <= n ) ==> (x >= 0) );\nloop invariant i2: ( ( x <= n ) ==> (x <= n) );\nloop invariant i3: ( ( x <= n ) ==> (n >= 0) );\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \nif ( (x != n) )\n{;\n//@ assert( (n < 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 5,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x >= 0;\nloop invariant x <= n;\nloop invariant (x >= 0) ==> (x <= n);\nloop invariant (x >= 0) ==> (x < n);\nloop invariant (x < n) ==> (x >= 0);\nloop invariant (x < n) ==> (x <= n);\nloop invariant (x >= 0) ==> (x < n) ==> (x <= n);\nloop invariant (x < n) ==> (x >= 0) ==> (x <= n);\nloop invariant (x >= 0) ==> (x <= n) ==> (x < n);\nloop invariant (x <= n) ==> (x >= 0) ==> (x < n);\nloop invariant (x >= 0) ==> (x < n) ==> (x <= n) ==> (n >= 0);\nloop invariant (x < n) ==> (x >= 0) ==> (x <= n) ==> (n >= 0);\nloop invariant (x <= n) ==> (x >= 0) ==> (x < n) ==> (n >= 0);\nloop invariant (x >= 0) ==> (x < n) ==> (x <= n) ==> (n >= 0);\nloop invariant (x < n) ==> (x >= 0) ==> (x <= n) ==> (n >= 0);\nloop invariant (x <= n) ==> (x >= 0) ==> (x < n) ==> (n >= 0);\nloop invariant (x >= 0) ==> (x < n) ==> (x <= n) ==> (n >= 0);\nloop invariant (x < n) ==> (x >= 0) ==> (x <= n) ==> (n >= 0);\nloop invariant (x <= n) ==> (x >= 0) ==> (x < n) ==> (n >= 0);\nloop invariant (x >= 0) ==> (x < n) ==> (x <= n) ==> (n >= 0);\nloop invariant (x < n) ==> (x >= 0) ==> (x <= n) ==> (n >= 0);\nloop invariant (x <= n) ==> (x >= 0) ==> (x < n) ==> (n >= 0);\nloop invariant (x >= 0) ==> (x < n) ==> (x <= n) ==> (n >= 0);\nloop invariant (x < n) ==> (x >= 0) ==> (x <= n) ==> (n >= 0);\nloop invariant (x <= n) ==> (x >= 0) ==> (x < n) ==> (n >= 0);\nloop invariant (x >= 0) ==> (x < n) ==> (x <= n) ==> (n >= 0);\nloop invariant (x < n) ==> (x >= 0) ==> (x <= n) ==> (n >= 0);\nloop invariant (x <= n) ==> (x >= 0) ==> (x < n) ==> (n >= 0);\nloop invariant (x >= 0) ==> (x < n) ==> (x <= n) ==> (n >= 0);\nloop invariant (x < n) ==> (x >= 0) ==> (x <= n) ==> (n >= 0);\nloop invariant (x <= n) ==> (x >= 0) ==> (x < n) ==> (n >= 0);\nloop invariant (x >= 0) ==> (x < n) ==> (x <= n) ==> (n >= 0);\nloop invariant (x < n) ==> (x >= 0) ==> (x <= n) ==> (n >= 0);\nloop invariant (x <= n) ==> (x >= 0) ==> (x < n) ==> (n >= 0);\nloop invariant (x >= 0) ==> (x < n) ==> (x <= n) ==> (n >= 0);\nloop invariant (x < n) ==> (x >= 0) ==> (x <= n) ==> (n >= 0);\nloop invariant (x <= n) ==> (x >= 0) ==> (x < n) ==> (n >= 0);\nloop invariant (x >= 0) ==> (x < n) ==> (x <= n) ==> (n >= 0);\nloop invariant (x < n) ==> (x >= 0) ==> (x <= n) ==> (n >= 0);\nloop invariant (x <= n) ==> (x >= 0) ==> (x < n) ==> (n >= 0);\nloop invariant (x >= 0) ==> (x < n) ==> (x <= n) ==> (n >= 0);\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= x <= n is preserved but not established.\nloop invariant x >= 0 is partially proven to be inductive.\nloop invariant x <= n is partially proven to be inductive.\nloop invariant (x >= 0) ==> (x <= n) is partially proven to be inductive.\nloop invariant (x >= 0) ==> (x < n) is neither established nor preserved.\nloop invariant (x < n) ==> (x >= 0) is partially proven to be inductive.\nloop invariant (x < n) ==> (x <= n) is partially proven to be inductive.\nloop invariant (x >= 0) ==> (x < n) ==> (x <= n) is partially proven to be inductive.\nloop invariant (x < n) ==> (x >= 0) ==> (x <= n) is partially proven to be inductive.\nloop invariant (x >= 0) ==> (x <= n) ==> (x < n) is partially proven to be inductive.\nloop invariant (x <= n) ==> (x >= 0) ==> (x < n) is partially proven to be inductive.\nloop invariant (x >= 0) ==> (x < n) ==> (x <= n) ==> (n >= 0) is partially proven to be inductive.\nloop invariant (x < n) ==> (x >= 0) ==> (x <= n) ==> (n >= 0) is partially proven to be inductive.\nloop invariant (x <= n) ==> (x >= 0) ==> (x < n) ==> (n >= 0) is partially proven to be inductive.\nAssertion n < 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  \n  /*@\n\nloop invariant i2: x >= 0;\n\n\n\nloop invariant i6: (x < n) ==> (x >= 0);\nloop invariant i7: (x < n) ==> (x <= n);\nloop invariant i8: (x >= 0) ==> (x < n) ==> (x <= n);\nloop invariant i9: (x < n) ==> (x >= 0) ==> (x <= n);\n\n\nloop invariant i12: (x >= 0) ==> (x < n) ==> (x <= n) ==> (n >= 0);\nloop invariant i13: (x < n) ==> (x >= 0) ==> (x <= n) ==> (n >= 0);\nloop invariant i14: (x <= n) ==> (x >= 0) ==> (x < n) ==> (n >= 0);\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \nif ( (x != n) )\n{;\n//@ assert( (n < 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x < n ==> (x >= 0);\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= x <= n is preserved but not established.\nloop invariant x < n ==> (x >= 0) is partially proven to be inductive.\nAssertion n < 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  \n  /*@\n\nloop invariant i2: x < n ==> (x >= 0);\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \nif ( (x != n) )\n{;\n//@ assert( (n < 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x <= n - 1;\nloop invariant x < n;\nloop invariant x <= n - 2;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= x <= n is preserved but not established.\nloop invariant x <= n - 1 is preserved but not established.\nloop invariant x < n is partially proven to be inductive.\nloop invariant x <= n - 2 is neither established nor preserved.\nAssertion n < 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  \n  /*@\n\n\n\n\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \nif ( (x != n) )\n{;\n//@ assert( (n < 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= x <= n is preserved but not established.\nloop invariant x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2 is neither established nor preserved.\nAssertion n < 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  \n  /*@\n\n\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \nif ( (x != n) )\n{;\n//@ assert( (n < 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant n >= 0;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= x <= n is preserved but not established.\nloop invariant n >= 0 is partially proven to be inductive.\nAssertion n < 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  \n  /*@\n\n\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \nif ( (x != n) )\n{;\n//@ assert( (n < 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 7,
+                "annotations": "```\n/*@\nloop invariant y >= -1;\nloop invariant x >= 0 && x <= n;\nloop invariant y >= x;\nloop invariant y >= -1 ==> (n >= 0);\nloop invariant y >= x ==> (n >= 0);\nloop invariant x <= n ==> (n >= 0);\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 15: unbound logic variable y. Ignoring loop annotation",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  \n  /*@\n\n\n\n\n\nloop invariant i6: x <= n ==> (n >= 0);\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \nif ( (x != n) )\n{;\n//@ assert( (n < 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 4,
+                "annotations": "```\n/*@\nloop invariant 0 <= x;\nloop invariant n <= x;\nloop invariant x <= n;\nloop invariant x == n;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= x is partially proven to be inductive.\nloop invariant n <= x is preserved but not established.\nloop invariant x <= n is preserved but not established.\nloop invariant x == n is partially proven to be inductive.\nAssertion n < 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  \n  /*@\nloop invariant i1: 0 <= x;\n\n\n\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \nif ( (x != n) )\n{;\n//@ assert( (n < 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 4,
+                "annotations": "```\n/*@\nloop invariant 0 <= n;\nloop invariant 0 <= x <= n;\nloop invariant (x == n) ==> (x == n);\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= n is preserved but not established.\nloop invariant 0 <= x <= n is partially proven to be inductive.\nloop invariant (x == n) ==> (x == n) is partially proven to be inductive.\nAssertion n < 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  \n  /*@\n\n\nloop invariant i3: (x == n) ==> (x == n);\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \nif ( (x != n) )\n{;\n//@ assert( (n < 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 4,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x <= n;\nloop invariant x >= 0;\nloop invariant x == n ==> n >= 0;\nloop invariant x < n ==> n < 0 ==> n == x - 1 ==> n < 0 ==> n == x - 1 ==> n != x;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= x <= n is preserved but not established.\nloop invariant x <= n is partially proven to be inductive.\nloop invariant x >= 0 is partially proven to be inductive.\nloop invariant x == n ==> n >= 0 is partially proven to be inductive.\nloop invariant x < n ==> n < 0 ==> n == x - 1 ==> n < 0 ==> n == x - 1 ==> n != x is partially proven to be inductive.\nAssertion n < 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  \n  /*@\n\n\nloop invariant i3: x >= 0;\nloop invariant i4: x == n ==> n >= 0;\nloop invariant i5: x < n ==> n < 0 ==> n == x - 1 ==> n < 0 ==> n == x - 1 ==> n != x;\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \nif ( (x != n) )\n{;\n//@ assert( (n < 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= x < n;\nloop invariant x == n ==> n >= 0;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= x < n is neither established nor preserved.\nloop invariant x == n ==> n >= 0 is partially proven to be inductive.\nAssertion n < 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  \n  /*@\n\n\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \nif ( (x != n) )\n{;\n//@ assert( (n < 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 5,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant (x + 1) == n ==> n >= 0;\nloop invariant x == n ==> n >= 0;\nloop invariant x == n ==> n < 0 ==> false;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 18: unbound logic variable false. Ignoring loop annotation",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  \n  /*@\n\n\n\n\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \nif ( (x != n) )\n{;\n//@ assert( (n < 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= n;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= x <= n is preserved but not established.\nAssertion n < 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  \n  /*@\n\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \nif ( (x != n) )\n{;\n//@ assert( (n < 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\n\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 15: unexpected token ''",
+                "houdini_error": "No annotations found"
+            }
+        ],
+        "checker_output_for_combined_annotations": false,
+        "checker_message_for_combined_annotations": "Annotation error on line 39: unbound logic variable y. Ignoring loop annotation",
+        "code_with_combined_annotations": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  \n  /*@\nloop invariant i1: 0 <= x <= n;\nloop invariant i2: x >= 0;\nloop invariant i3: x < n;\nloop invariant i4: x >= n ==> (n < 0);\nloop invariant i5: ( ( x <= n ) ==> (x >= 0) );\nloop invariant i6: ( ( x <= n ) ==> (x <= n) );\nloop invariant i7: ( ( x <= n ) ==> (n >= 0) );\nloop invariant i8: x <= n;\nloop invariant i9: (x >= 0) ==> (x <= n);\nloop invariant i10: (x >= 0) ==> (x < n);\nloop invariant i11: (x < n) ==> (x >= 0);\nloop invariant i12: (x < n) ==> (x <= n);\nloop invariant i13: (x >= 0) ==> (x < n) ==> (x <= n);\nloop invariant i14: (x < n) ==> (x >= 0) ==> (x <= n);\nloop invariant i15: (x >= 0) ==> (x <= n) ==> (x < n);\nloop invariant i16: (x <= n) ==> (x >= 0) ==> (x < n);\nloop invariant i17: (x >= 0) ==> (x < n) ==> (x <= n) ==> (n >= 0);\nloop invariant i18: (x < n) ==> (x >= 0) ==> (x <= n) ==> (n >= 0);\nloop invariant i19: (x <= n) ==> (x >= 0) ==> (x < n) ==> (n >= 0);\nloop invariant i20: x < n ==> (x >= 0);\nloop invariant i21: x <= n - 1;\nloop invariant i22: x <= n - 2;\nloop invariant i23: x == (x + 1) * (x + 2) / 2 - (n - x) * (n - x + 1) / 2;\nloop invariant i24: n >= 0;\nloop invariant i25: y >= -1;\nloop invariant i26: x >= 0 && x <= n;\nloop invariant i27: y >= x;\nloop invariant i28: y >= -1 ==> (n >= 0);\nloop invariant i29: y >= x ==> (n >= 0);\nloop invariant i30: x <= n ==> (n >= 0);\nloop invariant i31: 0 <= x;\nloop invariant i32: n <= x;\nloop invariant i33: x == n;\nloop invariant i34: 0 <= n;\nloop invariant i35: (x == n) ==> (x == n);\nloop invariant i36: x == n ==> n >= 0;\nloop invariant i37: x < n ==> n < 0 ==> n == x - 1 ==> n < 0 ==> n == x - 1 ==> n != x;\nloop invariant i38: 0 <= x < n;\nloop invariant i39: (x + 1) == n ==> n >= 0;\nloop invariant i40: x == n ==> n < 0 ==> false;\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \nif ( (x != n) )\n{;\n//@ assert( (n < 0) );\n}\n\n}",
+        "combined_annotation_num_solver_calls": 14,
+        "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  \n  /*@\n\nloop invariant i2: x >= 0;\n\n\nloop invariant i5: ( ( x <= n ) ==> (x >= 0) );\nloop invariant i6: ( ( x <= n ) ==> (x <= n) );\nloop invariant i7: ( ( x <= n ) ==> (n >= 0) );\n\n\n\nloop invariant i11: (x < n) ==> (x >= 0);\nloop invariant i12: (x < n) ==> (x <= n);\nloop invariant i13: (x >= 0) ==> (x < n) ==> (x <= n);\nloop invariant i14: (x < n) ==> (x >= 0) ==> (x <= n);\n\n\nloop invariant i17: (x >= 0) ==> (x < n) ==> (x <= n) ==> (n >= 0);\nloop invariant i18: (x < n) ==> (x >= 0) ==> (x <= n) ==> (n >= 0);\nloop invariant i19: (x <= n) ==> (x >= 0) ==> (x < n) ==> (n >= 0);\nloop invariant i20: x < n ==> (x >= 0);\n\n\n\n\n\n\n\n\n\nloop invariant i30: x <= n ==> (n >= 0);\nloop invariant i31: 0 <= x;\n\n\n\nloop invariant i35: (x == n) ==> (x == n);\nloop invariant i36: x == n ==> n >= 0;\nloop invariant i37: x < n ==> n < 0 ==> n == x - 1 ==> n < 0 ==> n == x - 1 ==> n != x;\n\nloop invariant i39: (x + 1) == n ==> n >= 0;\n\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \nif ( (x != n) )\n{;\n//@ assert( (n < 0) );\n}\n\n}",
+        "checker_output_after_prune": false
+    },
+    "stats": {
+        "success": [
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/sum01_true-unreach-call_true-termination.i.annot.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/MADWiFi-encode_ie_ok.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/pie/hola/22.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/pie/ICE/benchmarks/sum04n.v.c"
+        ],
+        "failure": [
+            "../dataset/loop_invariants/code2inv/85.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/sharma_splitter/ex2.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/pie/hola/42.c",
+            "../dataset/loop_invariants/sv-benchmarks/loop-acceleration/diamond_1-1.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-new/count_by_nondet_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/sv-benchmarks/loop-invariants/odd.c",
+            "../dataset/loop_invariants/sv-benchmarks/loop-invariants/even.c",
+            "../dataset/loop_invariants/code2inv/24.c",
+            "../dataset/loop_invariants/code2inv/130.c",
+            "../dataset/loop_invariants/accelerating_invariant_generation/crafted/diamond_safe1.c",
+            "../dataset/loop_invariants/accelerating_invariant_generation/crafted/overflow_safe1.c",
+            "../dataset/loop_invariants/code2inv/113.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/ddlm2013_true-unreach-call.c",
+            "../dataset/loop_invariants/code2inv/69.c",
+            "../dataset/loop_invariants/sv-benchmarks/loop-new/half.c",
+            "../dataset/loop_invariants/code2inv/101.c"
+        ],
+        "skipped": [],
+        "total": 20,
+        "success_count": 4,
+        "failure_count": 16,
+        "success_rate": 0.2
+    }
+}

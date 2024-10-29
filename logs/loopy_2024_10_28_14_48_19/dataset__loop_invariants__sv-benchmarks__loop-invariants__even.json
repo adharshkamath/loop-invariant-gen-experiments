@@ -1,0 +1,189 @@
+{
+    "logs": {
+        "file": "../dataset/loop_invariants/sv-benchmarks/loop-invariants/even.c",
+        "benchmark_code": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 0;\n  while (unknown_int()) {\n    x += 2;\n  }\n  {;\n//@ assert(!(x % 2));\n}\n\n  return 0;\n}",
+        "success": false,
+        "annotation_blocks": [
+            "```\n/*@\nloop invariant 0 <= x <= 2 * (unknown_int());\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x;\nloop invariant x % 2 == 0;\nloop invariant 0 <= x <= 1;\nloop invariant x % 2 == 0 ==> x == 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x; (x % 2) == 0; (x >= 2); (x % 4) == 0; (x % 8) == 0; (x % 16) == 0; (x % 32) == 0; (x % 64) == 0; (x % 128) == 0; (x % 256) == 0; (x % 512) == 0; (x % 1024) == 0; (x % 2048) == 0; (x % 4096) == 0; (x % 8192) == 0; (x % 16384) == 0; (x % 32768) == 0; (x % 65536) == 0; (x % 131072) == 0; (x % 262144) == 0; (x % 524288) == 0; (x % 1048576) == 0; (x % 2097152) == 0; (x % 4194304) == 0; (x % 8388608) == 0; (x % 16777216) == 0; (x % 33554432) == 0; (x % 67108864) == 0; (x % 134217728) == 0; (x % 268435456) == 0; (x % 536870912) == 0; (x % 1073741824) == 0; (x % 2147483648) == 0; (x % 4294967296) == 0; (x % 8589934592) == 0; (x % 17179869184) == 0; (x % 34359738368) == 0; (x % 68719476736) == 0; (x % 137438953472) == 0; (x % 274877906944) == 0; (x % 549755813888) == 0; (x % 1099511627776) == 0; (x % 2199023255552) == 0; (x % 4398046511104) == 0; (x % 8796093022208) == 0; (x % 17592186044416) == 0; (x % 35184372088832) == 0; (x % 70368744177664) == 0; (x % 140737488355328) == 0; (x % 281474976710656) == 0; (x % 562949953421312) == 0; (x % 1125899906842624) == 0; (x % 2251799813685248) == 0; (x % 4503599627370496) == 0; (x % 9007199254740992) == 0; (x % 18014398509481984) == 0; (x % 36028797018963968) == 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x;\nloop invariant x % 2 == 0;\nloop invariant x <= 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 0 ==> x >= 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 1 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 2 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 3 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 4 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 5 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 6 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 7 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 8 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 9 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 10 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 11 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 12 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 13 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 14 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 15 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 16 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 17 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 18 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 19 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 20 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 21 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 22 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 23 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 24 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 25 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 26 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 27 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 28 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 29 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 30 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 31 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 32 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 33 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 34 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 35 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 36 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 37 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 38 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 39 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 40 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 41 ==> x == 2 * (unknown_int() + 1);\n*/\n```",
+            "```\n/*@\nloop invariant x <= 2 * (x + 2);\n*/\n```",
+            "```\n/*@\nloop invariant x >= 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x;\nloop invariant x % 2 == 0;\nloop invariant unknown_int() ==> x % 2 == 0;\n*/\n```",
+            "```\n/*@\nloop invariant x <= 2 * x_pre;\nloop invariant x >= 0;\nloop invariant x <= 2 * x_post;\n*/\n```",
+            "```\n/*@\nloop invariant x >= 0; loop invariant x % 2 == 0; loop invariant x >= 2 * unknown_int();\n*/\n```",
+            "```\n/*@\n\n*/\n```",
+            "```\n/*@\nloop invariant x >= 0;\nloop invariant x % 2 == 0 ==> unknown_int();\n*/\n```",
+            "```\n/*@\nloop invariant ( x >= 0 ) ==> ( 0 <= x );\nloop invariant ( x >= 0 ) ==> ( x % 2 == 0 );\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x;\nloop invariant unknown_int() == 1 ==> x % 2 == 0;\nloop invariant unknown_int() == 0 ==> x % 2 == 1;\nloop invariant unknown_int() ==> (x + 2) % 2 == 0;\nloop invariant !unknown_int() ==> (x + 2) % 2 == 1;\nloop invariant x % 2 ==> !(unknown_int());\nloop invariant x % 2 == 0 ==> unknown_int() == 1;\nloop invariant x % 2 == 1 ==> unknown_int() == 0;\nloop invariant x % 2 == 0 ==> !(unknown_int());\nloop invariant x % 2 == 1 ==> unknown_int();\nloop invariant x % 2 == 0 ==> !(x % 2 == 1);\nloop invariant x % 2 == 1 ==> !(x % 2 == 0);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 2 * n + 1;\nloop invariant n >= 0;\nloop invariant n <= x / 2;\nloop invariant n >= 0;\nloop invariant n <= x / 2;\nloop invariant x >= 2 * n + 1;\nloop invariant (x % 2) == 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= UINT_MAX;\nloop invariant x % 2 == 0;\nloop invariant (x == 0) ==> (unknown_int() == 0);\nloop invariant (unknown_int() == 0) ==> (x == 0);\n*/\n```"
+        ],
+        "completions": [
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 2 * (unknown_int());\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 12: unexpected token ')'",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 0;\n  /*@\n\n*/\nwhile (unknown_int()) {\n    x += 2;\n  }\n  {;\n//@ assert(!(x % 2));\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 5,
+                "annotations": "```\n/*@\nloop invariant 0 <= x;\nloop invariant x % 2 == 0;\nloop invariant 0 <= x <= 1;\nloop invariant x % 2 == 0 ==> x == 0;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= x is partially proven to be inductive.\nloop invariant x % 2 == 0 is partially proven to be inductive.\nloop invariant 0 <= x <= 1 is established but not preserved.\nloop invariant x % 2 == 0 ==> x == 0 is partially proven to be inductive.\nAssertion x % 2 == 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 0;\n  /*@\nloop invariant i1: 0 <= x;\n\n\n\n*/\nwhile (unknown_int()) {\n    x += 2;\n  }\n  {;\n//@ assert(!(x % 2));\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x; (x % 2) == 0; (x >= 2); (x % 4) == 0; (x % 8) == 0; (x % 16) == 0; (x % 32) == 0; (x % 64) == 0; (x % 128) == 0; (x % 256) == 0; (x % 512) == 0; (x % 1024) == 0; (x % 2048) == 0; (x % 4096) == 0; (x % 8192) == 0; (x % 16384) == 0; (x % 32768) == 0; (x % 65536) == 0; (x % 131072) == 0; (x % 262144) == 0; (x % 524288) == 0; (x % 1048576) == 0; (x % 2097152) == 0; (x % 4194304) == 0; (x % 8388608) == 0; (x % 16777216) == 0; (x % 33554432) == 0; (x % 67108864) == 0; (x % 134217728) == 0; (x % 268435456) == 0; (x % 536870912) == 0; (x % 1073741824) == 0; (x % 2147483648) == 0; (x % 4294967296) == 0; (x % 8589934592) == 0; (x % 17179869184) == 0; (x % 34359738368) == 0; (x % 68719476736) == 0; (x % 137438953472) == 0; (x % 274877906944) == 0; (x % 549755813888) == 0; (x % 1099511627776) == 0; (x % 2199023255552) == 0; (x % 4398046511104) == 0; (x % 8796093022208) == 0; (x % 17592186044416) == 0; (x % 35184372088832) == 0; (x % 70368744177664) == 0; (x % 140737488355328) == 0; (x % 281474976710656) == 0; (x % 562949953421312) == 0; (x % 1125899906842624) == 0; (x % 2251799813685248) == 0; (x % 4503599627370496) == 0; (x % 9007199254740992) == 0; (x % 18014398509481984) == 0; (x % 36028797018963968) == 0;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 12: unexpected token '('",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 0;\n  /*@\n\n*/\nwhile (unknown_int()) {\n    x += 2;\n  }\n  {;\n//@ assert(!(x % 2));\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 46,
+                "annotations": "```\n/*@\nloop invariant 0 <= x;\nloop invariant x % 2 == 0;\nloop invariant x <= 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 0 ==> x >= 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 1 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 2 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 3 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 4 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 5 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 6 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 7 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 8 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 9 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 10 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 11 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 12 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 13 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 14 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 15 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 16 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 17 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 18 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 19 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 20 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 21 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 22 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 23 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 24 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 25 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 26 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 27 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 28 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 29 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 30 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 31 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 32 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 33 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 34 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 35 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 36 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 37 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 38 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 39 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 40 ==> x == 2 * (unknown_int() + 1);\nloop invariant unknown_int() == 41 ==> x == 2 * (unknown_int() + 1);\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 14: unexpected token ')'",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 0;\n  /*@\nloop invariant i1: 0 <= x;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n*/\nwhile (unknown_int()) {\n    x += 2;\n  }\n  {;\n//@ assert(!(x % 2));\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant x <= 2 * (x + 2);\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant x <= 2 * (x + 2) is inductive.\nAssertion x % 2 == 0: Unproven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 0;\n  /*@\nloop invariant i1: x <= 2 * (x + 2);\n*/\nwhile (unknown_int()) {\n    x += 2;\n  }\n  {;\n//@ assert(!(x % 2));\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant x >= 0;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant x >= 0 is inductive.\nAssertion x % 2 == 0: Unproven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 0;\n  /*@\nloop invariant i1: x >= 0;\n*/\nwhile (unknown_int()) {\n    x += 2;\n  }\n  {;\n//@ assert(!(x % 2));\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 4,
+                "annotations": "```\n/*@\nloop invariant 0 <= x;\nloop invariant x % 2 == 0;\nloop invariant unknown_int() ==> x % 2 == 0;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 14: unexpected token ')'",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 0;\n  /*@\nloop invariant i1: 0 <= x;\n\n\n*/\nwhile (unknown_int()) {\n    x += 2;\n  }\n  {;\n//@ assert(!(x % 2));\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 4,
+                "annotations": "```\n/*@\nloop invariant x <= 2 * x_pre;\nloop invariant x >= 0;\nloop invariant x <= 2 * x_post;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 12: unbound logic variable x_pre. Ignoring loop annotation",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 0;\n  /*@\n\nloop invariant i2: x >= 0;\n\n*/\nwhile (unknown_int()) {\n    x += 2;\n  }\n  {;\n//@ assert(!(x % 2));\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant x >= 0; loop invariant x % 2 == 0; loop invariant x >= 2 * unknown_int();\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 12: unexpected token ')'",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 0;\n  /*@\n\n*/\nwhile (unknown_int()) {\n    x += 2;\n  }\n  {;\n//@ assert(!(x % 2));\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\n\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 12: unexpected token ''",
+                "houdini_error": "No annotations found"
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant x >= 0;\nloop invariant x % 2 == 0 ==> unknown_int();\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 13: unexpected token ')'",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 0;\n  /*@\nloop invariant i1: x >= 0;\n\n*/\nwhile (unknown_int()) {\n    x += 2;\n  }\n  {;\n//@ assert(!(x % 2));\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant ( x >= 0 ) ==> ( 0 <= x );\nloop invariant ( x >= 0 ) ==> ( x % 2 == 0 );\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant ( x >= 0 ) ==> ( 0 <= x ) is partially proven to be inductive.\nloop invariant ( x >= 0 ) ==> ( x % 2 == 0 ) is established but not preserved.\nAssertion x % 2 == 0: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 0;\n  /*@\nloop invariant i1: ( x >= 0 ) ==> ( 0 <= x );\n\n*/\nwhile (unknown_int()) {\n    x += 2;\n  }\n  {;\n//@ assert(!(x % 2));\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 11,
+                "annotations": "```\n/*@\nloop invariant 0 <= x;\nloop invariant unknown_int() == 1 ==> x % 2 == 0;\nloop invariant unknown_int() == 0 ==> x % 2 == 1;\nloop invariant unknown_int() ==> (x + 2) % 2 == 0;\nloop invariant !unknown_int() ==> (x + 2) % 2 == 1;\nloop invariant x % 2 ==> !(unknown_int());\nloop invariant x % 2 == 0 ==> unknown_int() == 1;\nloop invariant x % 2 == 1 ==> unknown_int() == 0;\nloop invariant x % 2 == 0 ==> !(unknown_int());\nloop invariant x % 2 == 1 ==> unknown_int();\nloop invariant x % 2 == 0 ==> !(x % 2 == 1);\nloop invariant x % 2 == 1 ==> !(x % 2 == 0);\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 13: unexpected token ')'",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 0;\n  /*@\nloop invariant i1: 0 <= x;\n\n\n\n\n\n\n\n\n\nloop invariant i11: x % 2 == 0 ==> !(x % 2 == 1);\nloop invariant i12: x % 2 == 1 ==> !(x % 2 == 0);\n*/\nwhile (unknown_int()) {\n    x += 2;\n  }\n  {;\n//@ assert(!(x % 2));\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 6,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 2 * n + 1;\nloop invariant n >= 0;\nloop invariant n <= x / 2;\nloop invariant n >= 0;\nloop invariant n <= x / 2;\nloop invariant x >= 2 * n + 1;\nloop invariant (x % 2) == 0;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 12: unbound logic variable n. Ignoring loop annotation",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 0;\n  /*@\n\n\n\n\n\n*/\nwhile (unknown_int()) {\n    x += 2;\n  }\n  {;\n//@ assert(!(x % 2));\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 5,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= UINT_MAX;\nloop invariant x % 2 == 0;\nloop invariant (x == 0) ==> (unknown_int() == 0);\nloop invariant (unknown_int() == 0) ==> (x == 0);\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 14: unexpected token ')'",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 0;\n  /*@\nloop invariant i1: 0 <= x <= UINT_MAX;\n\n\n\n*/\nwhile (unknown_int()) {\n    x += 2;\n  }\n  {;\n//@ assert(!(x % 2));\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            }
+        ],
+        "checker_output_for_combined_annotations": false,
+        "checker_message_for_combined_annotations": "Annotation error on line 12: unexpected token ')'",
+        "code_with_combined_annotations": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 0;\n  /*@\nloop invariant i1: 0 <= x <= 2 * (unknown_int());\nloop invariant i2: 0 <= x;\nloop invariant i3: x % 2 == 0;\nloop invariant i4: 0 <= x <= 1;\nloop invariant i5: x % 2 == 0 ==> x == 0;\nloop invariant i6: 0 <= x; (x % 2) == 0; (x >= 2); (x % 4) == 0; (x % 8) == 0; (x % 16) == 0; (x % 32) == 0; (x % 64) == 0; (x % 128) == 0; (x % 256) == 0; (x % 512) == 0; (x % 1024) == 0; (x % 2048) == 0; (x % 4096) == 0; (x % 8192) == 0; (x % 16384) == 0; (x % 32768) == 0; (x % 65536) == 0; (x % 131072) == 0; (x % 262144) == 0; (x % 524288) == 0; (x % 1048576) == 0; (x % 2097152) == 0; (x % 4194304) == 0; (x % 8388608) == 0; (x % 16777216) == 0; (x % 33554432) == 0; (x % 67108864) == 0; (x % 134217728) == 0; (x % 268435456) == 0; (x % 536870912) == 0; (x % 1073741824) == 0; (x % 2147483648) == 0; (x % 4294967296) == 0; (x % 8589934592) == 0; (x % 17179869184) == 0; (x % 34359738368) == 0; (x % 68719476736) == 0; (x % 137438953472) == 0; (x % 274877906944) == 0; (x % 549755813888) == 0; (x % 1099511627776) == 0; (x % 2199023255552) == 0; (x % 4398046511104) == 0; (x % 8796093022208) == 0; (x % 17592186044416) == 0; (x % 35184372088832) == 0; (x % 70368744177664) == 0; (x % 140737488355328) == 0; (x % 281474976710656) == 0; (x % 562949953421312) == 0; (x % 1125899906842624) == 0; (x % 2251799813685248) == 0; (x % 4503599627370496) == 0; (x % 9007199254740992) == 0; (x % 18014398509481984) == 0; (x % 36028797018963968) == 0;\nloop invariant i7: x <= 2 * (unknown_int() + 1);\nloop invariant i8: unknown_int() == 0 ==> x >= 2 * (unknown_int() + 1);\nloop invariant i9: unknown_int() == 1 ==> x == 2 * (unknown_int() + 1);\nloop invariant i10: unknown_int() == 2 ==> x == 2 * (unknown_int() + 1);\nloop invariant i11: unknown_int() == 3 ==> x == 2 * (unknown_int() + 1);\nloop invariant i12: unknown_int() == 4 ==> x == 2 * (unknown_int() + 1);\nloop invariant i13: unknown_int() == 5 ==> x == 2 * (unknown_int() + 1);\nloop invariant i14: unknown_int() == 6 ==> x == 2 * (unknown_int() + 1);\nloop invariant i15: unknown_int() == 7 ==> x == 2 * (unknown_int() + 1);\nloop invariant i16: unknown_int() == 8 ==> x == 2 * (unknown_int() + 1);\nloop invariant i17: unknown_int() == 9 ==> x == 2 * (unknown_int() + 1);\nloop invariant i18: unknown_int() == 10 ==> x == 2 * (unknown_int() + 1);\nloop invariant i19: unknown_int() == 11 ==> x == 2 * (unknown_int() + 1);\nloop invariant i20: unknown_int() == 12 ==> x == 2 * (unknown_int() + 1);\nloop invariant i21: unknown_int() == 13 ==> x == 2 * (unknown_int() + 1);\nloop invariant i22: unknown_int() == 14 ==> x == 2 * (unknown_int() + 1);\nloop invariant i23: unknown_int() == 15 ==> x == 2 * (unknown_int() + 1);\nloop invariant i24: unknown_int() == 16 ==> x == 2 * (unknown_int() + 1);\nloop invariant i25: unknown_int() == 17 ==> x == 2 * (unknown_int() + 1);\nloop invariant i26: unknown_int() == 18 ==> x == 2 * (unknown_int() + 1);\nloop invariant i27: unknown_int() == 19 ==> x == 2 * (unknown_int() + 1);\nloop invariant i28: unknown_int() == 20 ==> x == 2 * (unknown_int() + 1);\nloop invariant i29: unknown_int() == 21 ==> x == 2 * (unknown_int() + 1);\nloop invariant i30: unknown_int() == 22 ==> x == 2 * (unknown_int() + 1);\nloop invariant i31: unknown_int() == 23 ==> x == 2 * (unknown_int() + 1);\nloop invariant i32: unknown_int() == 24 ==> x == 2 * (unknown_int() + 1);\nloop invariant i33: unknown_int() == 25 ==> x == 2 * (unknown_int() + 1);\nloop invariant i34: unknown_int() == 26 ==> x == 2 * (unknown_int() + 1);\nloop invariant i35: unknown_int() == 27 ==> x == 2 * (unknown_int() + 1);\nloop invariant i36: unknown_int() == 28 ==> x == 2 * (unknown_int() + 1);\nloop invariant i37: unknown_int() == 29 ==> x == 2 * (unknown_int() + 1);\nloop invariant i38: unknown_int() == 30 ==> x == 2 * (unknown_int() + 1);\nloop invariant i39: unknown_int() == 31 ==> x == 2 * (unknown_int() + 1);\nloop invariant i40: unknown_int() == 32 ==> x == 2 * (unknown_int() + 1);\nloop invariant i41: unknown_int() == 33 ==> x == 2 * (unknown_int() + 1);\nloop invariant i42: unknown_int() == 34 ==> x == 2 * (unknown_int() + 1);\nloop invariant i43: unknown_int() == 35 ==> x == 2 * (unknown_int() + 1);\nloop invariant i44: unknown_int() == 36 ==> x == 2 * (unknown_int() + 1);\nloop invariant i45: unknown_int() == 37 ==> x == 2 * (unknown_int() + 1);\nloop invariant i46: unknown_int() == 38 ==> x == 2 * (unknown_int() + 1);\nloop invariant i47: unknown_int() == 39 ==> x == 2 * (unknown_int() + 1);\nloop invariant i48: unknown_int() == 40 ==> x == 2 * (unknown_int() + 1);\nloop invariant i49: unknown_int() == 41 ==> x == 2 * (unknown_int() + 1);\nloop invariant i50: x <= 2 * (x + 2);\nloop invariant i51: x >= 0;\nloop invariant i52: unknown_int() ==> x % 2 == 0;\nloop invariant i53: x <= 2 * x_pre;\nloop invariant i54: x <= 2 * x_post;\nloop invariant i55: x >= 0; loop invariant x % 2 == 0; loop invariant x >= 2 * unknown_int();\nloop invariant i56: x % 2 == 0 ==> unknown_int();\nloop invariant i57: ( x >= 0 ) ==> ( 0 <= x );\nloop invariant i58: ( x >= 0 ) ==> ( x % 2 == 0 );\nloop invariant i59: unknown_int() == 1 ==> x % 2 == 0;\nloop invariant i60: unknown_int() == 0 ==> x % 2 == 1;\nloop invariant i61: unknown_int() ==> (x + 2) % 2 == 0;\nloop invariant i62: !unknown_int() ==> (x + 2) % 2 == 1;\nloop invariant i63: x % 2 ==> !(unknown_int());\nloop invariant i64: x % 2 == 0 ==> unknown_int() == 1;\nloop invariant i65: x % 2 == 1 ==> unknown_int() == 0;\nloop invariant i66: x % 2 == 0 ==> !(unknown_int());\nloop invariant i67: x % 2 == 1 ==> unknown_int();\nloop invariant i68: x % 2 == 0 ==> !(x % 2 == 1);\nloop invariant i69: x % 2 == 1 ==> !(x % 2 == 0);\nloop invariant i70: 0 <= x <= 2 * n + 1;\nloop invariant i71: n >= 0;\nloop invariant i72: n <= x / 2;\nloop invariant i73: x >= 2 * n + 1;\nloop invariant i74: (x % 2) == 0;\nloop invariant i75: 0 <= x <= UINT_MAX;\nloop invariant i76: (x == 0) ==> (unknown_int() == 0);\nloop invariant i77: (unknown_int() == 0) ==> (x == 0);\n*/\nwhile (unknown_int()) {\n    x += 2;\n  }\n  {;\n//@ assert(!(x % 2));\n}\n\n  return 0;\n}",
+        "combined_annotation_num_solver_calls": 72,
+        "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 0;\n  /*@\n\nloop invariant i2: 0 <= x;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nloop invariant i50: x <= 2 * (x + 2);\nloop invariant i51: x >= 0;\n\n\n\n\n\nloop invariant i57: ( x >= 0 ) ==> ( 0 <= x );\n\n\n\n\n\n\n\n\n\n\nloop invariant i68: x % 2 == 0 ==> !(x % 2 == 1);\nloop invariant i69: x % 2 == 1 ==> !(x % 2 == 0);\n\n\n\n\n\nloop invariant i75: 0 <= x <= UINT_MAX;\n\n\n*/\nwhile (unknown_int()) {\n    x += 2;\n  }\n  {;\n//@ assert(!(x % 2));\n}\n\n  return 0;\n}",
+        "checker_output_after_prune": false
+    },
+    "stats": {
+        "success": [
+            "../dataset/loop_invariants/accelerating_invariant_generation/invgen/MADWiFi-encode_ie_ok.c",
+            "../dataset/loop_invariants/accelerating_invariant_generation/dagger/fig2.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/gj2007b_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/code2inv/33.c",
+            "../dataset/loop_invariants/sv-benchmarks/loop-zilu/benchmark24_conjunctive.c",
+            "../dataset/loop_invariants/accelerating_invariant_generation/cav/20.c"
+        ],
+        "failure": [
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-invgen/MADWiFi-encode_ie_ok_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/sv-benchmarks/loops-crafted-1/vnew2.c",
+            "../dataset/loop_invariants/sv-benchmarks/loop-invariants/bin-suffix-5.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/pie/ICE/benchmarks/cggmp2005_true-unreach-call.c",
+            "../dataset/loop_invariants/code2inv/84.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/pie/ICE/benchmarks/fig1.v.c",
+            "../dataset/loop_invariants/code2inv/70.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/pie/hola/21.c",
+            "../dataset/loop_invariants/code2inv/66.c",
+            "../dataset/loop_invariants/sv-benchmarks/loop-invgen/MADWiFi-encode_ie_ok.c",
+            "../dataset/loop_invariants/sv-benchmarks/loop-acceleration/overflow_1-1.c",
+            "../dataset/loop_invariants/sv-benchmarks/loop-invariants/mod4.c",
+            "../dataset/loop_invariants/code2inv/28.c",
+            "../dataset/loop_invariants/code2inv/122.c",
+            "../dataset/loop_invariants/code2inv/85.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/sharma_splitter/ex2.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/pie/hola/42.c",
+            "../dataset/loop_invariants/sv-benchmarks/loop-acceleration/diamond_1-1.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-new/count_by_nondet_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/sv-benchmarks/loop-invariants/odd.c",
+            "../dataset/loop_invariants/sv-benchmarks/loop-invariants/even.c"
+        ],
+        "skipped": [],
+        "total": 27,
+        "success_count": 6,
+        "failure_count": 21,
+        "success_rate": 0.2222222222222222
+    }
+}

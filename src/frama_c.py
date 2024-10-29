@@ -35,7 +35,7 @@ class FramaCChecker(Checker):
         """
 
         temp_file = (
-            datetime.datetime.now().strftime("/tmp/temp_eval_%Y_%m_%d_%H_%M_%S_")
+            datetime.datetime.now().strftime("/data/cache/adharsh/temp_eval_%Y_%m_%d_%H_%M_%S_")
             + str(random.randint(0, 1000000))
             + "_proc_"
             + str(os.getpid())
