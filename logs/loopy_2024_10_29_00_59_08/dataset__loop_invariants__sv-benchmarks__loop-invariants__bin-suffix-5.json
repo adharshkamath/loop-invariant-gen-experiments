@@ -1,0 +1,168 @@
+{
+    "logs": {
+        "file": "../dataset/loop_invariants/sv-benchmarks/loop-invariants/bin-suffix-5.c",
+        "benchmark_code": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 5;\n  while (unknown_int()) {\n    x += 8;\n  }\n  {;\n//@ assert((x & 5) == 5);\n}\n\n  return 0;\n}",
+        "success": false,
+        "annotation_blocks": [
+            "```\n/*@\nloop invariant 0 <= x <= 4;\nloop invariant x & 5 == 5 ==> x % 5 == 5;\nloop invariant x & 5 != 5 ==> x % 5 != 5;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 2147483647;\nloop invariant x % 8 == 5;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 20;\nloop invariant x % 8 == 5;\nloop invariant x < 20 ==> unknown_int();\nloop invariant x >= 5 ==> !unknown_int();\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= UINT_MAX;\nloop invariant x % 8 == 5;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x;\nloop invariant x % 5 == 5;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 2147483647;\nloop invariant !unknown_int() ==> x = 5;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 100000;\nloop invariant x >= (1 + (y - 1) * y / 2);\nloop invariant 5 <= x;\nloop invariant x & 7 == 5;\n*/\n```",
+            "```\n/*@\nloop invariant 1 <= unknown_int();\nloop invariant x >= 5;\nloop invariant x <= 13;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 2147483647;\nloop invariant x % 5 == 5;\nloop invariant x & 5 == 5;\nloop invariant x & 0xf == 5;\nloop invariant x & 0xff == 5;\nloop invariant x & 0xfff == 5;\nloop invariant x & 0xffff == 5;\nloop invariant x & 0xffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 2147483647;\n*/\n```",
+            "```\n/*@\nloop invariant x >= 5;\nloop invariant x % 8 == 5;\nloop invariant x == 5 + 8 * i;\nloop invariant i >= 0;\nloop invariant i <= n;\n*/\n```",
+            "```\n/*@\nloop invariant 1 <= x <= 100001;\nloop invariant 1 <= y <= 100000;\nloop invariant x >= y;\nloop invariant x >= 1 + (y - 1) * y / 2;\nloop invariant x % 5 == 5;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x;\nloop invariant (x & 5) == 5;\nloop invariant x >= 8;\nloop invariant x <= 13;\nloop invariant x == 5 || x == 8 || x == 13;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 100000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+            "```\n/*@\nloop invariant ( x >= 5 );\nloop invariant ( x % 8 == 5 );\nloop invariant ( unknown_int() );\nloop invariant ( x <= 134217727 );\n*/\n```"
+        ],
+        "completions": [
+            {
+                "num_solver_calls": 4,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 4;\nloop invariant x & 5 == 5 ==> x % 5 == 5;\nloop invariant x & 5 != 5 ==> x % 5 != 5;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 13: invalid operands to binary &; unexpected unsigned int and 𝔹. Ignoring loop annotation",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 5;\n  /*@\n\n\n\n*/\nwhile (unknown_int()) {\n    x += 8;\n  }\n  {;\n//@ assert((x & 5) == 5);\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 2147483647;\nloop invariant x % 8 == 5;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= x <= 2147483647 is established but not preserved.\nloop invariant x % 8 == 5 is partially proven to be inductive.\nAssertion (x & 5) == 5: Unproven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 5;\n  /*@\n\n\n*/\nwhile (unknown_int()) {\n    x += 8;\n  }\n  {;\n//@ assert((x & 5) == 5);\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 5,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 20;\nloop invariant x % 8 == 5;\nloop invariant x < 20 ==> unknown_int();\nloop invariant x >= 5 ==> !unknown_int();\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 14: unexpected token ')'",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 5;\n  /*@\n\n\n\n\n*/\nwhile (unknown_int()) {\n    x += 8;\n  }\n  {;\n//@ assert((x & 5) == 5);\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= UINT_MAX;\nloop invariant x % 8 == 5;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= x <= UINT_MAX is partially proven to be inductive.\nloop invariant x % 8 == 5 is established but not preserved.\nAssertion (x & 5) == 5: Unproven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 5;\n  /*@\nloop invariant i1: 0 <= x <= UINT_MAX;\n\n*/\nwhile (unknown_int()) {\n    x += 8;\n  }\n  {;\n//@ assert((x & 5) == 5);\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= x;\nloop invariant x % 5 == 5;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= x is partially proven to be inductive.\nloop invariant x % 5 == 5 is preserved but not established.\nAssertion (x & 5) == 5: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 5;\n  /*@\nloop invariant i1: 0 <= x;\n\n*/\nwhile (unknown_int()) {\n    x += 8;\n  }\n  {;\n//@ assert((x & 5) == 5);\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 2147483647;\nloop invariant !unknown_int() ==> x = 5;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 13: unexpected token ')'",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 5;\n  /*@\n\n\n*/\nwhile (unknown_int()) {\n    x += 8;\n  }\n  {;\n//@ assert((x & 5) == 5);\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 5,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 100000;\nloop invariant x >= (1 + (y - 1) * y / 2);\nloop invariant 5 <= x;\nloop invariant x & 7 == 5;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 13: unbound logic variable y. Ignoring loop annotation",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 5;\n  /*@\n\n\n\n\n*/\nwhile (unknown_int()) {\n    x += 8;\n  }\n  {;\n//@ assert((x & 5) == 5);\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 4,
+                "annotations": "```\n/*@\nloop invariant 1 <= unknown_int();\nloop invariant x >= 5;\nloop invariant x <= 13;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 12: unexpected token ')'",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 5;\n  /*@\n\n\n\n*/\nwhile (unknown_int()) {\n    x += 8;\n  }\n  {;\n//@ assert((x & 5) == 5);\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 13,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 2147483647;\nloop invariant x % 5 == 5;\nloop invariant x & 5 == 5;\nloop invariant x & 0xf == 5;\nloop invariant x & 0xff == 5;\nloop invariant x & 0xfff == 5;\nloop invariant x & 0xffff == 5;\nloop invariant x & 0xffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\nloop invariant x & 0x7fffffff == 5;\nloop invariant x & 0xffffffff == 5;\nloop invariant x & 0x1fffffff == 5;\nloop invariant x & 0x3fffffff == 5;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 14: invalid operands to binary &; unexpected unsigned int and 𝔹. Ignoring loop annotation",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 5;\n  /*@\n\n\n\n\n\n\n\n\n\n\n\n\n*/\nwhile (unknown_int()) {\n    x += 8;\n  }\n  {;\n//@ assert((x & 5) == 5);\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 2147483647;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= x <= 2147483647 is established but not preserved.\nAssertion (x & 5) == 5: Unproven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 5;\n  /*@\n\n*/\nwhile (unknown_int()) {\n    x += 8;\n  }\n  {;\n//@ assert((x & 5) == 5);\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 5,
+                "annotations": "```\n/*@\nloop invariant x >= 5;\nloop invariant x % 8 == 5;\nloop invariant x == 5 + 8 * i;\nloop invariant i >= 0;\nloop invariant i <= n;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 14: unbound logic variable i. Ignoring loop annotation",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 5;\n  /*@\n\n\n\n\n\n*/\nwhile (unknown_int()) {\n    x += 8;\n  }\n  {;\n//@ assert((x & 5) == 5);\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 6,
+                "annotations": "```\n/*@\nloop invariant 1 <= x <= 100001;\nloop invariant 1 <= y <= 100000;\nloop invariant x >= y;\nloop invariant x >= 1 + (y - 1) * y / 2;\nloop invariant x % 5 == 5;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 13: unbound logic variable y. Ignoring loop annotation",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 5;\n  /*@\n\n\n\n\n\n*/\nwhile (unknown_int()) {\n    x += 8;\n  }\n  {;\n//@ assert((x & 5) == 5);\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 5,
+                "annotations": "```\n/*@\nloop invariant 0 <= x;\nloop invariant (x & 5) == 5;\nloop invariant x >= 8;\nloop invariant x <= 13;\nloop invariant x == 5 || x == 8 || x == 13;\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "loop invariant 0 <= x is partially proven to be inductive.\nloop invariant (x & 5) == 5 is partially proven to be inductive.\nloop invariant x >= 8 is preserved but not established.\nloop invariant x <= 13 is partially proven to be inductive.\nloop invariant x == 5 || x == 8 || x == 13 is partially proven to be inductive.\nAssertion (x & 5) == 5: Partially proven",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 5;\n  /*@\nloop invariant i1: 0 <= x;\n\n\n\n\n*/\nwhile (unknown_int()) {\n    x += 8;\n  }\n  {;\n//@ assert((x & 5) == 5);\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 100000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 13: unbound logic variable y. Ignoring loop annotation",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 5;\n  /*@\n\n\n*/\nwhile (unknown_int()) {\n    x += 8;\n  }\n  {;\n//@ assert((x & 5) == 5);\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 4,
+                "annotations": "```\n/*@\nloop invariant ( x >= 5 );\nloop invariant ( x % 8 == 5 );\nloop invariant ( unknown_int() );\nloop invariant ( x <= 134217727 );\n*/\n```",
+                "checker_output_for_annotations": false,
+                "checker_message_for_annotations": "Annotation error on line 14: unexpected token ')'",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 5;\n  /*@\n\n\n\n\n*/\nwhile (unknown_int()) {\n    x += 8;\n  }\n  {;\n//@ assert((x & 5) == 5);\n}\n\n  return 0;\n}",
+                "checker_output_after_prune": false
+            }
+        ],
+        "checker_output_for_combined_annotations": false,
+        "checker_message_for_combined_annotations": "Annotation error on line 18: unexpected token ')'",
+        "code_with_combined_annotations": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 5;\n  /*@\nloop invariant i1: 0 <= x <= 4;\nloop invariant i2: x & 5 == 5 ==> x % 5 == 5;\nloop invariant i3: x & 5 != 5 ==> x % 5 != 5;\nloop invariant i4: 0 <= x <= 2147483647;\nloop invariant i5: x % 8 == 5;\nloop invariant i6: 0 <= x <= 20;\nloop invariant i7: x < 20 ==> unknown_int();\nloop invariant i8: x >= 5 ==> !unknown_int();\nloop invariant i9: 0 <= x <= UINT_MAX;\nloop invariant i10: 0 <= x;\nloop invariant i11: x % 5 == 5;\nloop invariant i12: !unknown_int() ==> x = 5;\nloop invariant i13: 0 <= x <= 100000;\nloop invariant i14: x >= (1 + (y - 1) * y / 2);\nloop invariant i15: 5 <= x;\nloop invariant i16: x & 7 == 5;\nloop invariant i17: 1 <= unknown_int();\nloop invariant i18: x >= 5;\nloop invariant i19: x <= 13;\nloop invariant i20: x & 5 == 5;\nloop invariant i21: x & 0xf == 5;\nloop invariant i22: x & 0xff == 5;\nloop invariant i23: x & 0xfff == 5;\nloop invariant i24: x & 0xffff == 5;\nloop invariant i25: x & 0xffffff == 5;\nloop invariant i26: x & 0x7fffffff == 5;\nloop invariant i27: x & 0xffffffff == 5;\nloop invariant i28: x & 0x1fffffff == 5;\nloop invariant i29: x & 0x3fffffff == 5;\nloop invariant i30: x == 5 + 8 * i;\nloop invariant i31: i >= 0;\nloop invariant i32: i <= n;\nloop invariant i33: 1 <= x <= 100001;\nloop invariant i34: 1 <= y <= 100000;\nloop invariant i35: x >= y;\nloop invariant i36: x >= 1 + (y - 1) * y / 2;\nloop invariant i37: (x & 5) == 5;\nloop invariant i38: x >= 8;\nloop invariant i39: x == 5 || x == 8 || x == 13;\nloop invariant i40: ( x >= 5 );\nloop invariant i41: ( x % 8 == 5 );\nloop invariant i42: ( unknown_int() );\nloop invariant i43: ( x <= 134217727 );\n*/\nwhile (unknown_int()) {\n    x += 8;\n  }\n  {;\n//@ assert((x & 5) == 5);\n}\n\n  return 0;\n}",
+        "combined_annotation_num_solver_calls": 41,
+        "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nint main(void) {\n  unsigned int x = 5;\n  /*@\n\n\n\n\n\n\n\n\nloop invariant i9: 0 <= x <= UINT_MAX;\nloop invariant i10: 0 <= x;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n*/\nwhile (unknown_int()) {\n    x += 8;\n  }\n  {;\n//@ assert((x & 5) == 5);\n}\n\n  return 0;\n}",
+        "checker_output_after_prune": false
+    },
+    "stats": {
+        "success": [
+            "../dataset/loop_invariants/accelerating_invariant_generation/dagger/fig2.c"
+        ],
+        "failure": [
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-invgen/MADWiFi-encode_ie_ok_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/accelerating_invariant_generation/invgen/MADWiFi-encode_ie_ok.c",
+            "../dataset/loop_invariants/sv-benchmarks/loops-crafted-1/vnew2.c",
+            "../dataset/loop_invariants/sv-benchmarks/loop-invariants/bin-suffix-5.c"
+        ],
+        "skipped": [],
+        "total": 5,
+        "success_count": 1,
+        "failure_count": 4,
+        "success_rate": 0.2
+    }
+}
