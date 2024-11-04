@@ -1,0 +1,143 @@
+{
+    "logs": {
+        "file": "../dataset/loop_invariants/code2inv/133.c",
+        "benchmark_code": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  assume((n >= 0));\n  \n  while ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == n) );\n}\n\n}",
+        "success": true,
+        "annotation_blocks": [
+            "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x >= 0;\nloop invariant x <= n;\nloop invariant n >= 0;\nloop invariant x < n ==> (x + 1) == (x + 1);\nloop invariant n >= 0 ==> (x + 1) == (x + 1);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= n;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x < n ==> x == n;\n*/\n```",
+            "```\n/*@\nloop invariant 1 <= x <= n;\nloop invariant x == n;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x + 1 = x';\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x < n ==> x + 1 <= n;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= n;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= n;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x == n - (n - x);\nloop invariant x == n - (n - x) ==> (x < n);\nloop invariant x == n - (n - x) ==> (x >= n);\nloop invariant x == n - (n - x) ==> (x == n);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= n;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x <= n;\n*/\n```",
+            "```\n/*@\nloop invariant 1 <= x <= n;\nloop invariant x is non-deterministic at the beginning of the loop;\nloop invariant x is non-deterministic at the end of the loop;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x + n == 2 * x;\nloop invariant x + n == n;\nloop invariant x == n;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant (x == n) ==> (x >= n);\nloop invariant (x == n) ==> (x <= n);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x >= 0;\nloop invariant x <= n;\nloop invariant x == n => true;\n*/\n```"
+        ],
+        "completions": [
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x >= 0;\nloop invariant x <= n;\nloop invariant n >= 0;\nloop invariant x < n ==> (x + 1) == (x + 1);\nloop invariant n >= 0 ==> (x + 1) == (x + 1);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  assume((n >= 0));\n  \n  /*@\nloop invariant i1: 0 <= x <= n;\nloop invariant i2: x >= 0;\nloop invariant i3: x <= n;\nloop invariant i4: n >= 0;\nloop invariant i5: x < n ==> (x + 1) == (x + 1);\nloop invariant i6: n >= 0 ==> (x + 1) == (x + 1);\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == n) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= n;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  assume((n >= 0));\n  \n  /*@\nloop invariant i1: 0 <= x <= n;\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == n) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x < n ==> x == n;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  assume((n >= 0));\n  \n  /*@\nloop invariant i1: 0 <= x <= n;\n\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == n) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 1 <= x <= n;\nloop invariant x == n;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  assume((n >= 0));\n  \n  /*@\n\n\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == n) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x + 1 = x';\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  assume((n >= 0));\n  \n  /*@\nloop invariant i1: 0 <= x <= n;\nloop invariant i2: x + 1 = x';\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == n) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x < n ==> x + 1 <= n;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  assume((n >= 0));\n  \n  /*@\nloop invariant i1: 0 <= x <= n;\nloop invariant i2: x < n ==> x + 1 <= n;\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == n) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= n;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  assume((n >= 0));\n  \n  /*@\nloop invariant i1: 0 <= x <= n;\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == n) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= n;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  assume((n >= 0));\n  \n  /*@\nloop invariant i1: 0 <= x <= n;\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == n) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x == n - (n - x);\nloop invariant x == n - (n - x) ==> (x < n);\nloop invariant x == n - (n - x) ==> (x >= n);\nloop invariant x == n - (n - x) ==> (x == n);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  assume((n >= 0));\n  \n  /*@\nloop invariant i1: 0 <= x <= n;\nloop invariant i2: x == n - (n - x);\n\n\n\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == n) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= n;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  assume((n >= 0));\n  \n  /*@\nloop invariant i1: 0 <= x <= n;\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == n) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x <= n;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  assume((n >= 0));\n  \n  /*@\nloop invariant i1: 0 <= x <= n;\nloop invariant i2: x <= n;\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == n) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 1 <= x <= n;\nloop invariant x is non-deterministic at the beginning of the loop;\nloop invariant x is non-deterministic at the end of the loop;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  assume((n >= 0));\n  \n  /*@\n\n\n\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == n) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x + n == 2 * x;\nloop invariant x + n == n;\nloop invariant x == n;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  assume((n >= 0));\n  \n  /*@\nloop invariant i1: 0 <= x <= n;\n\n\n\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == n) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant (x == n) ==> (x >= n);\nloop invariant (x == n) ==> (x <= n);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  assume((n >= 0));\n  \n  /*@\nloop invariant i1: 0 <= x <= n;\nloop invariant i2: (x == n) ==> (x >= n);\nloop invariant i3: (x == n) ==> (x <= n);\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == n) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= n;\nloop invariant x >= 0;\nloop invariant x <= n;\nloop invariant x == n => true;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  assume((n >= 0));\n  \n  /*@\nloop invariant i1: 0 <= x <= n;\nloop invariant i2: x >= 0;\nloop invariant i3: x <= n;\n\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == n) );\n}\n\n}",
+                "checker_output_after_prune": true
+            }
+        ],
+        "checker_output_for_combined_annotations": false,
+        "checker_message_for_combined_annotations": "No CSV output dump found from Frama-C",
+        "code_with_combined_annotations": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  assume((n >= 0));\n  \n  /*@\nloop invariant i1: 0 <= x <= n;\nloop invariant i2: x >= 0;\nloop invariant i3: x <= n;\nloop invariant i4: n >= 0;\nloop invariant i5: x < n ==> (x + 1) == (x + 1);\nloop invariant i6: n >= 0 ==> (x + 1) == (x + 1);\nloop invariant i7: x < n ==> x == n;\nloop invariant i8: 1 <= x <= n;\nloop invariant i9: x == n;\nloop invariant i10: x + 1 = x';\nloop invariant i11: x < n ==> x + 1 <= n;\nloop invariant i12: x == n - (n - x);\nloop invariant i13: x == n - (n - x) ==> (x < n);\nloop invariant i14: x == n - (n - x) ==> (x >= n);\nloop invariant i15: x == n - (n - x) ==> (x == n);\nloop invariant i16: x is non-deterministic at the beginning of the loop;\nloop invariant i17: x is non-deterministic at the end of the loop;\nloop invariant i18: x + n == 2 * x;\nloop invariant i19: x + n == n;\nloop invariant i20: (x == n) ==> (x >= n);\nloop invariant i21: (x == n) ==> (x <= n);\nloop invariant i22: x == n => true;\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == n) );\n}\n\n}",
+        "combined_annotation_num_solver_calls": 2,
+        "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int n;\n  int x;\n  \n  (x = 0);\n  assume((n >= 0));\n  \n  /*@\nloop invariant i1: 0 <= x <= n;\nloop invariant i2: x >= 0;\nloop invariant i3: x <= n;\nloop invariant i4: n >= 0;\nloop invariant i5: x < n ==> (x + 1) == (x + 1);\nloop invariant i6: n >= 0 ==> (x + 1) == (x + 1);\nloop invariant i7: x < n ==> x == n;\nloop invariant i8: 1 <= x <= n;\nloop invariant i9: x == n;\nloop invariant i10: x + 1 = x';\nloop invariant i11: x < n ==> x + 1 <= n;\nloop invariant i12: x == n - (n - x);\nloop invariant i13: x == n - (n - x) ==> (x < n);\nloop invariant i14: x == n - (n - x) ==> (x >= n);\nloop invariant i15: x == n - (n - x) ==> (x == n);\nloop invariant i16: x is non-deterministic at the beginning of the loop;\nloop invariant i17: x is non-deterministic at the end of the loop;\nloop invariant i18: x + n == 2 * x;\nloop invariant i19: x + n == n;\nloop invariant i20: (x == n) ==> (x >= n);\nloop invariant i21: (x == n) ==> (x <= n);\nloop invariant i22: x == n => true;\n*/\nwhile ((x < n)) {\n    {\n    (x  = (x + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == n) );\n}\n\n}",
+        "checker_output_after_prune": false
+    },
+    "stats": {
+        "success": [
+            "../dataset/loop_invariants/code2inv/125.c",
+            "../dataset/loop_invariants/code2inv/128.c",
+            "../dataset/loop_invariants/code2inv/129.c",
+            "../dataset/loop_invariants/code2inv/13.c",
+            "../dataset/loop_invariants/code2inv/132.c",
+            "../dataset/loop_invariants/code2inv/133.c"
+        ],
+        "failure": [
+            "../dataset/loop_invariants/code2inv/124.c",
+            "../dataset/loop_invariants/code2inv/126.c",
+            "../dataset/loop_invariants/code2inv/127.c",
+            "../dataset/loop_invariants/code2inv/131.c"
+        ],
+        "skipped": [],
+        "total": 10,
+        "success_count": 6,
+        "failure_count": 4,
+        "success_rate": 0.6
+    }
+}

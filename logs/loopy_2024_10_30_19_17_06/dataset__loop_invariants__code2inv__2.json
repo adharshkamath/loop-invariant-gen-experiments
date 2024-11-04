@@ -1,0 +1,149 @@
+{
+    "logs": {
+        "file": "../dataset/loop_invariants/code2inv/2.c",
+        "benchmark_code": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = 1);\n  (y = 0);\n  \n  while ((y < 1000)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x >= y) );\n}\n\n}",
+        "success": true,
+        "annotation_blocks": [
+            "```\n/*@\nloop invariant 0 <= y <= 1000; loop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= y <= 1000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= y <= 1000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= y <= 1000;\nloop invariant x >= (1 + (y - 1) * y / 2);\nloop invariant y >= 0;\nloop invariant x >= y;\nloop invariant y <= 1000;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= y <= 1000;\nloop invariant x >= (1 + (y - 1) * y / 2);\nloop invariant 0 <= y <= 1000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= y <= 1000;\nloop invariant x >= (1 + (y - 1) * y / 2);\nloop invariant (y < 1000) ==> (x >= y);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= y <= 1000; loop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 500050;\nloop invariant 0 <= y <= 1000;\n*/\n```",
+            "```\n/*@\nloop invariant x == 1 && y == 0;\nloop invariant x <= x + y && y <= y + 1;\nloop invariant y >= 1000;\nloop invariant x == 1 && y == 0;\nloop invariant x <= x + y && y <= y + 1;\nloop invariant y >= 1000;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= y <= 1000;\nloop invariant x >= (1 + (y - 1) * y / 2);\nloop invariant x >= y;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= y <= 1000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= y <= 1000;\nloop invariant x >= (1 + (y - 1) * y / 2);\nloop invariant x <= (y * (y + 1) / 2);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= y <= 1000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= y <= 1000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+            "```\n/*@\n\n*/\n```"
+        ],
+        "completions": [
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= y <= 1000; loop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = 1);\n  (y = 0);\n  \n  /*@\nloop invariant i1: 0 <= y <= 1000; loop invariant x >= (1 + (y - 1) * y / 2);\n*/\nwhile ((y < 1000)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x >= y) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= y <= 1000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = 1);\n  (y = 0);\n  \n  /*@\nloop invariant i1: 0 <= y <= 1000;\nloop invariant i2: x >= (1 + (y - 1) * y / 2);\n*/\nwhile ((y < 1000)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x >= y) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= y <= 1000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = 1);\n  (y = 0);\n  \n  /*@\nloop invariant i1: 0 <= y <= 1000;\nloop invariant i2: x >= (1 + (y - 1) * y / 2);\n*/\nwhile ((y < 1000)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x >= y) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= y <= 1000;\nloop invariant x >= (1 + (y - 1) * y / 2);\nloop invariant y >= 0;\nloop invariant x >= y;\nloop invariant y <= 1000;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = 1);\n  (y = 0);\n  \n  /*@\nloop invariant i1: 0 <= y <= 1000;\nloop invariant i2: x >= (1 + (y - 1) * y / 2);\nloop invariant i3: y >= 0;\nloop invariant i4: x >= y;\nloop invariant i5: y <= 1000;\n*/\nwhile ((y < 1000)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x >= y) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= y <= 1000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = 1);\n  (y = 0);\n  \n  /*@\nloop invariant i1: 0 <= y <= 1000;\nloop invariant i2: x >= (1 + (y - 1) * y / 2);\n*/\nwhile ((y < 1000)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x >= y) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= y <= 1000;\nloop invariant x >= (1 + (y - 1) * y / 2);\nloop invariant (y < 1000) ==> (x >= y);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = 1);\n  (y = 0);\n  \n  /*@\nloop invariant i1: 0 <= y <= 1000;\nloop invariant i2: x >= (1 + (y - 1) * y / 2);\nloop invariant i3: (y < 1000) ==> (x >= y);\n*/\nwhile ((y < 1000)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x >= y) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= y <= 1000; loop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = 1);\n  (y = 0);\n  \n  /*@\nloop invariant i1: 0 <= y <= 1000; loop invariant x >= (1 + (y - 1) * y / 2);\n*/\nwhile ((y < 1000)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x >= y) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 500050;\nloop invariant 0 <= y <= 1000;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = 1);\n  (y = 0);\n  \n  /*@\n\nloop invariant i2: 0 <= y <= 1000;\n*/\nwhile ((y < 1000)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x >= y) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant x == 1 && y == 0;\nloop invariant x <= x + y && y <= y + 1;\nloop invariant y >= 1000;\nloop invariant x == 1 && y == 0;\nloop invariant x <= x + y && y <= y + 1;\nloop invariant y >= 1000;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = 1);\n  (y = 0);\n  \n  /*@\n\nloop invariant i2: x <= x + y && y <= y + 1;\n\n*/\nwhile ((y < 1000)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x >= y) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= y <= 1000;\nloop invariant x >= (1 + (y - 1) * y / 2);\nloop invariant x >= y;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = 1);\n  (y = 0);\n  \n  /*@\nloop invariant i1: 0 <= y <= 1000;\nloop invariant i2: x >= (1 + (y - 1) * y / 2);\nloop invariant i3: x >= y;\n*/\nwhile ((y < 1000)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x >= y) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= y <= 1000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = 1);\n  (y = 0);\n  \n  /*@\nloop invariant i1: 0 <= y <= 1000;\nloop invariant i2: x >= (1 + (y - 1) * y / 2);\n*/\nwhile ((y < 1000)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x >= y) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= y <= 1000;\nloop invariant x >= (1 + (y - 1) * y / 2);\nloop invariant x <= (y * (y + 1) / 2);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = 1);\n  (y = 0);\n  \n  /*@\nloop invariant i1: 0 <= y <= 1000;\nloop invariant i2: x >= (1 + (y - 1) * y / 2);\n\n*/\nwhile ((y < 1000)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x >= y) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= y <= 1000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = 1);\n  (y = 0);\n  \n  /*@\nloop invariant i1: 0 <= y <= 1000;\nloop invariant i2: x >= (1 + (y - 1) * y / 2);\n*/\nwhile ((y < 1000)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x >= y) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= y <= 1000;\nloop invariant x >= (1 + (y - 1) * y / 2);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = 1);\n  (y = 0);\n  \n  /*@\nloop invariant i1: 0 <= y <= 1000;\nloop invariant i2: x >= (1 + (y - 1) * y / 2);\n*/\nwhile ((y < 1000)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x >= y) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\n\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = 1);\n  (y = 0);\n  \n  /*@\n\n*/\nwhile ((y < 1000)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x >= y) );\n}\n\n}",
+                "checker_output_after_prune": false
+            }
+        ],
+        "checker_output_for_combined_annotations": false,
+        "checker_message_for_combined_annotations": "loop invariant 0 <= y <= 1000; loop invariant x >= (1 + (y - 1) * y / 2) is partially proven to be inductive.\nloop invariant 0 <= y <= 1000 is partially proven to be inductive.\nloop invariant x >= (1 + (y - 1) * y / 2) is partially proven to be inductive.\nloop invariant y >= 0 is partially proven to be inductive.\nloop invariant x >= y is partially proven to be inductive.\nloop invariant y <= 1000 is partially proven to be inductive.\nloop invariant (y < 1000) ==> (x >= y) is partially proven to be inductive.\nloop invariant 0 <= x <= 500050 is partially proven to be inductive.\nloop invariant x == 1 && y == 0 is partially proven to be inductive.\nloop invariant x <= x + y && y <= y + 1 is partially proven to be inductive.\nloop invariant y >= 1000 is preserved but not established.\nloop invariant x <= (y * (y + 1) / 2) is partially proven to be inductive.\nAssertion x >= y: Partially proven",
+        "code_with_combined_annotations": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = 1);\n  (y = 0);\n  \n  /*@\nloop invariant i1: 0 <= y <= 1000; loop invariant x >= (1 + (y - 1) * y / 2);\nloop invariant i2: 0 <= y <= 1000;\nloop invariant i3: x >= (1 + (y - 1) * y / 2);\nloop invariant i4: y >= 0;\nloop invariant i5: x >= y;\nloop invariant i6: y <= 1000;\nloop invariant i7: (y < 1000) ==> (x >= y);\nloop invariant i8: 0 <= x <= 500050;\nloop invariant i9: x == 1 && y == 0;\nloop invariant i10: x <= x + y && y <= y + 1;\nloop invariant i11: y >= 1000;\nloop invariant i12: x <= (y * (y + 1) / 2);\n*/\nwhile ((y < 1000)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x >= y) );\n}\n\n}",
+        "combined_annotation_num_solver_calls": 5,
+        "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  int y;\n  \n  (x = 1);\n  (y = 0);\n  \n  /*@\nloop invariant i1: 0 <= y <= 1000; loop invariant x >= (1 + (y - 1) * y / 2);\nloop invariant i2: 0 <= y <= 1000;\nloop invariant i3: x >= (1 + (y - 1) * y / 2);\nloop invariant i4: y >= 0;\nloop invariant i5: x >= y;\nloop invariant i6: y <= 1000;\nloop invariant i7: (y < 1000) ==> (x >= y);\n\n\nloop invariant i10: x <= x + y && y <= y + 1;\n\n\n*/\nwhile ((y < 1000)) {\n    {\n    (x  = (x + y));\n    (y  = (y + 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x >= y) );\n}\n\n}",
+        "checker_output_after_prune": true
+    },
+    "stats": {
+        "success": [
+            "../dataset/loop_invariants/code2inv/125.c",
+            "../dataset/loop_invariants/code2inv/128.c",
+            "../dataset/loop_invariants/code2inv/129.c",
+            "../dataset/loop_invariants/code2inv/13.c",
+            "../dataset/loop_invariants/code2inv/132.c",
+            "../dataset/loop_invariants/code2inv/133.c",
+            "../dataset/loop_invariants/code2inv/14.c",
+            "../dataset/loop_invariants/code2inv/15.c",
+            "../dataset/loop_invariants/code2inv/16.c",
+            "../dataset/loop_invariants/code2inv/18.c",
+            "../dataset/loop_invariants/code2inv/19.c",
+            "../dataset/loop_invariants/code2inv/2.c"
+        ],
+        "failure": [
+            "../dataset/loop_invariants/code2inv/124.c",
+            "../dataset/loop_invariants/code2inv/126.c",
+            "../dataset/loop_invariants/code2inv/127.c",
+            "../dataset/loop_invariants/code2inv/131.c"
+        ],
+        "skipped": [],
+        "total": 16,
+        "success_count": 12,
+        "failure_count": 4,
+        "success_rate": 0.75
+    }
+}

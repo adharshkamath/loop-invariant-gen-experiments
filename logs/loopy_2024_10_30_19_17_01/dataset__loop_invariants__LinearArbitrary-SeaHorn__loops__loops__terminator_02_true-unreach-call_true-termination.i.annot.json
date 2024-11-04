@@ -1,0 +1,198 @@
+{
+    "logs": {
+        "file": "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/terminator_02_true-unreach-call_true-termination.i.annot.c",
+        "benchmark_code": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\nint main()\n{\n    int  x=unknown_int();\n    int y=unknown_int();\n    int  z=unknown_int();\nassume(x<100);\nassume(x>-100);\nassume(z<100);\nassume(z>-100);\n    while(x<100 && 100<z)\n    {\n        int  tmp=unknown_bool();\n        if(tmp){\n            x++;\n        } else {\n            x--;\n            z--;\n        }\n    }\n    {;\n//@ assert(x>=100 || z<=100);\n}\n\n    return 0;\n}",
+        "success": true,
+        "annotation_blocks": [
+            "```\n/*@\nloop invariant 1 <= x <= 100;\nloop invariant -100 <= z <= 100;\nloop invariant x <= z;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant z <= 100;\nloop invariant x >= -100;\nloop invariant x <= z;\nloop invariant x <= 100;\nloop invariant x >= -100;\nloop invariant z >= -100;\nloop invariant x <= z ==> x == z ==> z == 100;\nloop invariant x < 100 ==> x == 99 ==> z == 100;\nloop invariant x < 100 ==> x == 98 ==> z >= 101;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant x >= 100 ==> z <= 100;\nloop invariant x < 100 ==> z > 100;\nloop invariant x < 100 ==> z > 100 ==> (x*z - x) mod 100 == 0;\nloop invariant x < 100 ==> z > 100 ==> x*z > 10000;\nloop invariant x < 100 ==> z > 100 ==> x*z < 10000;\nloop invariant x < 100 ==> z > 100 ==> (x*z - x) mod 100 == 0 ==> x*z == 10000;\nloop invariant x < 100 ==> z > 100 ==> x*z > 10000 ==> x*z == 10001;\nloop invariant x < 100 ==> z > 100 ==> x*z < 10000 ==> x*z == 9999;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x < 100;\nloop invariant 0 <= z < 100;\nloop invariant x >= z;\nloop invariant x + z <= 100;\nloop invariant x - z >= 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant -100 <= x <= 100;\nloop invariant x <= z;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant x <= z;\nloop invariant 100 <= z <= 200;\nloop invariant x + z <= 300;\nloop invariant x + z >= 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant z <= 100;\nloop invariant x < z ==> x + y < z;\nloop invariant !(x < z) ==> x >= z;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant -100 <= z <= 100;\nloop invariant x >= 100 ==> z <= 100;\nloop invariant x >= 100 ==> z == x;\nloop invariant x >= 100 ==> x - z <= 100;\nloop invariant x >= 100 ==> x - z < 100;\nloop invariant x < 100 ==> z <= 100;\nloop invariant x < 100 ==> z >= 100;\nloop invariant x < 100 ==> z > 100;\nloop invariant x < 100 ==> z == x;\nloop invariant x < 100 ==> x - z <= 100;\nloop invariant x < 100 ==> x - z <= 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\n*/\n```",
+            "```\n/*@\nloop invariant x >= -100 && x <= 100 && z >= -100 && z <= 100 && x < 100 && 100 < z;\nloop invariant x >= -100 && x <= 100 && z >= -100 && z <= 100 && x < 100 && 100 < z;\nloop invariant x >= -100 && x <= 100 && z >= -100 && z <= 100 && x < 100 && 100 < z && if(tmp) then x++ else x--;\nloop invariant x >= -100 && x <= 100 && z >= -100 && z <= 100 && (x >= 100 || z <= 100);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant x <= z;\nloop invariant z >= 100;\nloop invariant x >= 100 ==> z <= 100;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant -100 <= z <= 100;\n*/\n```",
+            "```\n/*@\n\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant -100 <= x <= 100;\nloop invariant -100 <= z <= 100;\nloop invariant x < 100 ==> z > 100;\nloop invariant x < 100 ==> z <= 100;\nloop invariant x >= 100 ==> z <= 100;\nloop invariant x >= 100 ==> z > 100;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant -100 <= y <= 100;\nloop invariant -100 <= z <= 100;\nloop invariant x >= (1 + (y - 1) * y / 2);\nloop invariant x >= (1 + (z - 1) * z / 2);\n*/\n```",
+            "```\n/*@\nloop invariant 1 <= x <= 100;\nloop invariant 100 <= z <= 100000;\nloop invariant z - x == (x - 100) * (x - 99) / 2;\n*/\n```"
+        ],
+        "completions": [
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 1 <= x <= 100;\nloop invariant -100 <= z <= 100;\nloop invariant x <= z;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\nint main()\n{\n    int  x=unknown_int();\n    int y=unknown_int();\n    int  z=unknown_int();\nassume(x<100);\nassume(x>-100);\nassume(z<100);\nassume(z>-100);\n    /*@\n\nloop invariant i2: -100 <= z <= 100;\n\n*/\nwhile(x<100 && 100<z)\n    {\n        int  tmp=unknown_bool();\n        if(tmp){\n            x++;\n        } else {\n            x--;\n            z--;\n        }\n    }\n    {;\n//@ assert(x>=100 || z<=100);\n}\n\n    return 0;\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant z <= 100;\nloop invariant x >= -100;\nloop invariant x <= z;\nloop invariant x <= 100;\nloop invariant x >= -100;\nloop invariant z >= -100;\nloop invariant x <= z ==> x == z ==> z == 100;\nloop invariant x < 100 ==> x == 99 ==> z == 100;\nloop invariant x < 100 ==> x == 98 ==> z >= 101;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\nint main()\n{\n    int  x=unknown_int();\n    int y=unknown_int();\n    int  z=unknown_int();\nassume(x<100);\nassume(x>-100);\nassume(z<100);\nassume(z>-100);\n    /*@\n\nloop invariant i2: z <= 100;\nloop invariant i3: x >= -100;\n\nloop invariant i5: x <= 100;\nloop invariant i6: z >= -100;\n\n\n\n*/\nwhile(x<100 && 100<z)\n    {\n        int  tmp=unknown_bool();\n        if(tmp){\n            x++;\n        } else {\n            x--;\n            z--;\n        }\n    }\n    {;\n//@ assert(x>=100 || z<=100);\n}\n\n    return 0;\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant x >= 100 ==> z <= 100;\nloop invariant x < 100 ==> z > 100;\nloop invariant x < 100 ==> z > 100 ==> (x*z - x) mod 100 == 0;\nloop invariant x < 100 ==> z > 100 ==> x*z > 10000;\nloop invariant x < 100 ==> z > 100 ==> x*z < 10000;\nloop invariant x < 100 ==> z > 100 ==> (x*z - x) mod 100 == 0 ==> x*z == 10000;\nloop invariant x < 100 ==> z > 100 ==> x*z > 10000 ==> x*z == 10001;\nloop invariant x < 100 ==> z > 100 ==> x*z < 10000 ==> x*z == 9999;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\nint main()\n{\n    int  x=unknown_int();\n    int y=unknown_int();\n    int  z=unknown_int();\nassume(x<100);\nassume(x>-100);\nassume(z<100);\nassume(z>-100);\n    /*@\n\nloop invariant i2: x >= 100 ==> z <= 100;\n\n\nloop invariant i5: x < 100 ==> z > 100 ==> x*z > 10000;\nloop invariant i6: x < 100 ==> z > 100 ==> x*z < 10000;\n\nloop invariant i8: x < 100 ==> z > 100 ==> x*z > 10000 ==> x*z == 10001;\nloop invariant i9: x < 100 ==> z > 100 ==> x*z < 10000 ==> x*z == 9999;\n*/\nwhile(x<100 && 100<z)\n    {\n        int  tmp=unknown_bool();\n        if(tmp){\n            x++;\n        } else {\n            x--;\n            z--;\n        }\n    }\n    {;\n//@ assert(x>=100 || z<=100);\n}\n\n    return 0;\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x < 100;\nloop invariant 0 <= z < 100;\nloop invariant x >= z;\nloop invariant x + z <= 100;\nloop invariant x - z >= 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\nint main()\n{\n    int  x=unknown_int();\n    int y=unknown_int();\n    int  z=unknown_int();\nassume(x<100);\nassume(x>-100);\nassume(z<100);\nassume(z>-100);\n    /*@\n\n\n\n\n\n*/\nwhile(x<100 && 100<z)\n    {\n        int  tmp=unknown_bool();\n        if(tmp){\n            x++;\n        } else {\n            x--;\n            z--;\n        }\n    }\n    {;\n//@ assert(x>=100 || z<=100);\n}\n\n    return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant -100 <= x <= 100;\nloop invariant x <= z;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\nint main()\n{\n    int  x=unknown_int();\n    int y=unknown_int();\n    int  z=unknown_int();\nassume(x<100);\nassume(x>-100);\nassume(z<100);\nassume(z>-100);\n    /*@\n\n\n\n*/\nwhile(x<100 && 100<z)\n    {\n        int  tmp=unknown_bool();\n        if(tmp){\n            x++;\n        } else {\n            x--;\n            z--;\n        }\n    }\n    {;\n//@ assert(x>=100 || z<=100);\n}\n\n    return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant x <= z;\nloop invariant 100 <= z <= 200;\nloop invariant x + z <= 300;\nloop invariant x + z >= 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\nint main()\n{\n    int  x=unknown_int();\n    int y=unknown_int();\n    int  z=unknown_int();\nassume(x<100);\nassume(x>-100);\nassume(z<100);\nassume(z>-100);\n    /*@\n\n\n\n\n\n*/\nwhile(x<100 && 100<z)\n    {\n        int  tmp=unknown_bool();\n        if(tmp){\n            x++;\n        } else {\n            x--;\n            z--;\n        }\n    }\n    {;\n//@ assert(x>=100 || z<=100);\n}\n\n    return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant z <= 100;\nloop invariant x < z ==> x + y < z;\nloop invariant !(x < z) ==> x >= z;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\nint main()\n{\n    int  x=unknown_int();\n    int y=unknown_int();\n    int  z=unknown_int();\nassume(x<100);\nassume(x>-100);\nassume(z<100);\nassume(z>-100);\n    /*@\n\nloop invariant i2: z <= 100;\n\nloop invariant i4: !(x < z) ==> x >= z;\n*/\nwhile(x<100 && 100<z)\n    {\n        int  tmp=unknown_bool();\n        if(tmp){\n            x++;\n        } else {\n            x--;\n            z--;\n        }\n    }\n    {;\n//@ assert(x>=100 || z<=100);\n}\n\n    return 0;\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 4,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant -100 <= z <= 100;\nloop invariant x >= 100 ==> z <= 100;\nloop invariant x >= 100 ==> z == x;\nloop invariant x >= 100 ==> x - z <= 100;\nloop invariant x >= 100 ==> x - z < 100;\nloop invariant x < 100 ==> z <= 100;\nloop invariant x < 100 ==> z >= 100;\nloop invariant x < 100 ==> z > 100;\nloop invariant x < 100 ==> z == x;\nloop invariant x < 100 ==> x - z <= 100;\nloop invariant x < 100 ==> x - z <= 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z >= -100;\nloop invariant x < 100 ==> x - z < 100;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\nint main()\n{\n    int  x=unknown_int();\n    int y=unknown_int();\n    int  z=unknown_int();\nassume(x<100);\nassume(x>-100);\nassume(z<100);\nassume(z>-100);\n    /*@\n\nloop invariant i2: -100 <= z <= 100;\nloop invariant i3: x >= 100 ==> z <= 100;\nloop invariant i4: x >= 100 ==> z == x;\nloop invariant i5: x >= 100 ==> x - z <= 100;\nloop invariant i6: x >= 100 ==> x - z < 100;\nloop invariant i7: x < 100 ==> z <= 100;\n\n\n\n\n\n\n*/\nwhile(x<100 && 100<z)\n    {\n        int  tmp=unknown_bool();\n        if(tmp){\n            x++;\n        } else {\n            x--;\n            z--;\n        }\n    }\n    {;\n//@ assert(x>=100 || z<=100);\n}\n\n    return 0;\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant x >= -100 && x <= 100 && z >= -100 && z <= 100 && x < 100 && 100 < z;\nloop invariant x >= -100 && x <= 100 && z >= -100 && z <= 100 && x < 100 && 100 < z;\nloop invariant x >= -100 && x <= 100 && z >= -100 && z <= 100 && x < 100 && 100 < z && if(tmp) then x++ else x--;\nloop invariant x >= -100 && x <= 100 && z >= -100 && z <= 100 && (x >= 100 || z <= 100);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\nint main()\n{\n    int  x=unknown_int();\n    int y=unknown_int();\n    int  z=unknown_int();\nassume(x<100);\nassume(x>-100);\nassume(z<100);\nassume(z>-100);\n    /*@\n\n\nloop invariant i3: x >= -100 && x <= 100 && z >= -100 && z <= 100 && (x >= 100 || z <= 100);\n*/\nwhile(x<100 && 100<z)\n    {\n        int  tmp=unknown_bool();\n        if(tmp){\n            x++;\n        } else {\n            x--;\n            z--;\n        }\n    }\n    {;\n//@ assert(x>=100 || z<=100);\n}\n\n    return 0;\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant x <= z;\nloop invariant z >= 100;\nloop invariant x >= 100 ==> z <= 100;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\nint main()\n{\n    int  x=unknown_int();\n    int y=unknown_int();\n    int  z=unknown_int();\nassume(x<100);\nassume(x>-100);\nassume(z<100);\nassume(z>-100);\n    /*@\n\n\n\n\n*/\nwhile(x<100 && 100<z)\n    {\n        int  tmp=unknown_bool();\n        if(tmp){\n            x++;\n        } else {\n            x--;\n            z--;\n        }\n    }\n    {;\n//@ assert(x>=100 || z<=100);\n}\n\n    return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant -100 <= z <= 100;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\nint main()\n{\n    int  x=unknown_int();\n    int y=unknown_int();\n    int  z=unknown_int();\nassume(x<100);\nassume(x>-100);\nassume(z<100);\nassume(z>-100);\n    /*@\n\nloop invariant i2: -100 <= z <= 100;\n*/\nwhile(x<100 && 100<z)\n    {\n        int  tmp=unknown_bool();\n        if(tmp){\n            x++;\n        } else {\n            x--;\n            z--;\n        }\n    }\n    {;\n//@ assert(x>=100 || z<=100);\n}\n\n    return 0;\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\n\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\nint main()\n{\n    int  x=unknown_int();\n    int y=unknown_int();\n    int  z=unknown_int();\nassume(x<100);\nassume(x>-100);\nassume(z<100);\nassume(z>-100);\n    /*@\n\n*/\nwhile(x<100 && 100<z)\n    {\n        int  tmp=unknown_bool();\n        if(tmp){\n            x++;\n        } else {\n            x--;\n            z--;\n        }\n    }\n    {;\n//@ assert(x>=100 || z<=100);\n}\n\n    return 0;\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant -100 <= x <= 100;\nloop invariant -100 <= z <= 100;\nloop invariant x < 100 ==> z > 100;\nloop invariant x < 100 ==> z <= 100;\nloop invariant x >= 100 ==> z <= 100;\nloop invariant x >= 100 ==> z > 100;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\nint main()\n{\n    int  x=unknown_int();\n    int y=unknown_int();\n    int  z=unknown_int();\nassume(x<100);\nassume(x>-100);\nassume(z<100);\nassume(z>-100);\n    /*@\n\nloop invariant i2: -100 <= x <= 100;\nloop invariant i3: -100 <= z <= 100;\n\nloop invariant i5: x < 100 ==> z <= 100;\nloop invariant i6: x >= 100 ==> z <= 100;\nloop invariant i7: x >= 100 ==> z > 100;\n*/\nwhile(x<100 && 100<z)\n    {\n        int  tmp=unknown_bool();\n        if(tmp){\n            x++;\n        } else {\n            x--;\n            z--;\n        }\n    }\n    {;\n//@ assert(x>=100 || z<=100);\n}\n\n    return 0;\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant -100 <= y <= 100;\nloop invariant -100 <= z <= 100;\nloop invariant x >= (1 + (y - 1) * y / 2);\nloop invariant x >= (1 + (z - 1) * z / 2);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\nint main()\n{\n    int  x=unknown_int();\n    int y=unknown_int();\n    int  z=unknown_int();\nassume(x<100);\nassume(x>-100);\nassume(z<100);\nassume(z>-100);\n    /*@\n\n\nloop invariant i3: -100 <= z <= 100;\n\n\n*/\nwhile(x<100 && 100<z)\n    {\n        int  tmp=unknown_bool();\n        if(tmp){\n            x++;\n        } else {\n            x--;\n            z--;\n        }\n    }\n    {;\n//@ assert(x>=100 || z<=100);\n}\n\n    return 0;\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 1 <= x <= 100;\nloop invariant 100 <= z <= 100000;\nloop invariant z - x == (x - 100) * (x - 99) / 2;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\nint main()\n{\n    int  x=unknown_int();\n    int y=unknown_int();\n    int  z=unknown_int();\nassume(x<100);\nassume(x>-100);\nassume(z<100);\nassume(z>-100);\n    /*@\n\n\n\n*/\nwhile(x<100 && 100<z)\n    {\n        int  tmp=unknown_bool();\n        if(tmp){\n            x++;\n        } else {\n            x--;\n            z--;\n        }\n    }\n    {;\n//@ assert(x>=100 || z<=100);\n}\n\n    return 0;\n}",
+                "checker_output_after_prune": false
+            }
+        ],
+        "checker_output_for_combined_annotations": false,
+        "checker_message_for_combined_annotations": "Annotation error on line 34: unexpected token 'mod'",
+        "code_with_combined_annotations": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\nint main()\n{\n    int  x=unknown_int();\n    int y=unknown_int();\n    int  z=unknown_int();\nassume(x<100);\nassume(x>-100);\nassume(z<100);\nassume(z>-100);\n    /*@\nloop invariant i1: 1 <= x <= 100;\nloop invariant i2: -100 <= z <= 100;\nloop invariant i3: x <= z;\nloop invariant i4: 0 <= x <= 100;\nloop invariant i5: z <= 100;\nloop invariant i6: x >= -100;\nloop invariant i7: x <= 100;\nloop invariant i8: z >= -100;\nloop invariant i9: x <= z ==> x == z ==> z == 100;\nloop invariant i10: x < 100 ==> x == 99 ==> z == 100;\nloop invariant i11: x < 100 ==> x == 98 ==> z >= 101;\nloop invariant i12: x >= 100 ==> z <= 100;\nloop invariant i13: x < 100 ==> z > 100;\nloop invariant i14: x < 100 ==> z > 100 ==> (x*z - x) mod 100 == 0;\nloop invariant i15: x < 100 ==> z > 100 ==> x*z > 10000;\nloop invariant i16: x < 100 ==> z > 100 ==> x*z < 10000;\nloop invariant i17: x < 100 ==> z > 100 ==> (x*z - x) mod 100 == 0 ==> x*z == 10000;\nloop invariant i18: x < 100 ==> z > 100 ==> x*z > 10000 ==> x*z == 10001;\nloop invariant i19: x < 100 ==> z > 100 ==> x*z < 10000 ==> x*z == 9999;\nloop invariant i20: 0 <= x < 100;\nloop invariant i21: 0 <= z < 100;\nloop invariant i22: x >= z;\nloop invariant i23: x + z <= 100;\nloop invariant i24: x - z >= 0;\nloop invariant i25: -100 <= x <= 100;\nloop invariant i26: 100 <= z <= 200;\nloop invariant i27: x + z <= 300;\nloop invariant i28: x + z >= 0;\nloop invariant i29: x < z ==> x + y < z;\nloop invariant i30: !(x < z) ==> x >= z;\nloop invariant i31: x >= 100 ==> z == x;\nloop invariant i32: x >= 100 ==> x - z <= 100;\nloop invariant i33: x >= 100 ==> x - z < 100;\nloop invariant i34: x < 100 ==> z <= 100;\nloop invariant i35: x < 100 ==> z >= 100;\nloop invariant i36: x < 100 ==> z == x;\nloop invariant i37: x < 100 ==> x - z <= 100;\nloop invariant i38: x < 100 ==> x - z >= -100;\nloop invariant i39: x < 100 ==> x - z < 100;\nloop invariant i40: x >= -100 && x <= 100 && z >= -100 && z <= 100 && x < 100 && 100 < z;\nloop invariant i41: x >= -100 && x <= 100 && z >= -100 && z <= 100 && x < 100 && 100 < z && if(tmp) then x++ else x--;\nloop invariant i42: x >= -100 && x <= 100 && z >= -100 && z <= 100 && (x >= 100 || z <= 100);\nloop invariant i43: z >= 100;\nloop invariant i44: x >= 100 ==> z > 100;\nloop invariant i45: -100 <= y <= 100;\nloop invariant i46: x >= (1 + (y - 1) * y / 2);\nloop invariant i47: x >= (1 + (z - 1) * z / 2);\nloop invariant i48: 100 <= z <= 100000;\nloop invariant i49: z - x == (x - 100) * (x - 99) / 2;\n*/\nwhile(x<100 && 100<z)\n    {\n        int  tmp=unknown_bool();\n        if(tmp){\n            x++;\n        } else {\n            x--;\n            z--;\n        }\n    }\n    {;\n//@ assert(x>=100 || z<=100);\n}\n\n    return 0;\n}",
+        "combined_annotation_num_solver_calls": 11,
+        "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\nextern _Bool unknown_bool(void);\n\nint main()\n{\n    int  x=unknown_int();\n    int y=unknown_int();\n    int  z=unknown_int();\nassume(x<100);\nassume(x>-100);\nassume(z<100);\nassume(z>-100);\n    /*@\n\nloop invariant i2: -100 <= z <= 100;\n\n\nloop invariant i5: z <= 100;\nloop invariant i6: x >= -100;\nloop invariant i7: x <= 100;\nloop invariant i8: z >= -100;\n\n\n\nloop invariant i12: x >= 100 ==> z <= 100;\n\n\nloop invariant i15: x < 100 ==> z > 100 ==> x*z > 10000;\nloop invariant i16: x < 100 ==> z > 100 ==> x*z < 10000;\n\nloop invariant i18: x < 100 ==> z > 100 ==> x*z > 10000 ==> x*z == 10001;\nloop invariant i19: x < 100 ==> z > 100 ==> x*z < 10000 ==> x*z == 9999;\n\n\n\n\n\nloop invariant i25: -100 <= x <= 100;\n\nloop invariant i27: x + z <= 300;\n\n\nloop invariant i30: !(x < z) ==> x >= z;\nloop invariant i31: x >= 100 ==> z == x;\nloop invariant i32: x >= 100 ==> x - z <= 100;\nloop invariant i33: x >= 100 ==> x - z < 100;\nloop invariant i34: x < 100 ==> z <= 100;\n\n\n\n\n\n\n\nloop invariant i42: x >= -100 && x <= 100 && z >= -100 && z <= 100 && (x >= 100 || z <= 100);\n\nloop invariant i44: x >= 100 ==> z > 100;\n\n\n\n\n\n*/\nwhile(x<100 && 100<z)\n    {\n        int  tmp=unknown_bool();\n        if(tmp){\n            x++;\n        } else {\n            x--;\n            z--;\n        }\n    }\n    {;\n//@ assert(x>=100 || z<=100);\n}\n\n    return 0;\n}",
+        "checker_output_after_prune": true
+    },
+    "stats": {
+        "success": [
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/MAP-CPA-example_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/MAP-disj_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/MAP-forward_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/MAP-interpolants_needed-pepm-proc.c_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-paper-prog_d-pepm-proc.c_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testabs12_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testabs13_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testabs15_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testabs7_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testabs8_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop10_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop11_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop13_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop14_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop15_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop16_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop1_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop29_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop2_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop4_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop6_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop7_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/NetBSD_g_Ctoc.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/NetBSD_loop.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/NetBSD_loop_int.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/bind_expands_vars2.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/gulwani_cegar1.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/gulwani_cegar2.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/ken-imp.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/rajamani_1.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/sendmail-mime-fromqp.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/sendmail-mime7to8_arr_three_chars_no_test_ok.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/simple.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/simple_if.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/split.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/up-nested.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/llreve/barthe_merged_safe.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/llreve/loop4_merged_safe.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-invgen/NetBSD_loop_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/afnp2014_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/bhmr2007_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/css2003_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/hhk2008_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/jm2006_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/jm2006_variant_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-new/count_by_1_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-new/count_by_1_variant_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-new/count_by_2_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-new/count_by_k_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/count_up_down_true-unreach-call_true-termination.i.annot.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/for_infinite_loop_1_true-unreach-call_false-termination.i.annot.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/for_infinite_loop_2_true-unreach-call_false-termination.i.annot.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/sum03_true-unreach-call_false-termination.i.annot.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/sum04_true-unreach-call_true-termination.i.annot.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/terminator_02_true-unreach-call_true-termination.i.annot.c"
+        ],
+        "failure": [
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/MAP-singleloop2-pepm-proc.c_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/gulwani_fig1a.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/sendmail-close-angle.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/llreve/barthe2_merged_safe.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-invgen/sendmail-close-angle_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/cggmp2005_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/cggmp2005_variant_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/gj2007_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/gr2006_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-new/half_true-unreach-call_true-termination.c"
+        ],
+        "skipped": [],
+        "total": 65,
+        "success_count": 55,
+        "failure_count": 10,
+        "success_rate": 0.8461538461538461
+    }
+}

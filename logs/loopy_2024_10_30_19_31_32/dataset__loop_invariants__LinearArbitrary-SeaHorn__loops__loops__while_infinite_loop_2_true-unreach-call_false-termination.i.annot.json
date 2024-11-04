@@ -1,0 +1,202 @@
+{
+    "logs": {
+        "file": "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/while_infinite_loop_2_true-unreach-call_false-termination.i.annot.c",
+        "benchmark_code": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(){\n  int  x=0;\n\n  while(1)\n  {\n    {;\n//@ assert(x==0);\n}\n\n  }\n\n  {;\n//@ assert(x==0);\n}\n\n}",
+        "success": true,
+        "annotation_blocks": [
+            "```\n/*@\nloop invariant x == 0;\nloop invariant 0 <= x <= 0;\n*/\n```",
+            "```\n/*@\nloop invariant x == 0;\nloop invariant y == 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 2147483647;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 2147483647;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 1;\nloop invariant x == 0 ==> x == 0;\n*/\n```",
+            "```\n/*@\nloop invariant x == 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 1;\nloop invariant x == 0;\nloop invariant x <= 1;\nloop invariant x == 0;\nloop invariant x <= 1;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 0;\nloop invariant 0 <= x <= 1;\nloop invariant 0 <= x <= 2;\nloop invariant 0 <= x <= 3;\nloop invariant 0 <= x <= 4;\nloop invariant 0 <= x <= 5;\nloop invariant 0 <= x <= 6;\nloop invariant 0 <= x <= 7;\nloop invariant 0 <= x <= 8;\nloop invariant 0 <= x <= 9;\nloop invariant 0 <= x <= 10;\nloop invariant 0 <= x <= 11;\nloop invariant 0 <= x <= 12;\nloop invariant 0 <= x <= 13;\nloop invariant 0 <= x <= 14;\nloop invariant 0 <= x <= 15;\nloop invariant 0 <= x <= 16;\nloop invariant 0 <= x <= 17;\nloop invariant 0 <= x <= 18;\nloop invariant 0 <= x <= 19;\nloop invariant 0 <= x <= 20;\nloop invariant 0 <= x <= 21;\nloop invariant 0 <= x <= 22;\nloop invariant 0 <= x <= 23;\nloop invariant 0 <= x <= 24;\nloop invariant 0 <= x <= 25;\nloop invariant 0 <= x <= 26;\nloop invariant 0 <= x <= 27;\nloop invariant 0 <= x <= 28;\nloop invariant 0 <= x <= 29;\nloop invariant 0 <= x <= 30;\nloop invariant 0 <= x <= 31;\nloop invariant 0 <= x <= 32;\nloop invariant 0 <= x <= 33;\nloop invariant 0 <= x <= 34;\nloop invariant 0 <= x <= 35;\nloop invariant 0 <= x <= 36;\nloop invariant 0 <= x <= 37;\nloop invariant 0 <= x <= 38;\nloop invariant 0 <= x <= 39;\nloop invariant 0 <= x <= 40;\nloop invariant 0 <= x <= 41;\nloop invariant 0 <= x <= 42;\nloop invariant 0 <= x <= 43;\nloop invariant 0 <= x <= 44;\nloop invariant 0 <= x <= 45;\nloop invariant 0 <= x <= 46;\nloop invariant 0 <= x <= 47;\nloop invariant 0 <= x <= 48;\nloop invariant 0 <= x <= 49;\nloop invariant 0 <= x <= 50;\nloop invariant 0 <= x <= 51;\nloop invariant 0 <= x <= 52;\nloop invariant 0 <= x <= 53;\nloop invariant 0 <= x <= 54;\nloop invariant 0 <= x <= 55;\nloop invariant 0 <= x <= 56;\nloop invariant 0 <= x <= 57;\nloop invariant 0 <= x <= 58;\nloop invariant 0 <= x <= 59;\nloop invariant 0 <= x <= 60;\nloop invariant 0 <= x <= 61;\nloop invariant 0 <= x <= 62;\nloop invariant 0 <= x <= 63;\nloop invariant 0 <= x <= 64;\nloop invariant 0 <= x <= 65;\nloop invariant 0 <= x <= 66;\nloop invariant 0 <= x <= 67;\nloop invariant 0 <= x <= 68;\nloop invariant 0 <= x <= 69;\nloop invariant 0 <= x <= 70;\nloop invariant 0 <= x <= 71;\nloop invariant 0 <= x <= 72;\nloop invariant 0 <= x <= 73;\nloop invariant 0 <= x <= 74;\nloop invariant 0 <= x <= 75;\nloop invariant 0 <= x <= 76;\nloop invariant 0 <= x <= 77;\nloop invariant 0 <= x <= 78;\nloop invariant 0 <= x <= 79;\nloop invariant 0 <= x <= 80;\nloop invariant 0 <= x <= 81;\nloop invariant 0 <= x <= 82;\nloop invariant 0 <= x <= 83;\nloop invariant 0 <= x <= 84;\nloop invariant 0 <= x <= 85;\nloop invariant 0 <= x <= 86;\nloop invariant 0 <= x <= 87;\nloop invariant 0 <= x <= 88;\nloop invariant 0 <= x <= 89;\nloop invariant 0 <= x <= 90;\n*/\n```",
+            "```\n/*@\nloop invariant ( x == 0 );\nloop invariant ( x >= 0 );\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 1;\nloop invariant x == 0 ==> x == 0;\nloop invariant x == 0 ==> x == 0;\n*/\n```",
+            "```\n/*@\nloop invariant x = 0;\nloop invariant 1 ==> x = 0;\nloop invariant 1 ==> x = 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 1;\nloop invariant x == 0 ==> x == 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x;\nloop invariant x <= 1;\nloop invariant x == 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x;\nloop invariant x <= 1;\nloop invariant x <= 0;\nloop invariant x >= 0;\nloop invariant x == 0;\n*/\n```",
+            "```\n/*@\nloop invariant x == 0;\nloop invariant 0 <= x <= 0;\nloop invariant x == 0 ==> x == 0;\nloop invariant x == 0 ==> x == 0;\nloop invariant x == 0 ==> x == 0;\n*/\n```"
+        ],
+        "completions": [
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant x == 0;\nloop invariant 0 <= x <= 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(){\n  int  x=0;\n\n  /*@\nloop invariant i1: x == 0;\nloop invariant i2: 0 <= x <= 0;\n*/\nwhile(1)\n  {\n    {;\n//@ assert(x==0);\n}\n\n  }\n\n  {;\n//@ assert(x==0);\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant x == 0;\nloop invariant y == 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(){\n  int  x=0;\n\n  /*@\nloop invariant i1: x == 0;\n\n*/\nwhile(1)\n  {\n    {;\n//@ assert(x==0);\n}\n\n  }\n\n  {;\n//@ assert(x==0);\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 2147483647;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(){\n  int  x=0;\n\n  /*@\nloop invariant i1: 0 <= x <= 2147483647;\n*/\nwhile(1)\n  {\n    {;\n//@ assert(x==0);\n}\n\n  }\n\n  {;\n//@ assert(x==0);\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 2147483647;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(){\n  int  x=0;\n\n  /*@\nloop invariant i1: 0 <= x <= 2147483647;\n*/\nwhile(1)\n  {\n    {;\n//@ assert(x==0);\n}\n\n  }\n\n  {;\n//@ assert(x==0);\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 1;\nloop invariant x == 0 ==> x == 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(){\n  int  x=0;\n\n  /*@\nloop invariant i1: 0 <= x <= 1;\nloop invariant i2: x == 0 ==> x == 0;\n*/\nwhile(1)\n  {\n    {;\n//@ assert(x==0);\n}\n\n  }\n\n  {;\n//@ assert(x==0);\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant x == 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(){\n  int  x=0;\n\n  /*@\nloop invariant i1: x == 0;\n*/\nwhile(1)\n  {\n    {;\n//@ assert(x==0);\n}\n\n  }\n\n  {;\n//@ assert(x==0);\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 1;\nloop invariant x == 0;\nloop invariant x <= 1;\nloop invariant x == 0;\nloop invariant x <= 1;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(){\n  int  x=0;\n\n  /*@\nloop invariant i1: 0 <= x <= 1;\nloop invariant i2: x == 0;\nloop invariant i3: x <= 1;\n*/\nwhile(1)\n  {\n    {;\n//@ assert(x==0);\n}\n\n  }\n\n  {;\n//@ assert(x==0);\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 0;\nloop invariant 0 <= x <= 1;\nloop invariant 0 <= x <= 2;\nloop invariant 0 <= x <= 3;\nloop invariant 0 <= x <= 4;\nloop invariant 0 <= x <= 5;\nloop invariant 0 <= x <= 6;\nloop invariant 0 <= x <= 7;\nloop invariant 0 <= x <= 8;\nloop invariant 0 <= x <= 9;\nloop invariant 0 <= x <= 10;\nloop invariant 0 <= x <= 11;\nloop invariant 0 <= x <= 12;\nloop invariant 0 <= x <= 13;\nloop invariant 0 <= x <= 14;\nloop invariant 0 <= x <= 15;\nloop invariant 0 <= x <= 16;\nloop invariant 0 <= x <= 17;\nloop invariant 0 <= x <= 18;\nloop invariant 0 <= x <= 19;\nloop invariant 0 <= x <= 20;\nloop invariant 0 <= x <= 21;\nloop invariant 0 <= x <= 22;\nloop invariant 0 <= x <= 23;\nloop invariant 0 <= x <= 24;\nloop invariant 0 <= x <= 25;\nloop invariant 0 <= x <= 26;\nloop invariant 0 <= x <= 27;\nloop invariant 0 <= x <= 28;\nloop invariant 0 <= x <= 29;\nloop invariant 0 <= x <= 30;\nloop invariant 0 <= x <= 31;\nloop invariant 0 <= x <= 32;\nloop invariant 0 <= x <= 33;\nloop invariant 0 <= x <= 34;\nloop invariant 0 <= x <= 35;\nloop invariant 0 <= x <= 36;\nloop invariant 0 <= x <= 37;\nloop invariant 0 <= x <= 38;\nloop invariant 0 <= x <= 39;\nloop invariant 0 <= x <= 40;\nloop invariant 0 <= x <= 41;\nloop invariant 0 <= x <= 42;\nloop invariant 0 <= x <= 43;\nloop invariant 0 <= x <= 44;\nloop invariant 0 <= x <= 45;\nloop invariant 0 <= x <= 46;\nloop invariant 0 <= x <= 47;\nloop invariant 0 <= x <= 48;\nloop invariant 0 <= x <= 49;\nloop invariant 0 <= x <= 50;\nloop invariant 0 <= x <= 51;\nloop invariant 0 <= x <= 52;\nloop invariant 0 <= x <= 53;\nloop invariant 0 <= x <= 54;\nloop invariant 0 <= x <= 55;\nloop invariant 0 <= x <= 56;\nloop invariant 0 <= x <= 57;\nloop invariant 0 <= x <= 58;\nloop invariant 0 <= x <= 59;\nloop invariant 0 <= x <= 60;\nloop invariant 0 <= x <= 61;\nloop invariant 0 <= x <= 62;\nloop invariant 0 <= x <= 63;\nloop invariant 0 <= x <= 64;\nloop invariant 0 <= x <= 65;\nloop invariant 0 <= x <= 66;\nloop invariant 0 <= x <= 67;\nloop invariant 0 <= x <= 68;\nloop invariant 0 <= x <= 69;\nloop invariant 0 <= x <= 70;\nloop invariant 0 <= x <= 71;\nloop invariant 0 <= x <= 72;\nloop invariant 0 <= x <= 73;\nloop invariant 0 <= x <= 74;\nloop invariant 0 <= x <= 75;\nloop invariant 0 <= x <= 76;\nloop invariant 0 <= x <= 77;\nloop invariant 0 <= x <= 78;\nloop invariant 0 <= x <= 79;\nloop invariant 0 <= x <= 80;\nloop invariant 0 <= x <= 81;\nloop invariant 0 <= x <= 82;\nloop invariant 0 <= x <= 83;\nloop invariant 0 <= x <= 84;\nloop invariant 0 <= x <= 85;\nloop invariant 0 <= x <= 86;\nloop invariant 0 <= x <= 87;\nloop invariant 0 <= x <= 88;\nloop invariant 0 <= x <= 89;\nloop invariant 0 <= x <= 90;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(){\n  int  x=0;\n\n  /*@\nloop invariant i1: 0 <= x <= 0;\nloop invariant i2: 0 <= x <= 1;\nloop invariant i3: 0 <= x <= 2;\nloop invariant i4: 0 <= x <= 3;\nloop invariant i5: 0 <= x <= 4;\nloop invariant i6: 0 <= x <= 5;\nloop invariant i7: 0 <= x <= 6;\nloop invariant i8: 0 <= x <= 7;\nloop invariant i9: 0 <= x <= 8;\nloop invariant i10: 0 <= x <= 9;\nloop invariant i11: 0 <= x <= 10;\nloop invariant i12: 0 <= x <= 11;\nloop invariant i13: 0 <= x <= 12;\nloop invariant i14: 0 <= x <= 13;\nloop invariant i15: 0 <= x <= 14;\nloop invariant i16: 0 <= x <= 15;\nloop invariant i17: 0 <= x <= 16;\nloop invariant i18: 0 <= x <= 17;\nloop invariant i19: 0 <= x <= 18;\nloop invariant i20: 0 <= x <= 19;\nloop invariant i21: 0 <= x <= 20;\nloop invariant i22: 0 <= x <= 21;\nloop invariant i23: 0 <= x <= 22;\nloop invariant i24: 0 <= x <= 23;\nloop invariant i25: 0 <= x <= 24;\nloop invariant i26: 0 <= x <= 25;\nloop invariant i27: 0 <= x <= 26;\nloop invariant i28: 0 <= x <= 27;\nloop invariant i29: 0 <= x <= 28;\nloop invariant i30: 0 <= x <= 29;\nloop invariant i31: 0 <= x <= 30;\nloop invariant i32: 0 <= x <= 31;\nloop invariant i33: 0 <= x <= 32;\nloop invariant i34: 0 <= x <= 33;\nloop invariant i35: 0 <= x <= 34;\nloop invariant i36: 0 <= x <= 35;\nloop invariant i37: 0 <= x <= 36;\nloop invariant i38: 0 <= x <= 37;\nloop invariant i39: 0 <= x <= 38;\nloop invariant i40: 0 <= x <= 39;\nloop invariant i41: 0 <= x <= 40;\nloop invariant i42: 0 <= x <= 41;\nloop invariant i43: 0 <= x <= 42;\nloop invariant i44: 0 <= x <= 43;\nloop invariant i45: 0 <= x <= 44;\nloop invariant i46: 0 <= x <= 45;\nloop invariant i47: 0 <= x <= 46;\nloop invariant i48: 0 <= x <= 47;\nloop invariant i49: 0 <= x <= 48;\nloop invariant i50: 0 <= x <= 49;\nloop invariant i51: 0 <= x <= 50;\nloop invariant i52: 0 <= x <= 51;\nloop invariant i53: 0 <= x <= 52;\nloop invariant i54: 0 <= x <= 53;\nloop invariant i55: 0 <= x <= 54;\nloop invariant i56: 0 <= x <= 55;\nloop invariant i57: 0 <= x <= 56;\nloop invariant i58: 0 <= x <= 57;\nloop invariant i59: 0 <= x <= 58;\nloop invariant i60: 0 <= x <= 59;\nloop invariant i61: 0 <= x <= 60;\nloop invariant i62: 0 <= x <= 61;\nloop invariant i63: 0 <= x <= 62;\nloop invariant i64: 0 <= x <= 63;\nloop invariant i65: 0 <= x <= 64;\nloop invariant i66: 0 <= x <= 65;\nloop invariant i67: 0 <= x <= 66;\nloop invariant i68: 0 <= x <= 67;\nloop invariant i69: 0 <= x <= 68;\nloop invariant i70: 0 <= x <= 69;\nloop invariant i71: 0 <= x <= 70;\nloop invariant i72: 0 <= x <= 71;\nloop invariant i73: 0 <= x <= 72;\nloop invariant i74: 0 <= x <= 73;\nloop invariant i75: 0 <= x <= 74;\nloop invariant i76: 0 <= x <= 75;\nloop invariant i77: 0 <= x <= 76;\nloop invariant i78: 0 <= x <= 77;\nloop invariant i79: 0 <= x <= 78;\nloop invariant i80: 0 <= x <= 79;\nloop invariant i81: 0 <= x <= 80;\nloop invariant i82: 0 <= x <= 81;\nloop invariant i83: 0 <= x <= 82;\nloop invariant i84: 0 <= x <= 83;\nloop invariant i85: 0 <= x <= 84;\nloop invariant i86: 0 <= x <= 85;\nloop invariant i87: 0 <= x <= 86;\nloop invariant i88: 0 <= x <= 87;\nloop invariant i89: 0 <= x <= 88;\nloop invariant i90: 0 <= x <= 89;\nloop invariant i91: 0 <= x <= 90;\n*/\nwhile(1)\n  {\n    {;\n//@ assert(x==0);\n}\n\n  }\n\n  {;\n//@ assert(x==0);\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant ( x == 0 );\nloop invariant ( x >= 0 );\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(){\n  int  x=0;\n\n  /*@\nloop invariant i1: ( x == 0 );\nloop invariant i2: ( x >= 0 );\n*/\nwhile(1)\n  {\n    {;\n//@ assert(x==0);\n}\n\n  }\n\n  {;\n//@ assert(x==0);\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 1;\nloop invariant x == 0 ==> x == 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(){\n  int  x=0;\n\n  /*@\nloop invariant i1: 0 <= x <= 1;\nloop invariant i2: x == 0 ==> x == 0;\n*/\nwhile(1)\n  {\n    {;\n//@ assert(x==0);\n}\n\n  }\n\n  {;\n//@ assert(x==0);\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant x = 0;\nloop invariant 1 ==> x = 0;\nloop invariant 1 ==> x = 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(){\n  int  x=0;\n\n  /*@\n\n\n*/\nwhile(1)\n  {\n    {;\n//@ assert(x==0);\n}\n\n  }\n\n  {;\n//@ assert(x==0);\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 1;\nloop invariant x == 0 ==> x == 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(){\n  int  x=0;\n\n  /*@\nloop invariant i1: 0 <= x <= 1;\nloop invariant i2: x == 0 ==> x == 0;\n*/\nwhile(1)\n  {\n    {;\n//@ assert(x==0);\n}\n\n  }\n\n  {;\n//@ assert(x==0);\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x;\nloop invariant x <= 1;\nloop invariant x == 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(){\n  int  x=0;\n\n  /*@\nloop invariant i1: 0 <= x;\nloop invariant i2: x <= 1;\nloop invariant i3: x == 0;\n*/\nwhile(1)\n  {\n    {;\n//@ assert(x==0);\n}\n\n  }\n\n  {;\n//@ assert(x==0);\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x;\nloop invariant x <= 1;\nloop invariant x <= 0;\nloop invariant x >= 0;\nloop invariant x == 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(){\n  int  x=0;\n\n  /*@\nloop invariant i1: 0 <= x;\nloop invariant i2: x <= 1;\nloop invariant i3: x <= 0;\nloop invariant i4: x >= 0;\nloop invariant i5: x == 0;\n*/\nwhile(1)\n  {\n    {;\n//@ assert(x==0);\n}\n\n  }\n\n  {;\n//@ assert(x==0);\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant x == 0;\nloop invariant 0 <= x <= 0;\nloop invariant x == 0 ==> x == 0;\nloop invariant x == 0 ==> x == 0;\nloop invariant x == 0 ==> x == 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(){\n  int  x=0;\n\n  /*@\nloop invariant i1: x == 0;\nloop invariant i2: 0 <= x <= 0;\nloop invariant i3: x == 0 ==> x == 0;\n*/\nwhile(1)\n  {\n    {;\n//@ assert(x==0);\n}\n\n  }\n\n  {;\n//@ assert(x==0);\n}\n\n}",
+                "checker_output_after_prune": true
+            }
+        ],
+        "checker_output_for_combined_annotations": false,
+        "checker_message_for_combined_annotations": "Annotation error on line 109: Assignment operators not allowed in annotations.",
+        "code_with_combined_annotations": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(){\n  int  x=0;\n\n  /*@\nloop invariant i1: x == 0;\nloop invariant i2: 0 <= x <= 0;\nloop invariant i3: y == 0;\nloop invariant i4: 0 <= x <= 2147483647;\nloop invariant i5: 0 <= x <= 1;\nloop invariant i6: x == 0 ==> x == 0;\nloop invariant i7: x <= 1;\nloop invariant i8: 0 <= x <= 2;\nloop invariant i9: 0 <= x <= 3;\nloop invariant i10: 0 <= x <= 4;\nloop invariant i11: 0 <= x <= 5;\nloop invariant i12: 0 <= x <= 6;\nloop invariant i13: 0 <= x <= 7;\nloop invariant i14: 0 <= x <= 8;\nloop invariant i15: 0 <= x <= 9;\nloop invariant i16: 0 <= x <= 10;\nloop invariant i17: 0 <= x <= 11;\nloop invariant i18: 0 <= x <= 12;\nloop invariant i19: 0 <= x <= 13;\nloop invariant i20: 0 <= x <= 14;\nloop invariant i21: 0 <= x <= 15;\nloop invariant i22: 0 <= x <= 16;\nloop invariant i23: 0 <= x <= 17;\nloop invariant i24: 0 <= x <= 18;\nloop invariant i25: 0 <= x <= 19;\nloop invariant i26: 0 <= x <= 20;\nloop invariant i27: 0 <= x <= 21;\nloop invariant i28: 0 <= x <= 22;\nloop invariant i29: 0 <= x <= 23;\nloop invariant i30: 0 <= x <= 24;\nloop invariant i31: 0 <= x <= 25;\nloop invariant i32: 0 <= x <= 26;\nloop invariant i33: 0 <= x <= 27;\nloop invariant i34: 0 <= x <= 28;\nloop invariant i35: 0 <= x <= 29;\nloop invariant i36: 0 <= x <= 30;\nloop invariant i37: 0 <= x <= 31;\nloop invariant i38: 0 <= x <= 32;\nloop invariant i39: 0 <= x <= 33;\nloop invariant i40: 0 <= x <= 34;\nloop invariant i41: 0 <= x <= 35;\nloop invariant i42: 0 <= x <= 36;\nloop invariant i43: 0 <= x <= 37;\nloop invariant i44: 0 <= x <= 38;\nloop invariant i45: 0 <= x <= 39;\nloop invariant i46: 0 <= x <= 40;\nloop invariant i47: 0 <= x <= 41;\nloop invariant i48: 0 <= x <= 42;\nloop invariant i49: 0 <= x <= 43;\nloop invariant i50: 0 <= x <= 44;\nloop invariant i51: 0 <= x <= 45;\nloop invariant i52: 0 <= x <= 46;\nloop invariant i53: 0 <= x <= 47;\nloop invariant i54: 0 <= x <= 48;\nloop invariant i55: 0 <= x <= 49;\nloop invariant i56: 0 <= x <= 50;\nloop invariant i57: 0 <= x <= 51;\nloop invariant i58: 0 <= x <= 52;\nloop invariant i59: 0 <= x <= 53;\nloop invariant i60: 0 <= x <= 54;\nloop invariant i61: 0 <= x <= 55;\nloop invariant i62: 0 <= x <= 56;\nloop invariant i63: 0 <= x <= 57;\nloop invariant i64: 0 <= x <= 58;\nloop invariant i65: 0 <= x <= 59;\nloop invariant i66: 0 <= x <= 60;\nloop invariant i67: 0 <= x <= 61;\nloop invariant i68: 0 <= x <= 62;\nloop invariant i69: 0 <= x <= 63;\nloop invariant i70: 0 <= x <= 64;\nloop invariant i71: 0 <= x <= 65;\nloop invariant i72: 0 <= x <= 66;\nloop invariant i73: 0 <= x <= 67;\nloop invariant i74: 0 <= x <= 68;\nloop invariant i75: 0 <= x <= 69;\nloop invariant i76: 0 <= x <= 70;\nloop invariant i77: 0 <= x <= 71;\nloop invariant i78: 0 <= x <= 72;\nloop invariant i79: 0 <= x <= 73;\nloop invariant i80: 0 <= x <= 74;\nloop invariant i81: 0 <= x <= 75;\nloop invariant i82: 0 <= x <= 76;\nloop invariant i83: 0 <= x <= 77;\nloop invariant i84: 0 <= x <= 78;\nloop invariant i85: 0 <= x <= 79;\nloop invariant i86: 0 <= x <= 80;\nloop invariant i87: 0 <= x <= 81;\nloop invariant i88: 0 <= x <= 82;\nloop invariant i89: 0 <= x <= 83;\nloop invariant i90: 0 <= x <= 84;\nloop invariant i91: 0 <= x <= 85;\nloop invariant i92: 0 <= x <= 86;\nloop invariant i93: 0 <= x <= 87;\nloop invariant i94: 0 <= x <= 88;\nloop invariant i95: 0 <= x <= 89;\nloop invariant i96: 0 <= x <= 90;\nloop invariant i97: ( x == 0 );\nloop invariant i98: ( x >= 0 );\nloop invariant i99: x = 0;\nloop invariant i100: 1 ==> x = 0;\nloop invariant i101: 0 <= x;\nloop invariant i102: x <= 0;\nloop invariant i103: x >= 0;\n*/\nwhile(1)\n  {\n    {;\n//@ assert(x==0);\n}\n\n  }\n\n  {;\n//@ assert(x==0);\n}\n\n}",
+        "combined_annotation_num_solver_calls": 4,
+        "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(){\n  int  x=0;\n\n  /*@\nloop invariant i1: x == 0;\nloop invariant i2: 0 <= x <= 0;\n\nloop invariant i4: 0 <= x <= 2147483647;\nloop invariant i5: 0 <= x <= 1;\nloop invariant i6: x == 0 ==> x == 0;\nloop invariant i7: x <= 1;\nloop invariant i8: 0 <= x <= 2;\nloop invariant i9: 0 <= x <= 3;\nloop invariant i10: 0 <= x <= 4;\nloop invariant i11: 0 <= x <= 5;\nloop invariant i12: 0 <= x <= 6;\nloop invariant i13: 0 <= x <= 7;\nloop invariant i14: 0 <= x <= 8;\nloop invariant i15: 0 <= x <= 9;\nloop invariant i16: 0 <= x <= 10;\nloop invariant i17: 0 <= x <= 11;\nloop invariant i18: 0 <= x <= 12;\nloop invariant i19: 0 <= x <= 13;\nloop invariant i20: 0 <= x <= 14;\nloop invariant i21: 0 <= x <= 15;\nloop invariant i22: 0 <= x <= 16;\nloop invariant i23: 0 <= x <= 17;\nloop invariant i24: 0 <= x <= 18;\nloop invariant i25: 0 <= x <= 19;\nloop invariant i26: 0 <= x <= 20;\nloop invariant i27: 0 <= x <= 21;\nloop invariant i28: 0 <= x <= 22;\nloop invariant i29: 0 <= x <= 23;\nloop invariant i30: 0 <= x <= 24;\nloop invariant i31: 0 <= x <= 25;\nloop invariant i32: 0 <= x <= 26;\nloop invariant i33: 0 <= x <= 27;\nloop invariant i34: 0 <= x <= 28;\nloop invariant i35: 0 <= x <= 29;\nloop invariant i36: 0 <= x <= 30;\nloop invariant i37: 0 <= x <= 31;\nloop invariant i38: 0 <= x <= 32;\nloop invariant i39: 0 <= x <= 33;\nloop invariant i40: 0 <= x <= 34;\nloop invariant i41: 0 <= x <= 35;\nloop invariant i42: 0 <= x <= 36;\nloop invariant i43: 0 <= x <= 37;\nloop invariant i44: 0 <= x <= 38;\nloop invariant i45: 0 <= x <= 39;\nloop invariant i46: 0 <= x <= 40;\nloop invariant i47: 0 <= x <= 41;\nloop invariant i48: 0 <= x <= 42;\nloop invariant i49: 0 <= x <= 43;\nloop invariant i50: 0 <= x <= 44;\nloop invariant i51: 0 <= x <= 45;\nloop invariant i52: 0 <= x <= 46;\nloop invariant i53: 0 <= x <= 47;\nloop invariant i54: 0 <= x <= 48;\nloop invariant i55: 0 <= x <= 49;\nloop invariant i56: 0 <= x <= 50;\nloop invariant i57: 0 <= x <= 51;\nloop invariant i58: 0 <= x <= 52;\nloop invariant i59: 0 <= x <= 53;\nloop invariant i60: 0 <= x <= 54;\nloop invariant i61: 0 <= x <= 55;\nloop invariant i62: 0 <= x <= 56;\nloop invariant i63: 0 <= x <= 57;\nloop invariant i64: 0 <= x <= 58;\nloop invariant i65: 0 <= x <= 59;\nloop invariant i66: 0 <= x <= 60;\nloop invariant i67: 0 <= x <= 61;\nloop invariant i68: 0 <= x <= 62;\nloop invariant i69: 0 <= x <= 63;\nloop invariant i70: 0 <= x <= 64;\nloop invariant i71: 0 <= x <= 65;\nloop invariant i72: 0 <= x <= 66;\nloop invariant i73: 0 <= x <= 67;\nloop invariant i74: 0 <= x <= 68;\nloop invariant i75: 0 <= x <= 69;\nloop invariant i76: 0 <= x <= 70;\nloop invariant i77: 0 <= x <= 71;\nloop invariant i78: 0 <= x <= 72;\nloop invariant i79: 0 <= x <= 73;\nloop invariant i80: 0 <= x <= 74;\nloop invariant i81: 0 <= x <= 75;\nloop invariant i82: 0 <= x <= 76;\nloop invariant i83: 0 <= x <= 77;\nloop invariant i84: 0 <= x <= 78;\nloop invariant i85: 0 <= x <= 79;\nloop invariant i86: 0 <= x <= 80;\nloop invariant i87: 0 <= x <= 81;\nloop invariant i88: 0 <= x <= 82;\nloop invariant i89: 0 <= x <= 83;\nloop invariant i90: 0 <= x <= 84;\nloop invariant i91: 0 <= x <= 85;\nloop invariant i92: 0 <= x <= 86;\nloop invariant i93: 0 <= x <= 87;\nloop invariant i94: 0 <= x <= 88;\nloop invariant i95: 0 <= x <= 89;\nloop invariant i96: 0 <= x <= 90;\nloop invariant i97: ( x == 0 );\nloop invariant i98: ( x >= 0 );\n\n\nloop invariant i101: 0 <= x;\nloop invariant i102: x <= 0;\nloop invariant i103: x >= 0;\n*/\nwhile(1)\n  {\n    {;\n//@ assert(x==0);\n}\n\n  }\n\n  {;\n//@ assert(x==0);\n}\n\n}",
+        "checker_output_after_prune": true
+    },
+    "stats": {
+        "success": [
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/MAP-CPA-example_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/MAP-disj_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/MAP-forward_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/MAP-interpolants_needed-pepm-proc.c_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/MAP-singleloop2-pepm-proc.c_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-paper-prog_d-pepm-proc.c_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testabs12_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testabs13_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testabs15_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testabs7_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testabs8_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop10_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop11_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop13_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop14_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop15_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop16_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop1_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop29_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop2_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop4_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop6_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop7_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/NetBSD_loop_int.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/bind_expands_vars2.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/gulwani_cegar1.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/ken-imp.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/rajamani_1.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/sendmail-mime-fromqp.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/sendmail-mime7to8_arr_three_chars_no_test_ok.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/simple.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/simple_if.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/up-nested.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/llreve/barthe_merged_safe.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/llreve/loop4_merged_safe.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-invgen/NetBSD_loop_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-invgen/sendmail-close-angle_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/afnp2014_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/bhmr2007_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/cggmp2005_variant_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/css2003_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/gj2007_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/hhk2008_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/jm2006_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/jm2006_variant_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-new/count_by_1_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-new/count_by_1_variant_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-new/count_by_2_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-new/count_by_k_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/count_up_down_true-unreach-call_true-termination.i.annot.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/for_infinite_loop_1_true-unreach-call_false-termination.i.annot.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/for_infinite_loop_2_true-unreach-call_false-termination.i.annot.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/sum03_true-unreach-call_false-termination.i.annot.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/sum04_true-unreach-call_true-termination.i.annot.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/terminator_02_true-unreach-call_true-termination.i.annot.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/terminator_03_true-unreach-call_true-termination.i.annot.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/trex03_true-unreach-call.i.annot.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/while_infinite_loop_1_true-unreach-call_false-termination.i.annot.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/while_infinite_loop_2_true-unreach-call_false-termination.i.annot.c"
+        ],
+        "failure": [
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/NetBSD_g_Ctoc.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/NetBSD_loop.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/gulwani_cegar2.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/gulwani_fig1a.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/sendmail-close-angle.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/split.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/llreve/barthe2_merged_safe.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/cggmp2005_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/gr2006_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-new/half_true-unreach-call_true-termination.c"
+        ],
+        "skipped": [],
+        "total": 69,
+        "success_count": 59,
+        "failure_count": 10,
+        "success_rate": 0.855072463768116
+    }
+}

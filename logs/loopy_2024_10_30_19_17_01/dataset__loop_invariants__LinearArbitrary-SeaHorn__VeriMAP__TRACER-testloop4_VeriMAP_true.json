@@ -1,0 +1,154 @@
+{
+    "logs": {
+        "file": "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop4_VeriMAP_true.c",
+        "benchmark_code": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nvoid errorFn() {ERROR: goto ERROR;}\nvoid main(){\n  int x,N;\n  int a;\n\n  a=0;\n  N =10;\n  x = 0;\n  do {\n    x=x+1;\n  } while (x != N);\n\n  {;\n//@ assert(!( a > 1 ));\n}\n\n}",
+        "success": true,
+        "annotation_blocks": [
+            "```\n/*@\nloop invariant 0 <= x <= 10;\nloop invariant x == N;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant x + 1 == N;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant x >= N ==> a > 1;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= N;loop invariant !(x > N);loop invariant !(x < 0);loop invariant !(x < N) ==> x == N;loop invariant !(x < 0) ==> x > 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant x >= N ==> a <= 1;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant a <= 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant a == x;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant a == 0;\nloop invariant 0 <= x <= N;\nloop invariant a == 0;\nloop invariant 0 <= x <= N;\nloop invariant a == 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= a <= 1;\nloop invariant x >= 0;\nloop invariant x <= N;\nloop invariant x + 1 > N ==> a >= 1;\nloop invariant x + 1 > N ==> a == 1;\nloop invariant x + 1 <= N ==> a == 0;\nloop invariant x == N ==> a == 0;\nloop invariant x == N ==> a <= 1;\nloop invariant x == N ==> a >= 0;\n*/\n```",
+            "```\n/*@\nloop invariant 1 <= x <= N;\nloop invariant a == 0;\n*/\n```",
+            "```\n/*@\nloop invariant N > 0;\nloop invariant 0 <= x <= N;\nloop invariant x <= N;\nloop invariant x >= (N - 1);\nloop invariant x == N;\nloop invariant !(a > 1);\nloop invariant !(a > 1);\n*/\n```",
+            "```\n/*@\nloop invariant x >= 0;\nloop invariant x <= N;\nloop invariant x == N ==> a == 0;\nloop invariant a == 0 ==> x < N;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 10;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant a == 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= N;\n*/\n```"
+        ],
+        "completions": [
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 10;\nloop invariant x == N;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nvoid errorFn() {ERROR: goto ERROR;}\nvoid main(){\n  int x,N;\n  int a;\n\n  a=0;\n  N =10;\n  x = 0;\n  /*@\n\n\n*/\ndo {\n    x=x+1;\n  } while (x != N);\n\n  {;\n//@ assert(!( a > 1 ));\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant x + 1 == N;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nvoid errorFn() {ERROR: goto ERROR;}\nvoid main(){\n  int x,N;\n  int a;\n\n  a=0;\n  N =10;\n  x = 0;\n  /*@\n\n\n*/\ndo {\n    x=x+1;\n  } while (x != N);\n\n  {;\n//@ assert(!( a > 1 ));\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant x >= N ==> a > 1;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nvoid errorFn() {ERROR: goto ERROR;}\nvoid main(){\n  int x,N;\n  int a;\n\n  a=0;\n  N =10;\n  x = 0;\n  /*@\n\nloop invariant i2: x >= N ==> a > 1;\n*/\ndo {\n    x=x+1;\n  } while (x != N);\n\n  {;\n//@ assert(!( a > 1 ));\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= N;loop invariant !(x > N);loop invariant !(x < 0);loop invariant !(x < N) ==> x == N;loop invariant !(x < 0) ==> x > 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nvoid errorFn() {ERROR: goto ERROR;}\nvoid main(){\n  int x,N;\n  int a;\n\n  a=0;\n  N =10;\n  x = 0;\n  /*@\nloop invariant i1: 0 <= x <= N;loop invariant !(x > N);loop invariant !(x < 0);loop invariant !(x < N) ==> x == N;loop invariant !(x < 0) ==> x > 0;\n*/\ndo {\n    x=x+1;\n  } while (x != N);\n\n  {;\n//@ assert(!( a > 1 ));\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant x >= N ==> a <= 1;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nvoid errorFn() {ERROR: goto ERROR;}\nvoid main(){\n  int x,N;\n  int a;\n\n  a=0;\n  N =10;\n  x = 0;\n  /*@\n\nloop invariant i2: x >= N ==> a <= 1;\n*/\ndo {\n    x=x+1;\n  } while (x != N);\n\n  {;\n//@ assert(!( a > 1 ));\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant a <= 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nvoid errorFn() {ERROR: goto ERROR;}\nvoid main(){\n  int x,N;\n  int a;\n\n  a=0;\n  N =10;\n  x = 0;\n  /*@\n\nloop invariant i2: a <= 0;\n*/\ndo {\n    x=x+1;\n  } while (x != N);\n\n  {;\n//@ assert(!( a > 1 ));\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant a == x;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nvoid errorFn() {ERROR: goto ERROR;}\nvoid main(){\n  int x,N;\n  int a;\n\n  a=0;\n  N =10;\n  x = 0;\n  /*@\n\n\n*/\ndo {\n    x=x+1;\n  } while (x != N);\n\n  {;\n//@ assert(!( a > 1 ));\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant a == 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nvoid errorFn() {ERROR: goto ERROR;}\nvoid main(){\n  int x,N;\n  int a;\n\n  a=0;\n  N =10;\n  x = 0;\n  /*@\n\nloop invariant i2: a == 0;\n*/\ndo {\n    x=x+1;\n  } while (x != N);\n\n  {;\n//@ assert(!( a > 1 ));\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= a <= 1;\nloop invariant x >= 0;\nloop invariant x <= N;\nloop invariant x + 1 > N ==> a >= 1;\nloop invariant x + 1 > N ==> a == 1;\nloop invariant x + 1 <= N ==> a == 0;\nloop invariant x == N ==> a == 0;\nloop invariant x == N ==> a <= 1;\nloop invariant x == N ==> a >= 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nvoid errorFn() {ERROR: goto ERROR;}\nvoid main(){\n  int x,N;\n  int a;\n\n  a=0;\n  N =10;\n  x = 0;\n  /*@\nloop invariant i1: 0 <= a <= 1;\nloop invariant i2: x >= 0;\nloop invariant i3: x <= N;\nloop invariant i4: x + 1 > N ==> a >= 1;\nloop invariant i5: x + 1 > N ==> a == 1;\nloop invariant i6: x + 1 <= N ==> a == 0;\nloop invariant i7: x == N ==> a == 0;\nloop invariant i8: x == N ==> a <= 1;\nloop invariant i9: x == N ==> a >= 0;\n*/\ndo {\n    x=x+1;\n  } while (x != N);\n\n  {;\n//@ assert(!( a > 1 ));\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 1 <= x <= N;\nloop invariant a == 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nvoid errorFn() {ERROR: goto ERROR;}\nvoid main(){\n  int x,N;\n  int a;\n\n  a=0;\n  N =10;\n  x = 0;\n  /*@\n\nloop invariant i2: a == 0;\n*/\ndo {\n    x=x+1;\n  } while (x != N);\n\n  {;\n//@ assert(!( a > 1 ));\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 4,
+                "annotations": "```\n/*@\nloop invariant N > 0;\nloop invariant 0 <= x <= N;\nloop invariant x <= N;\nloop invariant x >= (N - 1);\nloop invariant x == N;\nloop invariant !(a > 1);\nloop invariant !(a > 1);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nvoid errorFn() {ERROR: goto ERROR;}\nvoid main(){\n  int x,N;\n  int a;\n\n  a=0;\n  N =10;\n  x = 0;\n  /*@\nloop invariant i1: N > 0;\n\n\n\n\nloop invariant i6: !(a > 1);\n*/\ndo {\n    x=x+1;\n  } while (x != N);\n\n  {;\n//@ assert(!( a > 1 ));\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant x >= 0;\nloop invariant x <= N;\nloop invariant x == N ==> a == 0;\nloop invariant a == 0 ==> x < N;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nvoid errorFn() {ERROR: goto ERROR;}\nvoid main(){\n  int x,N;\n  int a;\n\n  a=0;\n  N =10;\n  x = 0;\n  /*@\nloop invariant i1: x >= 0;\nloop invariant i2: x <= N;\nloop invariant i3: x == N ==> a == 0;\nloop invariant i4: a == 0 ==> x < N;\n*/\ndo {\n    x=x+1;\n  } while (x != N);\n\n  {;\n//@ assert(!( a > 1 ));\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 10;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nvoid errorFn() {ERROR: goto ERROR;}\nvoid main(){\n  int x,N;\n  int a;\n\n  a=0;\n  N =10;\n  x = 0;\n  /*@\n\n*/\ndo {\n    x=x+1;\n  } while (x != N);\n\n  {;\n//@ assert(!( a > 1 ));\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant a == 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nvoid errorFn() {ERROR: goto ERROR;}\nvoid main(){\n  int x,N;\n  int a;\n\n  a=0;\n  N =10;\n  x = 0;\n  /*@\n\nloop invariant i2: a == 0;\n*/\ndo {\n    x=x+1;\n  } while (x != N);\n\n  {;\n//@ assert(!( a > 1 ));\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= N;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nvoid errorFn() {ERROR: goto ERROR;}\nvoid main(){\n  int x,N;\n  int a;\n\n  a=0;\n  N =10;\n  x = 0;\n  /*@\n\n*/\ndo {\n    x=x+1;\n  } while (x != N);\n\n  {;\n//@ assert(!( a > 1 ));\n}\n\n}",
+                "checker_output_after_prune": false
+            }
+        ],
+        "checker_output_for_combined_annotations": false,
+        "checker_message_for_combined_annotations": "loop invariant 0 <= x <= 10 is partially proven to be inductive.\nloop invariant x == N is preserved but not established.\nloop invariant 0 <= x <= N is partially proven to be inductive.\nloop invariant x + 1 == N is partially proven to be inductive.\nloop invariant x >= N ==> a > 1 is partially proven to be inductive.\nloop invariant 0 <= x <= N;loop invariant !(x > N);loop invariant !(x < 0);loop invariant !(x < N) ==> x == N;loop invariant !(x < 0) ==> x > 0 is partially proven to be inductive.\nloop invariant x >= N ==> a <= 1 is partially proven to be inductive.\nloop invariant a <= 0 is partially proven to be inductive.\nloop invariant a == x is partially proven to be inductive.\nloop invariant a == 0 is partially proven to be inductive.\nloop invariant 0 <= a <= 1 is partially proven to be inductive.\nloop invariant x >= 0 is partially proven to be inductive.\nloop invariant x <= N is partially proven to be inductive.\nloop invariant x + 1 > N ==> a >= 1 is partially proven to be inductive.\nloop invariant x + 1 > N ==> a == 1 is partially proven to be inductive.\nloop invariant x + 1 <= N ==> a == 0 is partially proven to be inductive.\nloop invariant x == N ==> a == 0 is partially proven to be inductive.\nloop invariant x == N ==> a <= 1 is partially proven to be inductive.\nloop invariant x == N ==> a >= 0 is partially proven to be inductive.\nloop invariant 1 <= x <= N is partially proven to be inductive.\nloop invariant N > 0 is partially proven to be inductive.\nloop invariant x >= (N - 1) is partially proven to be inductive.\nloop invariant !(a > 1) is partially proven to be inductive.\nloop invariant a == 0 ==> x < N is partially proven to be inductive.\nAssertion !(a > 1): Partially proven",
+        "code_with_combined_annotations": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nvoid errorFn() {ERROR: goto ERROR;}\nvoid main(){\n  int x,N;\n  int a;\n\n  a=0;\n  N =10;\n  x = 0;\n  /*@\nloop invariant i1: 0 <= x <= 10;\nloop invariant i2: x == N;\nloop invariant i3: 0 <= x <= N;\nloop invariant i4: x + 1 == N;\nloop invariant i5: x >= N ==> a > 1;\nloop invariant i6: 0 <= x <= N;loop invariant !(x > N);loop invariant !(x < 0);loop invariant !(x < N) ==> x == N;loop invariant !(x < 0) ==> x > 0;\nloop invariant i7: x >= N ==> a <= 1;\nloop invariant i8: a <= 0;\nloop invariant i9: a == x;\nloop invariant i10: a == 0;\nloop invariant i11: 0 <= a <= 1;\nloop invariant i12: x >= 0;\nloop invariant i13: x <= N;\nloop invariant i14: x + 1 > N ==> a >= 1;\nloop invariant i15: x + 1 > N ==> a == 1;\nloop invariant i16: x + 1 <= N ==> a == 0;\nloop invariant i17: x == N ==> a == 0;\nloop invariant i18: x == N ==> a <= 1;\nloop invariant i19: x == N ==> a >= 0;\nloop invariant i20: 1 <= x <= N;\nloop invariant i21: N > 0;\nloop invariant i22: x >= (N - 1);\nloop invariant i23: !(a > 1);\nloop invariant i24: a == 0 ==> x < N;\n*/\ndo {\n    x=x+1;\n  } while (x != N);\n\n  {;\n//@ assert(!( a > 1 ));\n}\n\n}",
+        "combined_annotation_num_solver_calls": 4,
+        "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nvoid errorFn() {ERROR: goto ERROR;}\nvoid main(){\n  int x,N;\n  int a;\n\n  a=0;\n  N =10;\n  x = 0;\n  /*@\nloop invariant i1: 0 <= x <= 10;\n\nloop invariant i3: 0 <= x <= N;\n\nloop invariant i5: x >= N ==> a > 1;\nloop invariant i6: 0 <= x <= N;loop invariant !(x > N);loop invariant !(x < 0);loop invariant !(x < N) ==> x == N;loop invariant !(x < 0) ==> x > 0;\nloop invariant i7: x >= N ==> a <= 1;\nloop invariant i8: a <= 0;\nloop invariant i9: a == x;\nloop invariant i10: a == 0;\nloop invariant i11: 0 <= a <= 1;\nloop invariant i12: x >= 0;\nloop invariant i13: x <= N;\nloop invariant i14: x + 1 > N ==> a >= 1;\nloop invariant i15: x + 1 > N ==> a == 1;\nloop invariant i16: x + 1 <= N ==> a == 0;\nloop invariant i17: x == N ==> a == 0;\nloop invariant i18: x == N ==> a <= 1;\nloop invariant i19: x == N ==> a >= 0;\nloop invariant i20: 1 <= x <= N;\nloop invariant i21: N > 0;\nloop invariant i22: x >= (N - 1);\nloop invariant i23: !(a > 1);\nloop invariant i24: a == 0 ==> x < N;\n*/\ndo {\n    x=x+1;\n  } while (x != N);\n\n  {;\n//@ assert(!( a > 1 ));\n}\n\n}",
+        "checker_output_after_prune": false
+    },
+    "stats": {
+        "success": [
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/MAP-CPA-example_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/MAP-disj_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/MAP-forward_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/MAP-interpolants_needed-pepm-proc.c_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-paper-prog_d-pepm-proc.c_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testabs12_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testabs13_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testabs15_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testabs7_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testabs8_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop10_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop11_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop13_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop14_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop15_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop16_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop1_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop29_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop2_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop4_VeriMAP_true.c"
+        ],
+        "failure": [
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/MAP-singleloop2-pepm-proc.c_VeriMAP_true.c"
+        ],
+        "skipped": [],
+        "total": 21,
+        "success_count": 20,
+        "failure_count": 1,
+        "success_rate": 0.9523809523809523
+    }
+}

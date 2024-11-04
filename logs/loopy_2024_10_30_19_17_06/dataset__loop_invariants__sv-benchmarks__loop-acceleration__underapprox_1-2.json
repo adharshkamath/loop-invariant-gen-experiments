@@ -1,0 +1,227 @@
+{
+    "logs": {
+        "file": "../dataset/loop_invariants/sv-benchmarks/loop-acceleration/underapprox_1-2.c",
+        "benchmark_code": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 0;\n  unsigned int y = 1;\n\n  while (x < 6) {\n    x++;\n    y *= 2;\n  }\n\n  {;\n//@ assert(y % 3);\n}\n\n}",
+        "success": true,
+        "annotation_blocks": [
+            "```\n/*@\nloop invariant 0 <= x <= 5;\nloop invariant 1 <= y <= 32;\nloop invariant x < y;\nloop invariant y == 2^x;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 6;\nloop invariant y >= 2 ** x;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 6;\nloop invariant 1 <= y <= 64;\nloop invariant x == (y / 2);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 5;\nloop invariant y == 2^x;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 6;\nloop invariant 1 <= y <= 128;\nloop invariant (y == 2^x);\nloop invariant (y % 3 == 0);\nloop invariant (y % 3 != 0) ==> (x >= 1);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 6;\nloop invariant 1 < y <= 64;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 6;\nloop invariant 1 <= y <= 64;\nloop invariant y == 2^x;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 5;\nloop invariant 1 <= y <= 64;\nloop invariant y == 2^x;\nloop invariant x % 2 == 0 ==> y == 3 * x;\nloop invariant x % 2 == 1 ==> y == 3 * x + 1;\nloop invariant y % 3 == 0 ==> x % 2 == 0;\nloop invariant y % 3 == 1 ==> x % 2 == 1;\nloop invariant y % 3 == 2 ==> x % 2 == 0;\nloop invariant y % 3 == 0 ==> x % 3 == 0;\nloop invariant y % 3 == 1 ==> x % 3 == 1;\nloop invariant y % 3 == 2 ==> x % 3 == 2;\nloop invariant x % 4 == 0 ==> y % 4 == 0;\nloop invariant x % 4 == 1 ==> y % 4 == 1;\nloop invariant x % 4 == 2 ==> y % 4 == 2;\nloop invariant x % 4 == 3 ==> y % 4 == 3;\nloop invariant x % 5 == 0 ==> y % 5 == 0;\nloop invariant x % 5 == 1 ==> y % 5 == 1;\nloop invariant x % 5 == 2 ==> y % 5 == 4;\nloop invariant x % 5 == 3 ==> y % 5 == 3;\nloop invariant x % 5 == 4 ==> y % 5 == 2;\nloop invariant x % 6 == 0 ==> y % 6 == 0;\nloop invariant x % 6 == 1 ==> y % 6 == 1;\nloop invariant x % 6 == 2 ==> y % 6 == 4;\nloop invariant x % 6 == 3 ==> y % 6 == 3;\nloop invariant x % 6 == 4 ==> y % 6 == 2;\nloop invariant x % 6 == 5 ==> y % 6 == 5;\nloop invariant x % 7 == 0 ==> y % 7 == 0;\nloop invariant x % 7 == 1 ==> y % 7 == 1;\nloop invariant x % 7 == 2 ==> y % 7 == 2;\nloop invariant x % 7 == 3 ==> y % 7 == 4;\nloop invariant x % 7 == 4 ==> y % 7 == 3;\nloop invariant x % 7 == 5 ==> y % 7 == 6;\nloop invariant x % 7 == 6 ==> y % 7 == 5;\nloop invariant x % 8 == 0 ==> y % 8 == 0;\nloop invariant x % 8 == 1 ==> y % 8 == 1;\nloop invariant x % 8 == 2 ==> y % 8 == 4;\nloop invariant x % 8 == 3 ==> y % 8 == 5;\nloop invariant x % 8 == 4 ==> y % 8 == 0;\nloop invariant x % 8 == 5 ==> y % 8 == 1;\nloop invariant x % 8 == 6 ==> y % 8 == 4;\nloop invariant x % 8 == 7 ==> y % 8 == 5;\nloop invariant x % 9 == 0 ==> y % 9 == 0;\nloop invariant x % 9 == 1 ==> y % 9 == 1;\nloop invariant x % 9 == 2 ==> y % 9 == 4;\nloop invariant x % 9 == 3 ==> y % 9 == 7;\nloop invariant x % 9 == 4 ==> y % 9 == 2;\nloop invariant x % 9 == 5 ==> y % 9 == 5;\nloop invariant x % 9 == 6 ==> y % 9 == 8;\nloop invariant x % 9 == 7 ==> y % 9 == 3;\nloop invariant x % 9 == 8 ==> y % 9 == 6;\nloop invariant x % 10 == 0 ==> y % 10 == 0;\nloop invariant x % 10 == 1 ==> y % 10 == 1;\nloop invariant x % 10 == 2 ==> y % 10 == 4;\nloop invariant x % 10 == 3 ==> y % 10 == 7;\nloop invariant x % 10 == 4 ==> y % 10 == 2;\nloop invariant x % 10 == 5 ==> y % 10 == 5;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 6;\nloop invariant 1 <= y <= 64;\nloop invariant x + 1 <= 6;\nloop invariant y % 2 == 0;\nloop invariant x >= 0;\nloop invariant y >= 1;\nloop invariant x <= 6;\nloop invariant y <= 64;\nloop invariant x == 6 ==> y % 3 == 0;\nloop invariant x == 6 ==> y % 2 == 0;\n*/\n```",
+            "```\n/*@\nloop invariant 1 <= x <= 6;\nloop invariant 2^x <= y <= 2^7;\nloop invariant y == 2^x;\nloop invariant x + 1 <= y;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 6;\nloop invariant 1 <= y <= 128;\nloop invariant y % 2 == 0;\nloop invariant x < 6 ==> y == (1 << x);\nloop invariant x >= 6 ==> y == 128;\nloop invariant x < 6 ==> y % 3 != 0;\nloop invariant x >= 6 ==> y % 3 == 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 6;\nloop invariant 1 <= y <= 128;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 6;\nloop invariant y == (1 << x);\nloop invariant x < 6 ==> y % 3 == 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 5;\nloop invariant 2^x <= y <= 2^(x+1);\nloop invariant y % 3 ==> (y == 3 || y == 9 || y == 27 || y == 81);\nloop invariant (x == 0) ==> (y == 1);\nloop invariant (x == 1) ==> (y == 2);\nloop invariant (x == 2) ==> (y == 4);\nloop invariant (x == 3) ==> (y == 8);\nloop invariant (x == 4) ==> (y == 16);\nloop invariant (x == 5) ==> (y == 32);\nloop invariant (x == 0) ==> (y % 3 == 1);\nloop invariant (x == 1) ==> (y % 3 == 2);\nloop invariant (x == 2) ==> (y % 3 == 1);\nloop invariant (x == 3) ==> (y % 3 == 2);\nloop invariant (x == 4) ==> (y % 3 == 1);\nloop invariant (x == 5) ==> (y % 3 == 2);\nloop invariant (x == 0) ==> (y == 1);\nloop invariant (x == 1) ==> (y == 2);\nloop invariant (x == 2) ==> (y == 4);\nloop invariant (x == 3) ==> (y == 8);\nloop invariant (x == 4) ==> (y == 16);\nloop invariant (x == 5) ==> (y == 32);\nloop invariant (x == 0) ==> (y % 3 == 1);\nloop invariant (x == 1) ==> (y % 3 == 2);\nloop invariant (x == 2) ==> (y % 3 == 1);\nloop invariant (x == 3) ==> (y % 3 == 2);\nloop invariant (x == 4) ==> (y % 3 == 1);\nloop invariant (x == 5) ==> (y % 3 == 2);\nloop invariant (x == 0) ==> (y == 1);\nloop invariant (x == 1) ==> (y == 2);\nloop invariant (x == 2) ==> (y == 4);\nloop invariant (x == 3) ==> (y == 8);\nloop invariant (x == 4) ==> (y == 16);\nloop invariant (x == 5) ==> (y == 32);\nloop invariant (x == 0) ==> (y % 3 == 1);\nloop invariant (x == 1) ==> (y % 3 == 2);\nloop invariant (x == 2) ==> (y % 3 == 1);\nloop invariant (x == 3) ==> (y % 3 == 2);\nloop invariant (x == 4) ==> (y % 3 == 1);\nloop invariant (x == 5) ==> (y % 3 == 2);\nloop invariant (x == 0) ==> (y == 1);\nloop invariant (x == 1) ==> (y == 2);\nloop invariant (x == 2) ==> (y == 4);\nloop invariant (x == 3) ==> (y == 8);\nloop invariant (x == 4) ==> (y == 16);\nloop invariant (x == 5) ==> (y == 32);\nloop invariant (x == 0) ==> (y % 3 == 1);\nloop invariant (x == 1) ==> (y % 3 == 2);\nloop invariant (x == 2) ==> (y % 3 == 1);\nloop invariant (x == 3) ==> (y % 3 == 2);\nloop invariant (x == 4) ==> (y % 3 == 1);\nloop invariant (x == 5) ==> (y % 3 == 2);\nloop invariant (x == 0) ==> (y == 1);\nloop invariant (x == 1) ==> (y == 2);\nloop invariant (x == 2) ==> (y == 4);\nloop invariant (x == 3) ==> (y == 8);\nloop invariant (x == 4) ==> (y == 16);\nloop invariant (x == 5) ==> (y == 32);\nloop invariant (x == 0) ==> (y % 3 == 1);\nloop invariant (x == 1) ==> (y % 3 == 2);\n*/\n```",
+            "```\n/*@\nloop invariant x >= 0;\nloop invariant x < 6;\nloop invariant y >= 1;\nloop invariant y <= 1024;\nloop invariant y == 2^x;\nloop invariant y % 3 == 0 ==> x % 3 == 0;\n*/\n```"
+        ],
+        "completions": [
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 5;\nloop invariant 1 <= y <= 32;\nloop invariant x < y;\nloop invariant y == 2^x;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 0;\n  unsigned int y = 1;\n\n  /*@\n\n\n\n\n*/\nwhile (x < 6) {\n    x++;\n    y *= 2;\n  }\n\n  {;\n//@ assert(y % 3);\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 6;\nloop invariant y >= 2 ** x;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 0;\n  unsigned int y = 1;\n\n  /*@\nloop invariant i1: 0 <= x <= 6;\n\n*/\nwhile (x < 6) {\n    x++;\n    y *= 2;\n  }\n\n  {;\n//@ assert(y % 3);\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 6;\nloop invariant 1 <= y <= 64;\nloop invariant x == (y / 2);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 0;\n  unsigned int y = 1;\n\n  /*@\nloop invariant i1: 0 <= x <= 6;\n\n\n*/\nwhile (x < 6) {\n    x++;\n    y *= 2;\n  }\n\n  {;\n//@ assert(y % 3);\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 5;\nloop invariant y == 2^x;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 0;\n  unsigned int y = 1;\n\n  /*@\n\n\n*/\nwhile (x < 6) {\n    x++;\n    y *= 2;\n  }\n\n  {;\n//@ assert(y % 3);\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 5,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 6;\nloop invariant 1 <= y <= 128;\nloop invariant (y == 2^x);\nloop invariant (y % 3 == 0);\nloop invariant (y % 3 != 0) ==> (x >= 1);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 0;\n  unsigned int y = 1;\n\n  /*@\nloop invariant i1: 0 <= x <= 6;\n\n\n\n\n*/\nwhile (x < 6) {\n    x++;\n    y *= 2;\n  }\n\n  {;\n//@ assert(y % 3);\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 6;\nloop invariant 1 < y <= 64;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 0;\n  unsigned int y = 1;\n\n  /*@\nloop invariant i1: 0 <= x <= 6;\n\n*/\nwhile (x < 6) {\n    x++;\n    y *= 2;\n  }\n\n  {;\n//@ assert(y % 3);\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 6;\nloop invariant 1 <= y <= 64;\nloop invariant y == 2^x;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 0;\n  unsigned int y = 1;\n\n  /*@\nloop invariant i1: 0 <= x <= 6;\n\n\n*/\nwhile (x < 6) {\n    x++;\n    y *= 2;\n  }\n\n  {;\n//@ assert(y % 3);\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 17,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 5;\nloop invariant 1 <= y <= 64;\nloop invariant y == 2^x;\nloop invariant x % 2 == 0 ==> y == 3 * x;\nloop invariant x % 2 == 1 ==> y == 3 * x + 1;\nloop invariant y % 3 == 0 ==> x % 2 == 0;\nloop invariant y % 3 == 1 ==> x % 2 == 1;\nloop invariant y % 3 == 2 ==> x % 2 == 0;\nloop invariant y % 3 == 0 ==> x % 3 == 0;\nloop invariant y % 3 == 1 ==> x % 3 == 1;\nloop invariant y % 3 == 2 ==> x % 3 == 2;\nloop invariant x % 4 == 0 ==> y % 4 == 0;\nloop invariant x % 4 == 1 ==> y % 4 == 1;\nloop invariant x % 4 == 2 ==> y % 4 == 2;\nloop invariant x % 4 == 3 ==> y % 4 == 3;\nloop invariant x % 5 == 0 ==> y % 5 == 0;\nloop invariant x % 5 == 1 ==> y % 5 == 1;\nloop invariant x % 5 == 2 ==> y % 5 == 4;\nloop invariant x % 5 == 3 ==> y % 5 == 3;\nloop invariant x % 5 == 4 ==> y % 5 == 2;\nloop invariant x % 6 == 0 ==> y % 6 == 0;\nloop invariant x % 6 == 1 ==> y % 6 == 1;\nloop invariant x % 6 == 2 ==> y % 6 == 4;\nloop invariant x % 6 == 3 ==> y % 6 == 3;\nloop invariant x % 6 == 4 ==> y % 6 == 2;\nloop invariant x % 6 == 5 ==> y % 6 == 5;\nloop invariant x % 7 == 0 ==> y % 7 == 0;\nloop invariant x % 7 == 1 ==> y % 7 == 1;\nloop invariant x % 7 == 2 ==> y % 7 == 2;\nloop invariant x % 7 == 3 ==> y % 7 == 4;\nloop invariant x % 7 == 4 ==> y % 7 == 3;\nloop invariant x % 7 == 5 ==> y % 7 == 6;\nloop invariant x % 7 == 6 ==> y % 7 == 5;\nloop invariant x % 8 == 0 ==> y % 8 == 0;\nloop invariant x % 8 == 1 ==> y % 8 == 1;\nloop invariant x % 8 == 2 ==> y % 8 == 4;\nloop invariant x % 8 == 3 ==> y % 8 == 5;\nloop invariant x % 8 == 4 ==> y % 8 == 0;\nloop invariant x % 8 == 5 ==> y % 8 == 1;\nloop invariant x % 8 == 6 ==> y % 8 == 4;\nloop invariant x % 8 == 7 ==> y % 8 == 5;\nloop invariant x % 9 == 0 ==> y % 9 == 0;\nloop invariant x % 9 == 1 ==> y % 9 == 1;\nloop invariant x % 9 == 2 ==> y % 9 == 4;\nloop invariant x % 9 == 3 ==> y % 9 == 7;\nloop invariant x % 9 == 4 ==> y % 9 == 2;\nloop invariant x % 9 == 5 ==> y % 9 == 5;\nloop invariant x % 9 == 6 ==> y % 9 == 8;\nloop invariant x % 9 == 7 ==> y % 9 == 3;\nloop invariant x % 9 == 8 ==> y % 9 == 6;\nloop invariant x % 10 == 0 ==> y % 10 == 0;\nloop invariant x % 10 == 1 ==> y % 10 == 1;\nloop invariant x % 10 == 2 ==> y % 10 == 4;\nloop invariant x % 10 == 3 ==> y % 10 == 7;\nloop invariant x % 10 == 4 ==> y % 10 == 2;\nloop invariant x % 10 == 5 ==> y % 10 == 5;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 0;\n  unsigned int y = 1;\n\n  /*@\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nloop invariant i41: x % 8 == 7 ==> y % 8 == 5;\n\n\n\n\n\n\n\nloop invariant i49: x % 9 == 7 ==> y % 9 == 3;\nloop invariant i50: x % 9 == 8 ==> y % 9 == 6;\n\n\n\n\n\n\n*/\nwhile (x < 6) {\n    x++;\n    y *= 2;\n  }\n\n  {;\n//@ assert(y % 3);\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 5,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 6;\nloop invariant 1 <= y <= 64;\nloop invariant x + 1 <= 6;\nloop invariant y % 2 == 0;\nloop invariant x >= 0;\nloop invariant y >= 1;\nloop invariant x <= 6;\nloop invariant y <= 64;\nloop invariant x == 6 ==> y % 3 == 0;\nloop invariant x == 6 ==> y % 2 == 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 0;\n  unsigned int y = 1;\n\n  /*@\nloop invariant i1: 0 <= x <= 6;\n\n\n\nloop invariant i5: x >= 0;\n\nloop invariant i7: x <= 6;\n\n\n\n*/\nwhile (x < 6) {\n    x++;\n    y *= 2;\n  }\n\n  {;\n//@ assert(y % 3);\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 4,
+                "annotations": "```\n/*@\nloop invariant 1 <= x <= 6;\nloop invariant 2^x <= y <= 2^7;\nloop invariant y == 2^x;\nloop invariant x + 1 <= y;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 0;\n  unsigned int y = 1;\n\n  /*@\n\n\n\n\n*/\nwhile (x < 6) {\n    x++;\n    y *= 2;\n  }\n\n  {;\n//@ assert(y % 3);\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 4,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 6;\nloop invariant 1 <= y <= 128;\nloop invariant y % 2 == 0;\nloop invariant x < 6 ==> y == (1 << x);\nloop invariant x >= 6 ==> y == 128;\nloop invariant x < 6 ==> y % 3 != 0;\nloop invariant x >= 6 ==> y % 3 == 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 0;\n  unsigned int y = 1;\n\n  /*@\nloop invariant i1: 0 <= x <= 6;\n\n\nloop invariant i4: x < 6 ==> y == (1 << x);\n\nloop invariant i6: x < 6 ==> y % 3 != 0;\n\n*/\nwhile (x < 6) {\n    x++;\n    y *= 2;\n  }\n\n  {;\n//@ assert(y % 3);\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 6;\nloop invariant 1 <= y <= 128;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 0;\n  unsigned int y = 1;\n\n  /*@\nloop invariant i1: 0 <= x <= 6;\n\n*/\nwhile (x < 6) {\n    x++;\n    y *= 2;\n  }\n\n  {;\n//@ assert(y % 3);\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 6;\nloop invariant y == (1 << x);\nloop invariant x < 6 ==> y % 3 == 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 0;\n  unsigned int y = 1;\n\n  /*@\nloop invariant i1: 0 <= x <= 6;\nloop invariant i2: y == (1 << x);\n\n*/\nwhile (x < 6) {\n    x++;\n    y *= 2;\n  }\n\n  {;\n//@ assert(y % 3);\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 4,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 5;\nloop invariant 2^x <= y <= 2^(x+1);\nloop invariant y % 3 ==> (y == 3 || y == 9 || y == 27 || y == 81);\nloop invariant (x == 0) ==> (y == 1);\nloop invariant (x == 1) ==> (y == 2);\nloop invariant (x == 2) ==> (y == 4);\nloop invariant (x == 3) ==> (y == 8);\nloop invariant (x == 4) ==> (y == 16);\nloop invariant (x == 5) ==> (y == 32);\nloop invariant (x == 0) ==> (y % 3 == 1);\nloop invariant (x == 1) ==> (y % 3 == 2);\nloop invariant (x == 2) ==> (y % 3 == 1);\nloop invariant (x == 3) ==> (y % 3 == 2);\nloop invariant (x == 4) ==> (y % 3 == 1);\nloop invariant (x == 5) ==> (y % 3 == 2);\nloop invariant (x == 0) ==> (y == 1);\nloop invariant (x == 1) ==> (y == 2);\nloop invariant (x == 2) ==> (y == 4);\nloop invariant (x == 3) ==> (y == 8);\nloop invariant (x == 4) ==> (y == 16);\nloop invariant (x == 5) ==> (y == 32);\nloop invariant (x == 0) ==> (y % 3 == 1);\nloop invariant (x == 1) ==> (y % 3 == 2);\nloop invariant (x == 2) ==> (y % 3 == 1);\nloop invariant (x == 3) ==> (y % 3 == 2);\nloop invariant (x == 4) ==> (y % 3 == 1);\nloop invariant (x == 5) ==> (y % 3 == 2);\nloop invariant (x == 0) ==> (y == 1);\nloop invariant (x == 1) ==> (y == 2);\nloop invariant (x == 2) ==> (y == 4);\nloop invariant (x == 3) ==> (y == 8);\nloop invariant (x == 4) ==> (y == 16);\nloop invariant (x == 5) ==> (y == 32);\nloop invariant (x == 0) ==> (y % 3 == 1);\nloop invariant (x == 1) ==> (y % 3 == 2);\nloop invariant (x == 2) ==> (y % 3 == 1);\nloop invariant (x == 3) ==> (y % 3 == 2);\nloop invariant (x == 4) ==> (y % 3 == 1);\nloop invariant (x == 5) ==> (y % 3 == 2);\nloop invariant (x == 0) ==> (y == 1);\nloop invariant (x == 1) ==> (y == 2);\nloop invariant (x == 2) ==> (y == 4);\nloop invariant (x == 3) ==> (y == 8);\nloop invariant (x == 4) ==> (y == 16);\nloop invariant (x == 5) ==> (y == 32);\nloop invariant (x == 0) ==> (y % 3 == 1);\nloop invariant (x == 1) ==> (y % 3 == 2);\nloop invariant (x == 2) ==> (y % 3 == 1);\nloop invariant (x == 3) ==> (y % 3 == 2);\nloop invariant (x == 4) ==> (y % 3 == 1);\nloop invariant (x == 5) ==> (y % 3 == 2);\nloop invariant (x == 0) ==> (y == 1);\nloop invariant (x == 1) ==> (y == 2);\nloop invariant (x == 2) ==> (y == 4);\nloop invariant (x == 3) ==> (y == 8);\nloop invariant (x == 4) ==> (y == 16);\nloop invariant (x == 5) ==> (y == 32);\nloop invariant (x == 0) ==> (y % 3 == 1);\nloop invariant (x == 1) ==> (y % 3 == 2);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 0;\n  unsigned int y = 1;\n\n  /*@\n\n\n\nloop invariant i4: (x == 0) ==> (y == 1);\nloop invariant i5: (x == 1) ==> (y == 2);\nloop invariant i6: (x == 2) ==> (y == 4);\nloop invariant i7: (x == 3) ==> (y == 8);\nloop invariant i8: (x == 4) ==> (y == 16);\nloop invariant i9: (x == 5) ==> (y == 32);\nloop invariant i10: (x == 0) ==> (y % 3 == 1);\nloop invariant i11: (x == 1) ==> (y % 3 == 2);\nloop invariant i12: (x == 2) ==> (y % 3 == 1);\nloop invariant i13: (x == 3) ==> (y % 3 == 2);\nloop invariant i14: (x == 4) ==> (y % 3 == 1);\nloop invariant i15: (x == 5) ==> (y % 3 == 2);\n*/\nwhile (x < 6) {\n    x++;\n    y *= 2;\n  }\n\n  {;\n//@ assert(y % 3);\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 4,
+                "annotations": "```\n/*@\nloop invariant x >= 0;\nloop invariant x < 6;\nloop invariant y >= 1;\nloop invariant y <= 1024;\nloop invariant y == 2^x;\nloop invariant y % 3 == 0 ==> x % 3 == 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 0;\n  unsigned int y = 1;\n\n  /*@\nloop invariant i1: x >= 0;\n\n\n\n\n\n*/\nwhile (x < 6) {\n    x++;\n    y *= 2;\n  }\n\n  {;\n//@ assert(y % 3);\n}\n\n}",
+                "checker_output_after_prune": false
+            }
+        ],
+        "checker_output_for_combined_annotations": false,
+        "checker_message_for_combined_annotations": "Annotation error on line 15: invalid operands to binary ^; unexpected 𝔹 and unsigned int. Ignoring loop annotation",
+        "code_with_combined_annotations": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 0;\n  unsigned int y = 1;\n\n  /*@\nloop invariant i1: 0 <= x <= 5;\nloop invariant i2: 1 <= y <= 32;\nloop invariant i3: x < y;\nloop invariant i4: y == 2^x;\nloop invariant i5: 0 <= x <= 6;\nloop invariant i6: y >= 2 ** x;\nloop invariant i7: 1 <= y <= 64;\nloop invariant i8: x == (y / 2);\nloop invariant i9: 1 <= y <= 128;\nloop invariant i10: (y == 2^x);\nloop invariant i11: (y % 3 == 0);\nloop invariant i12: (y % 3 != 0) ==> (x >= 1);\nloop invariant i13: 1 < y <= 64;\nloop invariant i14: x % 2 == 0 ==> y == 3 * x;\nloop invariant i15: x % 2 == 1 ==> y == 3 * x + 1;\nloop invariant i16: y % 3 == 0 ==> x % 2 == 0;\nloop invariant i17: y % 3 == 1 ==> x % 2 == 1;\nloop invariant i18: y % 3 == 2 ==> x % 2 == 0;\nloop invariant i19: y % 3 == 0 ==> x % 3 == 0;\nloop invariant i20: y % 3 == 1 ==> x % 3 == 1;\nloop invariant i21: y % 3 == 2 ==> x % 3 == 2;\nloop invariant i22: x % 4 == 0 ==> y % 4 == 0;\nloop invariant i23: x % 4 == 1 ==> y % 4 == 1;\nloop invariant i24: x % 4 == 2 ==> y % 4 == 2;\nloop invariant i25: x % 4 == 3 ==> y % 4 == 3;\nloop invariant i26: x % 5 == 0 ==> y % 5 == 0;\nloop invariant i27: x % 5 == 1 ==> y % 5 == 1;\nloop invariant i28: x % 5 == 2 ==> y % 5 == 4;\nloop invariant i29: x % 5 == 3 ==> y % 5 == 3;\nloop invariant i30: x % 5 == 4 ==> y % 5 == 2;\nloop invariant i31: x % 6 == 0 ==> y % 6 == 0;\nloop invariant i32: x % 6 == 1 ==> y % 6 == 1;\nloop invariant i33: x % 6 == 2 ==> y % 6 == 4;\nloop invariant i34: x % 6 == 3 ==> y % 6 == 3;\nloop invariant i35: x % 6 == 4 ==> y % 6 == 2;\nloop invariant i36: x % 6 == 5 ==> y % 6 == 5;\nloop invariant i37: x % 7 == 0 ==> y % 7 == 0;\nloop invariant i38: x % 7 == 1 ==> y % 7 == 1;\nloop invariant i39: x % 7 == 2 ==> y % 7 == 2;\nloop invariant i40: x % 7 == 3 ==> y % 7 == 4;\nloop invariant i41: x % 7 == 4 ==> y % 7 == 3;\nloop invariant i42: x % 7 == 5 ==> y % 7 == 6;\nloop invariant i43: x % 7 == 6 ==> y % 7 == 5;\nloop invariant i44: x % 8 == 0 ==> y % 8 == 0;\nloop invariant i45: x % 8 == 1 ==> y % 8 == 1;\nloop invariant i46: x % 8 == 2 ==> y % 8 == 4;\nloop invariant i47: x % 8 == 3 ==> y % 8 == 5;\nloop invariant i48: x % 8 == 4 ==> y % 8 == 0;\nloop invariant i49: x % 8 == 5 ==> y % 8 == 1;\nloop invariant i50: x % 8 == 6 ==> y % 8 == 4;\nloop invariant i51: x % 8 == 7 ==> y % 8 == 5;\nloop invariant i52: x % 9 == 0 ==> y % 9 == 0;\nloop invariant i53: x % 9 == 1 ==> y % 9 == 1;\nloop invariant i54: x % 9 == 2 ==> y % 9 == 4;\nloop invariant i55: x % 9 == 3 ==> y % 9 == 7;\nloop invariant i56: x % 9 == 4 ==> y % 9 == 2;\nloop invariant i57: x % 9 == 5 ==> y % 9 == 5;\nloop invariant i58: x % 9 == 6 ==> y % 9 == 8;\nloop invariant i59: x % 9 == 7 ==> y % 9 == 3;\nloop invariant i60: x % 9 == 8 ==> y % 9 == 6;\nloop invariant i61: x % 10 == 0 ==> y % 10 == 0;\nloop invariant i62: x % 10 == 1 ==> y % 10 == 1;\nloop invariant i63: x % 10 == 2 ==> y % 10 == 4;\nloop invariant i64: x % 10 == 3 ==> y % 10 == 7;\nloop invariant i65: x % 10 == 4 ==> y % 10 == 2;\nloop invariant i66: x % 10 == 5 ==> y % 10 == 5;\nloop invariant i67: x + 1 <= 6;\nloop invariant i68: y % 2 == 0;\nloop invariant i69: x >= 0;\nloop invariant i70: y >= 1;\nloop invariant i71: x <= 6;\nloop invariant i72: y <= 64;\nloop invariant i73: x == 6 ==> y % 3 == 0;\nloop invariant i74: x == 6 ==> y % 2 == 0;\nloop invariant i75: 1 <= x <= 6;\nloop invariant i76: 2^x <= y <= 2^7;\nloop invariant i77: x + 1 <= y;\nloop invariant i78: x < 6 ==> y == (1 << x);\nloop invariant i79: x >= 6 ==> y == 128;\nloop invariant i80: x < 6 ==> y % 3 != 0;\nloop invariant i81: x >= 6 ==> y % 3 == 0;\nloop invariant i82: y == (1 << x);\nloop invariant i83: x < 6 ==> y % 3 == 0;\nloop invariant i84: 2^x <= y <= 2^(x+1);\nloop invariant i85: y % 3 ==> (y == 3 || y == 9 || y == 27 || y == 81);\nloop invariant i86: (x == 0) ==> (y == 1);\nloop invariant i87: (x == 1) ==> (y == 2);\nloop invariant i88: (x == 2) ==> (y == 4);\nloop invariant i89: (x == 3) ==> (y == 8);\nloop invariant i90: (x == 4) ==> (y == 16);\nloop invariant i91: (x == 5) ==> (y == 32);\nloop invariant i92: (x == 0) ==> (y % 3 == 1);\nloop invariant i93: (x == 1) ==> (y % 3 == 2);\nloop invariant i94: (x == 2) ==> (y % 3 == 1);\nloop invariant i95: (x == 3) ==> (y % 3 == 2);\nloop invariant i96: (x == 4) ==> (y % 3 == 1);\nloop invariant i97: (x == 5) ==> (y % 3 == 2);\nloop invariant i98: x < 6;\nloop invariant i99: y <= 1024;\n*/\nwhile (x < 6) {\n    x++;\n    y *= 2;\n  }\n\n  {;\n//@ assert(y % 3);\n}\n\n}",
+        "combined_annotation_num_solver_calls": 62,
+        "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main(void) {\n  unsigned int x = 0;\n  unsigned int y = 1;\n\n  /*@\n\n\nloop invariant i3: x < y;\n\nloop invariant i5: 0 <= x <= 6;\n\nloop invariant i7: 1 <= y <= 64;\n\nloop invariant i9: 1 <= y <= 128;\n\n\n\n\n\n\nloop invariant i16: y % 3 == 0 ==> x % 2 == 0;\n\n\nloop invariant i19: y % 3 == 0 ==> x % 3 == 0;\n\n\n\n\n\n\n\n\nloop invariant i28: x % 5 == 2 ==> y % 5 == 4;\nloop invariant i29: x % 5 == 3 ==> y % 5 == 3;\n\n\n\nloop invariant i33: x % 6 == 2 ==> y % 6 == 4;\n\n\n\n\n\n\n\n\n\n\n\n\nloop invariant i46: x % 8 == 2 ==> y % 8 == 4;\n\nloop invariant i48: x % 8 == 4 ==> y % 8 == 0;\n\n\nloop invariant i51: x % 8 == 7 ==> y % 8 == 5;\n\n\nloop invariant i54: x % 9 == 2 ==> y % 9 == 4;\n\n\nloop invariant i57: x % 9 == 5 ==> y % 9 == 5;\n\nloop invariant i59: x % 9 == 7 ==> y % 9 == 3;\nloop invariant i60: x % 9 == 8 ==> y % 9 == 6;\n\n\nloop invariant i63: x % 10 == 2 ==> y % 10 == 4;\n\n\n\n\n\nloop invariant i69: x >= 0;\nloop invariant i70: y >= 1;\nloop invariant i71: x <= 6;\nloop invariant i72: y <= 64;\n\nloop invariant i74: x == 6 ==> y % 2 == 0;\n\n\nloop invariant i77: x + 1 <= y;\n\n\nloop invariant i80: x < 6 ==> y % 3 != 0;\n\n\n\n\n\nloop invariant i86: (x == 0) ==> (y == 1);\nloop invariant i87: (x == 1) ==> (y == 2);\nloop invariant i88: (x == 2) ==> (y == 4);\nloop invariant i89: (x == 3) ==> (y == 8);\nloop invariant i90: (x == 4) ==> (y == 16);\nloop invariant i91: (x == 5) ==> (y == 32);\nloop invariant i92: (x == 0) ==> (y % 3 == 1);\nloop invariant i93: (x == 1) ==> (y % 3 == 2);\nloop invariant i94: (x == 2) ==> (y % 3 == 1);\nloop invariant i95: (x == 3) ==> (y % 3 == 2);\nloop invariant i96: (x == 4) ==> (y % 3 == 1);\nloop invariant i97: (x == 5) ==> (y % 3 == 2);\n\nloop invariant i99: y <= 1024;\n*/\nwhile (x < 6) {\n    x++;\n    y *= 2;\n  }\n\n  {;\n//@ assert(y % 3);\n}\n\n}",
+        "checker_output_after_prune": false
+    },
+    "stats": {
+        "success": [
+            "../dataset/loop_invariants/code2inv/125.c",
+            "../dataset/loop_invariants/code2inv/128.c",
+            "../dataset/loop_invariants/code2inv/129.c",
+            "../dataset/loop_invariants/code2inv/13.c",
+            "../dataset/loop_invariants/code2inv/132.c",
+            "../dataset/loop_invariants/code2inv/133.c",
+            "../dataset/loop_invariants/code2inv/14.c",
+            "../dataset/loop_invariants/code2inv/15.c",
+            "../dataset/loop_invariants/code2inv/16.c",
+            "../dataset/loop_invariants/code2inv/18.c",
+            "../dataset/loop_invariants/code2inv/19.c",
+            "../dataset/loop_invariants/code2inv/2.c",
+            "../dataset/loop_invariants/code2inv/20.c",
+            "../dataset/loop_invariants/code2inv/21.c",
+            "../dataset/loop_invariants/code2inv/22.c",
+            "../dataset/loop_invariants/code2inv/23.c",
+            "../dataset/loop_invariants/code2inv/25.c",
+            "../dataset/loop_invariants/code2inv/30.c",
+            "../dataset/loop_invariants/code2inv/35.c",
+            "../dataset/loop_invariants/code2inv/36.c",
+            "../dataset/loop_invariants/code2inv/37.c",
+            "../dataset/loop_invariants/code2inv/38.c",
+            "../dataset/loop_invariants/code2inv/39.c",
+            "../dataset/loop_invariants/code2inv/4.c",
+            "../dataset/loop_invariants/code2inv/40.c",
+            "../dataset/loop_invariants/code2inv/41.c",
+            "../dataset/loop_invariants/code2inv/42.c",
+            "../dataset/loop_invariants/code2inv/43.c",
+            "../dataset/loop_invariants/code2inv/44.c",
+            "../dataset/loop_invariants/code2inv/45.c",
+            "../dataset/loop_invariants/code2inv/46.c",
+            "../dataset/loop_invariants/code2inv/47.c",
+            "../dataset/loop_invariants/code2inv/48.c",
+            "../dataset/loop_invariants/code2inv/49.c",
+            "../dataset/loop_invariants/code2inv/50.c",
+            "../dataset/loop_invariants/code2inv/51.c",
+            "../dataset/loop_invariants/code2inv/52.c",
+            "../dataset/loop_invariants/code2inv/53.c",
+            "../dataset/loop_invariants/code2inv/54.c",
+            "../dataset/loop_invariants/code2inv/55.c",
+            "../dataset/loop_invariants/code2inv/56.c",
+            "../dataset/loop_invariants/code2inv/57.c",
+            "../dataset/loop_invariants/code2inv/58.c",
+            "../dataset/loop_invariants/code2inv/59.c",
+            "../dataset/loop_invariants/code2inv/6.c",
+            "../dataset/loop_invariants/code2inv/60.c",
+            "../dataset/loop_invariants/code2inv/64.c",
+            "../dataset/loop_invariants/code2inv/7.c",
+            "../dataset/loop_invariants/code2inv/71.c",
+            "../dataset/loop_invariants/code2inv/73.c",
+            "../dataset/loop_invariants/code2inv/74.c",
+            "../dataset/loop_invariants/code2inv/76.c",
+            "../dataset/loop_invariants/code2inv/77.c",
+            "../dataset/loop_invariants/code2inv/78.c",
+            "../dataset/loop_invariants/code2inv/79.c",
+            "../dataset/loop_invariants/code2inv/8.c",
+            "../dataset/loop_invariants/code2inv/80.c",
+            "../dataset/loop_invariants/code2inv/81.c",
+            "../dataset/loop_invariants/code2inv/82.c",
+            "../dataset/loop_invariants/code2inv/87.c",
+            "../dataset/loop_invariants/code2inv/88.c",
+            "../dataset/loop_invariants/code2inv/89.c",
+            "../dataset/loop_invariants/code2inv/9.c",
+            "../dataset/loop_invariants/code2inv/90.c",
+            "../dataset/loop_invariants/code2inv/91.c",
+            "../dataset/loop_invariants/code2inv/92.c",
+            "../dataset/loop_invariants/code2inv/93.c",
+            "../dataset/loop_invariants/code2inv/94.c",
+            "../dataset/loop_invariants/code2inv/95.c",
+            "../dataset/loop_invariants/code2inv/96.c",
+            "../dataset/loop_invariants/code2inv/97.c",
+            "../dataset/loop_invariants/code2inv/98.c",
+            "../dataset/loop_invariants/code2inv/99.c",
+            "../dataset/loop_invariants/sv-benchmarks/loop-acceleration/const_1-1.c",
+            "../dataset/loop_invariants/sv-benchmarks/loop-acceleration/multivar_1-1.c",
+            "../dataset/loop_invariants/sv-benchmarks/loop-acceleration/phases_1-1.c",
+            "../dataset/loop_invariants/sv-benchmarks/loop-acceleration/phases_2-2.c",
+            "../dataset/loop_invariants/sv-benchmarks/loop-acceleration/simple_1-2.c",
+            "../dataset/loop_invariants/sv-benchmarks/loop-acceleration/simple_2-1.c",
+            "../dataset/loop_invariants/sv-benchmarks/loop-acceleration/simple_3-2.c",
+            "../dataset/loop_invariants/sv-benchmarks/loop-acceleration/simple_4-2.c",
+            "../dataset/loop_invariants/sv-benchmarks/loop-acceleration/underapprox_1-2.c"
+        ],
+        "failure": [
+            "../dataset/loop_invariants/code2inv/124.c",
+            "../dataset/loop_invariants/code2inv/126.c",
+            "../dataset/loop_invariants/code2inv/127.c",
+            "../dataset/loop_invariants/code2inv/131.c",
+            "../dataset/loop_invariants/code2inv/29.c",
+            "../dataset/loop_invariants/code2inv/3.c",
+            "../dataset/loop_invariants/code2inv/34.c",
+            "../dataset/loop_invariants/code2inv/5.c",
+            "../dataset/loop_invariants/code2inv/63.c",
+            "../dataset/loop_invariants/code2inv/67.c",
+            "../dataset/loop_invariants/code2inv/68.c",
+            "../dataset/loop_invariants/code2inv/83.c"
+        ],
+        "skipped": [],
+        "total": 94,
+        "success_count": 82,
+        "failure_count": 12,
+        "success_rate": 0.8723404255319149
+    }
+}

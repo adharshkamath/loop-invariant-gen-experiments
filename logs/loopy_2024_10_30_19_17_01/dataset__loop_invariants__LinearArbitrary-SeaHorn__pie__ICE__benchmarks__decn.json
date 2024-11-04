@@ -1,0 +1,207 @@
+{
+    "logs": {
+        "file": "../dataset/loop_invariants/LinearArbitrary-SeaHorn/pie/ICE/benchmarks/decn.c",
+        "benchmark_code": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nvoid main()\n{\n  int x, m, N;\n  N = unknown_int();\n  if (N < 0)\n    \nreturn;\n\n  x = N;\n  while(x > 0)\n  {\n    x = x - 1;\n  }\n  {;\n//@ assert(x == 0);\n}\n    \n}",
+        "success": true,
+        "annotation_blocks": [
+            "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant x <= N;\nloop invariant x + 1 == N;\nloop invariant x + 1 == N;\n*/\n```",
+            "```\n/*@\n\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= N;\n*/\n```",
+            "```\n/*@\nloop invariant N >= 0;\nloop invariant 0 <= k <= N;\nloop invariant x = N - k;\nloop invariant N >= 0;\nloop invariant 0 <= k <= N;\nloop invariant x = N - k;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant x == N - (N - x);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant x >= 0;\nloop invariant x <= N;\nloop invariant x == N;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant x >= (N - (N - x));\nloop invariant x <= (N - (N - x));\nloop invariant x == (N - (N - x));\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= N;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x;\nloop invariant x <= N;\nloop invariant x > 0 ==> x - 1 >= 0;\nloop invariant x > 0 ==> x - 1 < N;\nloop invariant x > 0 ==> x >= x - 1;\nloop invariant x > 0 ==> x <= x - 1 ==> x == 0;\nloop invariant x > 0 ==> x <= x - 1 ==> x == 1 ==> x == 0;\nloop invariant x > 0 ==> x <= x - 1 ==> x == 1 ==> x == 0 ==> x == 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant x >= N - (N - 1) * (N - 1) / 2;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant x <= N;\nloop invariant x >= 0;\nloop invariant x == N - m;\nloop invariant m >= 0;\nloop invariant m <= N;\nloop invariant m == x + 1;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant x == N - \\at(N, Pre) + \\at(x, Pre);\n*/\n```",
+            "```\n/*@\nloop invariant x >= 0;\nloop invariant N >= x;\nloop invariant x > 0 ==> x < N;\nloop invariant x <= N;\nloop invariant x >= 0 ==> x - 1 < N;\nloop invariant x <= N ==> x - 1 >= 0;\nloop invariant (x > 0) ==> (x - 1 > 0);\nloop invariant (x > 0) ==> (x - 1 <= N);\nloop invariant (x <= N) ==> (x - 1 >= 0);\nloop invariant (x <= N) ==> (x - 1 <= N);\nloop invariant (x > 0) ==> (x - 1 > 0) ==> (x - 1 < N);\nloop invariant (x > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant (x <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant (x <= N) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant (x > 0) ==> (x - 1 > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant (x > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant (x <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant (x <= N) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant (x > 0) ==> (x - 1 > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant (x > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant (x <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant (x <= N) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant (x > 0) ==> (x - 1 > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant (x > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant (x <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant (x <= N) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant (x > 0) ==> (x - 1 > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant (x > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant (x <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant x + 1 == N;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= N;\n*/\n```"
+        ],
+        "completions": [
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant x <= N;\nloop invariant x + 1 == N;\nloop invariant x + 1 == N;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nvoid main()\n{\n  int x, m, N;\n  N = unknown_int();\n  if (N < 0)\n    \nreturn;\n\n  x = N;\n  /*@\nloop invariant i1: 0 <= x <= N;\nloop invariant i2: x <= N;\n\n*/\nwhile(x > 0)\n  {\n    x = x - 1;\n  }\n  {;\n//@ assert(x == 0);\n}\n    \n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\n\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nvoid main()\n{\n  int x, m, N;\n  N = unknown_int();\n  if (N < 0)\n    \nreturn;\n\n  x = N;\n  /*@\n\n*/\nwhile(x > 0)\n  {\n    x = x - 1;\n  }\n  {;\n//@ assert(x == 0);\n}\n    \n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= N;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nvoid main()\n{\n  int x, m, N;\n  N = unknown_int();\n  if (N < 0)\n    \nreturn;\n\n  x = N;\n  /*@\nloop invariant i1: 0 <= x <= N;\n*/\nwhile(x > 0)\n  {\n    x = x - 1;\n  }\n  {;\n//@ assert(x == 0);\n}\n    \n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant N >= 0;\nloop invariant 0 <= k <= N;\nloop invariant x = N - k;\nloop invariant N >= 0;\nloop invariant 0 <= k <= N;\nloop invariant x = N - k;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nvoid main()\n{\n  int x, m, N;\n  N = unknown_int();\n  if (N < 0)\n    \nreturn;\n\n  x = N;\n  /*@\nloop invariant i1: N >= 0;\n\n\n*/\nwhile(x > 0)\n  {\n    x = x - 1;\n  }\n  {;\n//@ assert(x == 0);\n}\n    \n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant x == N - (N - x);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nvoid main()\n{\n  int x, m, N;\n  N = unknown_int();\n  if (N < 0)\n    \nreturn;\n\n  x = N;\n  /*@\nloop invariant i1: 0 <= x <= N;\nloop invariant i2: x == N - (N - x);\n*/\nwhile(x > 0)\n  {\n    x = x - 1;\n  }\n  {;\n//@ assert(x == 0);\n}\n    \n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant x >= 0;\nloop invariant x <= N;\nloop invariant x == N;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nvoid main()\n{\n  int x, m, N;\n  N = unknown_int();\n  if (N < 0)\n    \nreturn;\n\n  x = N;\n  /*@\nloop invariant i1: 0 <= x <= N;\nloop invariant i2: x >= 0;\nloop invariant i3: x <= N;\n\n*/\nwhile(x > 0)\n  {\n    x = x - 1;\n  }\n  {;\n//@ assert(x == 0);\n}\n    \n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant x >= (N - (N - x));\nloop invariant x <= (N - (N - x));\nloop invariant x == (N - (N - x));\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nvoid main()\n{\n  int x, m, N;\n  N = unknown_int();\n  if (N < 0)\n    \nreturn;\n\n  x = N;\n  /*@\nloop invariant i1: 0 <= x <= N;\nloop invariant i2: x >= (N - (N - x));\nloop invariant i3: x <= (N - (N - x));\nloop invariant i4: x == (N - (N - x));\n*/\nwhile(x > 0)\n  {\n    x = x - 1;\n  }\n  {;\n//@ assert(x == 0);\n}\n    \n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= N;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nvoid main()\n{\n  int x, m, N;\n  N = unknown_int();\n  if (N < 0)\n    \nreturn;\n\n  x = N;\n  /*@\nloop invariant i1: 0 <= x <= N;\n*/\nwhile(x > 0)\n  {\n    x = x - 1;\n  }\n  {;\n//@ assert(x == 0);\n}\n    \n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x;\nloop invariant x <= N;\nloop invariant x > 0 ==> x - 1 >= 0;\nloop invariant x > 0 ==> x - 1 < N;\nloop invariant x > 0 ==> x >= x - 1;\nloop invariant x > 0 ==> x <= x - 1 ==> x == 0;\nloop invariant x > 0 ==> x <= x - 1 ==> x == 1 ==> x == 0;\nloop invariant x > 0 ==> x <= x - 1 ==> x == 1 ==> x == 0 ==> x == 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nvoid main()\n{\n  int x, m, N;\n  N = unknown_int();\n  if (N < 0)\n    \nreturn;\n\n  x = N;\n  /*@\nloop invariant i1: 0 <= x;\nloop invariant i2: x <= N;\nloop invariant i3: x > 0 ==> x - 1 >= 0;\nloop invariant i4: x > 0 ==> x - 1 < N;\nloop invariant i5: x > 0 ==> x >= x - 1;\nloop invariant i6: x > 0 ==> x <= x - 1 ==> x == 0;\nloop invariant i7: x > 0 ==> x <= x - 1 ==> x == 1 ==> x == 0;\nloop invariant i8: x > 0 ==> x <= x - 1 ==> x == 1 ==> x == 0 ==> x == 0;\n*/\nwhile(x > 0)\n  {\n    x = x - 1;\n  }\n  {;\n//@ assert(x == 0);\n}\n    \n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant x >= N - (N - 1) * (N - 1) / 2;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nvoid main()\n{\n  int x, m, N;\n  N = unknown_int();\n  if (N < 0)\n    \nreturn;\n\n  x = N;\n  /*@\nloop invariant i1: 0 <= x <= N;\n\n*/\nwhile(x > 0)\n  {\n    x = x - 1;\n  }\n  {;\n//@ assert(x == 0);\n}\n    \n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant x <= N;\nloop invariant x >= 0;\nloop invariant x == N - m;\nloop invariant m >= 0;\nloop invariant m <= N;\nloop invariant m == x + 1;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nvoid main()\n{\n  int x, m, N;\n  N = unknown_int();\n  if (N < 0)\n    \nreturn;\n\n  x = N;\n  /*@\nloop invariant i1: 0 <= x <= N;\nloop invariant i2: x <= N;\nloop invariant i3: x >= 0;\n\n\n\n\n*/\nwhile(x > 0)\n  {\n    x = x - 1;\n  }\n  {;\n//@ assert(x == 0);\n}\n    \n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant x == N - \\at(N, Pre) + \\at(x, Pre);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nvoid main()\n{\n  int x, m, N;\n  N = unknown_int();\n  if (N < 0)\n    \nreturn;\n\n  x = N;\n  /*@\nloop invariant i1: 0 <= x <= N;\n\n*/\nwhile(x > 0)\n  {\n    x = x - 1;\n  }\n  {;\n//@ assert(x == 0);\n}\n    \n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant x >= 0;\nloop invariant N >= x;\nloop invariant x > 0 ==> x < N;\nloop invariant x <= N;\nloop invariant x >= 0 ==> x - 1 < N;\nloop invariant x <= N ==> x - 1 >= 0;\nloop invariant (x > 0) ==> (x - 1 > 0);\nloop invariant (x > 0) ==> (x - 1 <= N);\nloop invariant (x <= N) ==> (x - 1 >= 0);\nloop invariant (x <= N) ==> (x - 1 <= N);\nloop invariant (x > 0) ==> (x - 1 > 0) ==> (x - 1 < N);\nloop invariant (x > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant (x <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant (x <= N) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant (x > 0) ==> (x - 1 > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant (x > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant (x <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant (x <= N) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant (x > 0) ==> (x - 1 > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant (x > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant (x <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant (x <= N) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant (x > 0) ==> (x - 1 > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant (x > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant (x <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant (x <= N) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant (x > 0) ==> (x - 1 > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant (x > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant (x <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nvoid main()\n{\n  int x, m, N;\n  N = unknown_int();\n  if (N < 0)\n    \nreturn;\n\n  x = N;\n  /*@\nloop invariant i1: x >= 0;\nloop invariant i2: N >= x;\n\nloop invariant i4: x <= N;\nloop invariant i5: x >= 0 ==> x - 1 < N;\n\n\nloop invariant i8: (x > 0) ==> (x - 1 <= N);\n\nloop invariant i10: (x <= N) ==> (x - 1 <= N);\nloop invariant i11: (x > 0) ==> (x - 1 > 0) ==> (x - 1 < N);\nloop invariant i12: (x > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant i13: (x <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\n\nloop invariant i15: (x > 0) ==> (x - 1 > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant i16: (x > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant i17: (x <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant i18: (x <= N) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant i19: (x > 0) ==> (x - 1 > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant i20: (x > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant i21: (x <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant i22: (x <= N) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant i23: (x > 0) ==> (x - 1 > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant i24: (x > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant i25: (x <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant i26: (x <= N) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant i27: (x > 0) ==> (x - 1 > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant i28: (x > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant i29: (x <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\n*/\nwhile(x > 0)\n  {\n    x = x - 1;\n  }\n  {;\n//@ assert(x == 0);\n}\n    \n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= N;\nloop invariant x + 1 == N;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nvoid main()\n{\n  int x, m, N;\n  N = unknown_int();\n  if (N < 0)\n    \nreturn;\n\n  x = N;\n  /*@\nloop invariant i1: 0 <= x <= N;\n\n*/\nwhile(x > 0)\n  {\n    x = x - 1;\n  }\n  {;\n//@ assert(x == 0);\n}\n    \n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= N;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nvoid main()\n{\n  int x, m, N;\n  N = unknown_int();\n  if (N < 0)\n    \nreturn;\n\n  x = N;\n  /*@\nloop invariant i1: 0 <= x <= N;\n*/\nwhile(x > 0)\n  {\n    x = x - 1;\n  }\n  {;\n//@ assert(x == 0);\n}\n    \n}",
+                "checker_output_after_prune": true
+            }
+        ],
+        "checker_output_for_combined_annotations": false,
+        "checker_message_for_combined_annotations": "Annotation error on line 24: Assignment operators not allowed in annotations.",
+        "code_with_combined_annotations": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nvoid main()\n{\n  int x, m, N;\n  N = unknown_int();\n  if (N < 0)\n    \nreturn;\n\n  x = N;\n  /*@\nloop invariant i1: 0 <= x <= N;\nloop invariant i2: x <= N;\nloop invariant i3: x + 1 == N;\nloop invariant i4: N >= 0;\nloop invariant i5: 0 <= k <= N;\nloop invariant i6: x = N - k;\nloop invariant i7: x == N - (N - x);\nloop invariant i8: x >= 0;\nloop invariant i9: x == N;\nloop invariant i10: x >= (N - (N - x));\nloop invariant i11: x <= (N - (N - x));\nloop invariant i12: x == (N - (N - x));\nloop invariant i13: 0 <= x;\nloop invariant i14: x > 0 ==> x - 1 >= 0;\nloop invariant i15: x > 0 ==> x - 1 < N;\nloop invariant i16: x > 0 ==> x >= x - 1;\nloop invariant i17: x > 0 ==> x <= x - 1 ==> x == 0;\nloop invariant i18: x > 0 ==> x <= x - 1 ==> x == 1 ==> x == 0;\nloop invariant i19: x > 0 ==> x <= x - 1 ==> x == 1 ==> x == 0 ==> x == 0;\nloop invariant i20: x >= N - (N - 1) * (N - 1) / 2;\nloop invariant i21: x == N - m;\nloop invariant i22: m >= 0;\nloop invariant i23: m <= N;\nloop invariant i24: m == x + 1;\nloop invariant i25: x == N - \\at(N, Pre) + \\at(x, Pre);\nloop invariant i26: N >= x;\nloop invariant i27: x > 0 ==> x < N;\nloop invariant i28: x >= 0 ==> x - 1 < N;\nloop invariant i29: x <= N ==> x - 1 >= 0;\nloop invariant i30: (x > 0) ==> (x - 1 > 0);\nloop invariant i31: (x > 0) ==> (x - 1 <= N);\nloop invariant i32: (x <= N) ==> (x - 1 >= 0);\nloop invariant i33: (x <= N) ==> (x - 1 <= N);\nloop invariant i34: (x > 0) ==> (x - 1 > 0) ==> (x - 1 < N);\nloop invariant i35: (x > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant i36: (x <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant i37: (x <= N) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant i38: (x > 0) ==> (x - 1 > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant i39: (x > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant i40: (x <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant i41: (x <= N) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant i42: (x > 0) ==> (x - 1 > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant i43: (x > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant i44: (x <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant i45: (x <= N) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant i46: (x > 0) ==> (x - 1 > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant i47: (x > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant i48: (x <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant i49: (x <= N) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant i50: (x > 0) ==> (x - 1 > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant i51: (x > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant i52: (x <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\n*/\nwhile(x > 0)\n  {\n    x = x - 1;\n  }\n  {;\n//@ assert(x == 0);\n}\n    \n}",
+        "combined_annotation_num_solver_calls": 9,
+        "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\nextern int unknown_int(void);\n\nvoid main()\n{\n  int x, m, N;\n  N = unknown_int();\n  if (N < 0)\n    \nreturn;\n\n  x = N;\n  /*@\nloop invariant i1: 0 <= x <= N;\nloop invariant i2: x <= N;\n\nloop invariant i4: N >= 0;\n\n\nloop invariant i7: x == N - (N - x);\nloop invariant i8: x >= 0;\n\nloop invariant i10: x >= (N - (N - x));\nloop invariant i11: x <= (N - (N - x));\nloop invariant i12: x == (N - (N - x));\nloop invariant i13: 0 <= x;\nloop invariant i14: x > 0 ==> x - 1 >= 0;\nloop invariant i15: x > 0 ==> x - 1 < N;\nloop invariant i16: x > 0 ==> x >= x - 1;\nloop invariant i17: x > 0 ==> x <= x - 1 ==> x == 0;\nloop invariant i18: x > 0 ==> x <= x - 1 ==> x == 1 ==> x == 0;\nloop invariant i19: x > 0 ==> x <= x - 1 ==> x == 1 ==> x == 0 ==> x == 0;\n\n\n\n\n\n\nloop invariant i26: N >= x;\n\nloop invariant i28: x >= 0 ==> x - 1 < N;\n\n\nloop invariant i31: (x > 0) ==> (x - 1 <= N);\n\nloop invariant i33: (x <= N) ==> (x - 1 <= N);\nloop invariant i34: (x > 0) ==> (x - 1 > 0) ==> (x - 1 < N);\nloop invariant i35: (x > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant i36: (x <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\n\nloop invariant i38: (x > 0) ==> (x - 1 > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant i39: (x > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant i40: (x <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant i41: (x <= N) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant i42: (x > 0) ==> (x - 1 > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant i43: (x > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant i44: (x <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant i45: (x <= N) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant i46: (x > 0) ==> (x - 1 > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant i47: (x > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant i48: (x <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant i49: (x <= N) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant i50: (x > 0) ==> (x - 1 > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\nloop invariant i51: (x > 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0);\nloop invariant i52: (x <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N) ==> (x - 1 >= 0) ==> (x - 1 <= N);\n*/\nwhile(x > 0)\n  {\n    x = x - 1;\n  }\n  {;\n//@ assert(x == 0);\n}\n    \n}",
+        "checker_output_after_prune": true
+    },
+    "stats": {
+        "success": [
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/MAP-CPA-example_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/MAP-disj_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/MAP-forward_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/MAP-interpolants_needed-pepm-proc.c_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-paper-prog_d-pepm-proc.c_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testabs12_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testabs13_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testabs15_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testabs7_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testabs8_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop10_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop11_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop13_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop14_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop15_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop16_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop1_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop29_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop2_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop4_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop6_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop7_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/NetBSD_g_Ctoc.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/NetBSD_loop.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/NetBSD_loop_int.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/bind_expands_vars2.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/gulwani_cegar1.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/gulwani_cegar2.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/ken-imp.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/rajamani_1.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/sendmail-mime-fromqp.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/sendmail-mime7to8_arr_three_chars_no_test_ok.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/simple.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/simple_if.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/split.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/up-nested.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/llreve/barthe_merged_safe.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/llreve/loop4_merged_safe.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-invgen/NetBSD_loop_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/afnp2014_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/bhmr2007_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/css2003_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/hhk2008_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/jm2006_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/jm2006_variant_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-new/count_by_1_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-new/count_by_1_variant_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-new/count_by_2_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-new/count_by_k_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/count_up_down_true-unreach-call_true-termination.i.annot.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/for_infinite_loop_1_true-unreach-call_false-termination.i.annot.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/for_infinite_loop_2_true-unreach-call_false-termination.i.annot.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/sum03_true-unreach-call_false-termination.i.annot.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/sum04_true-unreach-call_true-termination.i.annot.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/terminator_02_true-unreach-call_true-termination.i.annot.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/terminator_03_true-unreach-call_true-termination.i.annot.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/trex03_true-unreach-call.i.annot.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/while_infinite_loop_1_true-unreach-call_false-termination.i.annot.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loops/while_infinite_loop_2_true-unreach-call_false-termination.i.annot.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/pie/ICE/benchmarks/afnp2014_true-unreach-call.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/pie/ICE/benchmarks/cegar2.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/pie/ICE/benchmarks/cegar2.v.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/pie/ICE/benchmarks/dec.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/pie/ICE/benchmarks/decn.c"
+        ],
+        "failure": [
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/MAP-singleloop2-pepm-proc.c_VeriMAP_true.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/gulwani_fig1a.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/invgen/sendmail-close-angle.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/llreve/barthe2_merged_safe.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-invgen/sendmail-close-angle_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/cggmp2005_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/cggmp2005_variant_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/gj2007_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/gr2006_true-unreach-call_true-termination.c",
+            "../dataset/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-new/half_true-unreach-call_true-termination.c"
+        ],
+        "skipped": [],
+        "total": 74,
+        "success_count": 64,
+        "failure_count": 10,
+        "success_rate": 0.8648648648648649
+    }
+}

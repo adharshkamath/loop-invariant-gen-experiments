@@ -1,0 +1,133 @@
+{
+    "logs": {
+        "file": "../dataset/loop_invariants/code2inv/124.c",
+        "benchmark_code": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int i;\n  int j;\n  int x;\n  int y;\n  \n  (i = x);\n  (j = y);\n  \n  while ((x != 0)) {\n    {\n    (x  = (x - 1));\n    (y  = (y - 1));\n    }\n\n  }\n  \nif ( (i == j) )\n{;\n//@ assert( (y == 0) );\n}\n\n}",
+        "success": true,
+        "annotation_blocks": [
+            "```\n/*@\nloop invariant 0 <= i <= 100000;\nloop invariant 0 <= j <= 100000;\nloop invariant x >= 0;\nloop invariant y >= 0;\nloop invariant x == y;\nloop invariant i == j;\nloop invariant x >= (1 + (y - 1) * y / 2);\nloop invariant y == (1 + (j - 1) * j / 2);\nloop invariant 0 <= i <= 100000;\nloop invariant 0 <= j <= 100000;\nloop invariant x >= 0;\nloop invariant y >= 0;\nloop invariant x == y;\nloop invariant x >= (1 + (y - 1) * y / 2);\nloop invariant y == (1 + (j - 1) * j / 2);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= i;\nloop invariant 0 <= y <= j;\nloop invariant x >= 0;\nloop invariant y >= 0;\nloop invariant x <= i;\nloop invariant y <= j;\nloop invariant x >= y;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\n*/\n```",
+            "```\n/*@\nloop invariant i = x;\nloop invariant j = y;\nloop invariant x >= 0;\nloop invariant y >= 0;\nloop invariant x == 0 ==> y == 0;\nloop invariant x != 0 ==> x > 0;\nloop invariant x != 0 ==> y > 0;\nloop invariant x != 0 ==> y > x;\nloop invariant x != 0 ==> y >= j;\nloop invariant i = x;\nloop invariant j = y;\nloop invariant x >= 0;\nloop invariant y >= 0;\nloop invariant x == 0 ==> y == 0;\nloop invariant x != 0 ==> x > 0;\nloop invariant x != 0 ==> y > 0;\nloop invariant x != 0 ==> y > x;\nloop invariant x != 0 ==> y >= j;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= i;\nloop invariant 0 <= y <= j;\nloop invariant x == i - y;\nloop invariant y == j - x;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= i;\nloop invariant 0 <= y <= j;\nloop invariant i <= j;\nloop invariant x <= i;\nloop invariant y <= j;\nloop invariant x <= y;\nloop invariant i <= j - x;\nloop invariant j <= i + y;\nloop invariant x ==> (y == 0);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= i;\nloop invariant y <= j;\nloop invariant y >= 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= j <= y; loop invariant x <= 0;\n*/\n```",
+            "```\n/*@\nloop invariant ( i >= 0);\nloop invariant ( j >= 0);\nloop invariant ( x >= 0);\nloop invariant ( y >= 0);\nloop invariant ( i <= x);\nloop invariant ( j <= y);\nloop invariant ( x >= i);\nloop invariant ( y >= j);\nloop invariant ( x - i == y - j);\nloop invariant ( x >= y);\nloop invariant ( x - y == j - i);\nloop invariant ( y == 0);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= i;\nloop invariant y == (x + j);\nloop invariant (i == j) ==> (y == 0);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= y <= 100000;\nloop invariant (x - 1) <= y <= (x + 1);\nloop invariant (i == j) ==> (y == 0);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= i <= 1;\nloop invariant 0 <= j <= 1;\nloop invariant i <= j;\nloop invariant x >= 0;\nloop invariant y >= 0;\nloop invariant x <= i;\nloop invariant y <= j;\nloop invariant x == i;\nloop invariant y == j;\nloop invariant x == i;\nloop invariant y == j;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= y <= j;\nloop invariant x <= i;\nloop invariant x >= 0;\nloop invariant y >= 0;\nloop invariant i >= j;\nloop invariant i <= x + y;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= i <= x;loop invariant i == j;loop invariant 0 <= y <= x;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= i;\nloop invariant 0 <= y <= j;\nloop invariant x <= i - j + y;\nloop invariant y <= j - i + x;\nloop invariant x + y <= i + j;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= y <= j;\nloop invariant i >= j;\nloop invariant x >= 0;\nloop invariant y >= 0;\nloop invariant x >= y;\nloop invariant i == j ==> (y == 0);\nloop invariant i == j ==> (x == j);\nloop invariant i == j ==> (y == j);\n*/\n```"
+        ],
+        "completions": [
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= i <= 100000;\nloop invariant 0 <= j <= 100000;\nloop invariant x >= 0;\nloop invariant y >= 0;\nloop invariant x == y;\nloop invariant i == j;\nloop invariant x >= (1 + (y - 1) * y / 2);\nloop invariant y == (1 + (j - 1) * j / 2);\nloop invariant 0 <= i <= 100000;\nloop invariant 0 <= j <= 100000;\nloop invariant x >= 0;\nloop invariant y >= 0;\nloop invariant x == y;\nloop invariant x >= (1 + (y - 1) * y / 2);\nloop invariant y == (1 + (j - 1) * j / 2);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int i;\n  int j;\n  int x;\n  int y;\n  \n  (i = x);\n  (j = y);\n  \n  /*@\n\n\n\n\n\n\n\n\n*/\nwhile ((x != 0)) {\n    {\n    (x  = (x - 1));\n    (y  = (y - 1));\n    }\n\n  }\n  \nif ( (i == j) )\n{;\n//@ assert( (y == 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 4,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= i;\nloop invariant 0 <= y <= j;\nloop invariant x >= 0;\nloop invariant y >= 0;\nloop invariant x <= i;\nloop invariant y <= j;\nloop invariant x >= y;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\nloop invariant x + y <= i + j;\nloop invariant x + y >= i + j - 1;\nloop invariant x + y >= 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int i;\n  int j;\n  int x;\n  int y;\n  \n  (i = x);\n  (j = y);\n  \n  /*@\n\n\n\n\nloop invariant i5: x <= i;\nloop invariant i6: y <= j;\n\nloop invariant i8: x + y <= i + j;\n\n\n*/\nwhile ((x != 0)) {\n    {\n    (x  = (x - 1));\n    (y  = (y - 1));\n    }\n\n  }\n  \nif ( (i == j) )\n{;\n//@ assert( (y == 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 4,
+                "annotations": "```\n/*@\nloop invariant i = x;\nloop invariant j = y;\nloop invariant x >= 0;\nloop invariant y >= 0;\nloop invariant x == 0 ==> y == 0;\nloop invariant x != 0 ==> x > 0;\nloop invariant x != 0 ==> y > 0;\nloop invariant x != 0 ==> y > x;\nloop invariant x != 0 ==> y >= j;\nloop invariant i = x;\nloop invariant j = y;\nloop invariant x >= 0;\nloop invariant y >= 0;\nloop invariant x == 0 ==> y == 0;\nloop invariant x != 0 ==> x > 0;\nloop invariant x != 0 ==> y > 0;\nloop invariant x != 0 ==> y > x;\nloop invariant x != 0 ==> y >= j;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int i;\n  int j;\n  int x;\n  int y;\n  \n  (i = x);\n  (j = y);\n  \n  /*@\n\n\n\n\n\n\n\n\n\n*/\nwhile ((x != 0)) {\n    {\n    (x  = (x - 1));\n    (y  = (y - 1));\n    }\n\n  }\n  \nif ( (i == j) )\n{;\n//@ assert( (y == 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= i;\nloop invariant 0 <= y <= j;\nloop invariant x == i - y;\nloop invariant y == j - x;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int i;\n  int j;\n  int x;\n  int y;\n  \n  (i = x);\n  (j = y);\n  \n  /*@\n\n\n\n\n*/\nwhile ((x != 0)) {\n    {\n    (x  = (x - 1));\n    (y  = (y - 1));\n    }\n\n  }\n  \nif ( (i == j) )\n{;\n//@ assert( (y == 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= i;\nloop invariant 0 <= y <= j;\nloop invariant i <= j;\nloop invariant x <= i;\nloop invariant y <= j;\nloop invariant x <= y;\nloop invariant i <= j - x;\nloop invariant j <= i + y;\nloop invariant x ==> (y == 0);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int i;\n  int j;\n  int x;\n  int y;\n  \n  (i = x);\n  (j = y);\n  \n  /*@\n\n\n\nloop invariant i4: x <= i;\nloop invariant i5: y <= j;\n\n\n\n\n*/\nwhile ((x != 0)) {\n    {\n    (x  = (x - 1));\n    (y  = (y - 1));\n    }\n\n  }\n  \nif ( (i == j) )\n{;\n//@ assert( (y == 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= i;\nloop invariant y <= j;\nloop invariant y >= 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int i;\n  int j;\n  int x;\n  int y;\n  \n  (i = x);\n  (j = y);\n  \n  /*@\n\nloop invariant i2: y <= j;\n\n*/\nwhile ((x != 0)) {\n    {\n    (x  = (x - 1));\n    (y  = (y - 1));\n    }\n\n  }\n  \nif ( (i == j) )\n{;\n//@ assert( (y == 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= j <= y; loop invariant x <= 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int i;\n  int j;\n  int x;\n  int y;\n  \n  (i = x);\n  (j = y);\n  \n  /*@\n\n*/\nwhile ((x != 0)) {\n    {\n    (x  = (x - 1));\n    (y  = (y - 1));\n    }\n\n  }\n  \nif ( (i == j) )\n{;\n//@ assert( (y == 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 5,
+                "annotations": "```\n/*@\nloop invariant ( i >= 0);\nloop invariant ( j >= 0);\nloop invariant ( x >= 0);\nloop invariant ( y >= 0);\nloop invariant ( i <= x);\nloop invariant ( j <= y);\nloop invariant ( x >= i);\nloop invariant ( y >= j);\nloop invariant ( x - i == y - j);\nloop invariant ( x >= y);\nloop invariant ( x - y == j - i);\nloop invariant ( y == 0);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int i;\n  int j;\n  int x;\n  int y;\n  \n  (i = x);\n  (j = y);\n  \n  /*@\n\n\n\n\n\n\n\n\nloop invariant i9: ( x - i == y - j);\n\n\n\n*/\nwhile ((x != 0)) {\n    {\n    (x  = (x - 1));\n    (y  = (y - 1));\n    }\n\n  }\n  \nif ( (i == j) )\n{;\n//@ assert( (y == 0) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= i;\nloop invariant y == (x + j);\nloop invariant (i == j) ==> (y == 0);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int i;\n  int j;\n  int x;\n  int y;\n  \n  (i = x);\n  (j = y);\n  \n  /*@\n\n\n\n*/\nwhile ((x != 0)) {\n    {\n    (x  = (x - 1));\n    (y  = (y - 1));\n    }\n\n  }\n  \nif ( (i == j) )\n{;\n//@ assert( (y == 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= y <= 100000;\nloop invariant (x - 1) <= y <= (x + 1);\nloop invariant (i == j) ==> (y == 0);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int i;\n  int j;\n  int x;\n  int y;\n  \n  (i = x);\n  (j = y);\n  \n  /*@\n\n\n\n*/\nwhile ((x != 0)) {\n    {\n    (x  = (x - 1));\n    (y  = (y - 1));\n    }\n\n  }\n  \nif ( (i == j) )\n{;\n//@ assert( (y == 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= i <= 1;\nloop invariant 0 <= j <= 1;\nloop invariant i <= j;\nloop invariant x >= 0;\nloop invariant y >= 0;\nloop invariant x <= i;\nloop invariant y <= j;\nloop invariant x == i;\nloop invariant y == j;\nloop invariant x == i;\nloop invariant y == j;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int i;\n  int j;\n  int x;\n  int y;\n  \n  (i = x);\n  (j = y);\n  \n  /*@\n\n\n\n\n\nloop invariant i6: x <= i;\nloop invariant i7: y <= j;\n\n\n*/\nwhile ((x != 0)) {\n    {\n    (x  = (x - 1));\n    (y  = (y - 1));\n    }\n\n  }\n  \nif ( (i == j) )\n{;\n//@ assert( (y == 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= y <= j;\nloop invariant x <= i;\nloop invariant x >= 0;\nloop invariant y >= 0;\nloop invariant i >= j;\nloop invariant i <= x + y;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int i;\n  int j;\n  int x;\n  int y;\n  \n  (i = x);\n  (j = y);\n  \n  /*@\n\nloop invariant i2: x <= i;\n\n\n\n\n*/\nwhile ((x != 0)) {\n    {\n    (x  = (x - 1));\n    (y  = (y - 1));\n    }\n\n  }\n  \nif ( (i == j) )\n{;\n//@ assert( (y == 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= i <= x;loop invariant i == j;loop invariant 0 <= y <= x;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int i;\n  int j;\n  int x;\n  int y;\n  \n  (i = x);\n  (j = y);\n  \n  /*@\n\n*/\nwhile ((x != 0)) {\n    {\n    (x  = (x - 1));\n    (y  = (y - 1));\n    }\n\n  }\n  \nif ( (i == j) )\n{;\n//@ assert( (y == 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= i;\nloop invariant 0 <= y <= j;\nloop invariant x <= i - j + y;\nloop invariant y <= j - i + x;\nloop invariant x + y <= i + j;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int i;\n  int j;\n  int x;\n  int y;\n  \n  (i = x);\n  (j = y);\n  \n  /*@\n\n\nloop invariant i3: x <= i - j + y;\nloop invariant i4: y <= j - i + x;\nloop invariant i5: x + y <= i + j;\n*/\nwhile ((x != 0)) {\n    {\n    (x  = (x - 1));\n    (y  = (y - 1));\n    }\n\n  }\n  \nif ( (i == j) )\n{;\n//@ assert( (y == 0) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 3,
+                "annotations": "```\n/*@\nloop invariant 0 <= y <= j;\nloop invariant i >= j;\nloop invariant x >= 0;\nloop invariant y >= 0;\nloop invariant x >= y;\nloop invariant i == j ==> (y == 0);\nloop invariant i == j ==> (x == j);\nloop invariant i == j ==> (y == j);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int i;\n  int j;\n  int x;\n  int y;\n  \n  (i = x);\n  (j = y);\n  \n  /*@\n\n\n\n\n\n\n\n\n*/\nwhile ((x != 0)) {\n    {\n    (x  = (x - 1));\n    (y  = (y - 1));\n    }\n\n  }\n  \nif ( (i == j) )\n{;\n//@ assert( (y == 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            }
+        ],
+        "checker_output_for_combined_annotations": false,
+        "checker_message_for_combined_annotations": "Annotation error on line 34: Assignment operators not allowed in annotations.",
+        "code_with_combined_annotations": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int i;\n  int j;\n  int x;\n  int y;\n  \n  (i = x);\n  (j = y);\n  \n  /*@\nloop invariant i1: 0 <= i <= 100000;\nloop invariant i2: 0 <= j <= 100000;\nloop invariant i3: x >= 0;\nloop invariant i4: y >= 0;\nloop invariant i5: x == y;\nloop invariant i6: i == j;\nloop invariant i7: x >= (1 + (y - 1) * y / 2);\nloop invariant i8: y == (1 + (j - 1) * j / 2);\nloop invariant i9: 0 <= x <= i;\nloop invariant i10: 0 <= y <= j;\nloop invariant i11: x <= i;\nloop invariant i12: y <= j;\nloop invariant i13: x >= y;\nloop invariant i14: x + y <= i + j;\nloop invariant i15: x + y >= i + j - 1;\nloop invariant i16: x + y >= 0;\nloop invariant i17: i = x;\nloop invariant i18: j = y;\nloop invariant i19: x == 0 ==> y == 0;\nloop invariant i20: x != 0 ==> x > 0;\nloop invariant i21: x != 0 ==> y > 0;\nloop invariant i22: x != 0 ==> y > x;\nloop invariant i23: x != 0 ==> y >= j;\nloop invariant i24: x == i - y;\nloop invariant i25: y == j - x;\nloop invariant i26: i <= j;\nloop invariant i27: x <= y;\nloop invariant i28: i <= j - x;\nloop invariant i29: j <= i + y;\nloop invariant i30: x ==> (y == 0);\nloop invariant i31: 0 <= j <= y; loop invariant x <= 0;\nloop invariant i32: ( i >= 0);\nloop invariant i33: ( j >= 0);\nloop invariant i34: ( x >= 0);\nloop invariant i35: ( y >= 0);\nloop invariant i36: ( i <= x);\nloop invariant i37: ( j <= y);\nloop invariant i38: ( x >= i);\nloop invariant i39: ( y >= j);\nloop invariant i40: ( x - i == y - j);\nloop invariant i41: ( x >= y);\nloop invariant i42: ( x - y == j - i);\nloop invariant i43: ( y == 0);\nloop invariant i44: y == (x + j);\nloop invariant i45: (i == j) ==> (y == 0);\nloop invariant i46: 0 <= x <= y <= 100000;\nloop invariant i47: (x - 1) <= y <= (x + 1);\nloop invariant i48: 0 <= i <= 1;\nloop invariant i49: 0 <= j <= 1;\nloop invariant i50: x == i;\nloop invariant i51: y == j;\nloop invariant i52: i >= j;\nloop invariant i53: i <= x + y;\nloop invariant i54: 0 <= i <= x;loop invariant i == j;loop invariant 0 <= y <= x;\nloop invariant i55: x <= i - j + y;\nloop invariant i56: y <= j - i + x;\nloop invariant i57: i == j ==> (y == 0);\nloop invariant i58: i == j ==> (x == j);\nloop invariant i59: i == j ==> (y == j);\n*/\nwhile ((x != 0)) {\n    {\n    (x  = (x - 1));\n    (y  = (y - 1));\n    }\n\n  }\n  \nif ( (i == j) )\n{;\n//@ assert( (y == 0) );\n}\n\n}",
+        "combined_annotation_num_solver_calls": 21,
+        "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int i;\n  int j;\n  int x;\n  int y;\n  \n  (i = x);\n  (j = y);\n  \n  /*@\n\n\n\n\n\n\n\n\n\n\nloop invariant i11: x <= i;\nloop invariant i12: y <= j;\n\nloop invariant i14: x + y <= i + j;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nloop invariant i40: ( x - i == y - j);\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nloop invariant i55: x <= i - j + y;\nloop invariant i56: y <= j - i + x;\n\n\n\n*/\nwhile ((x != 0)) {\n    {\n    (x  = (x - 1));\n    (y  = (y - 1));\n    }\n\n  }\n  \nif ( (i == j) )\n{;\n//@ assert( (y == 0) );\n}\n\n}",
+        "checker_output_after_prune": true
+    },
+    "stats": {
+        "success": [
+            "../dataset/loop_invariants/code2inv/124.c"
+        ],
+        "failure": [],
+        "skipped": [],
+        "total": 1,
+        "success_count": 1,
+        "failure_count": 0,
+        "success_rate": 1.0
+    }
+}

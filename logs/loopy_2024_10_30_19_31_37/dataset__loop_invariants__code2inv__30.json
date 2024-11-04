@@ -1,0 +1,157 @@
+{
+    "logs": {
+        "file": "../dataset/loop_invariants/code2inv/30.c",
+        "benchmark_code": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 100);\n  \n  while ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+        "success": true,
+        "annotation_blocks": [
+            "```\n/*@\nloop invariant x >= 1;\nloop invariant x <= 100;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 100;\n*/\n```",
+            "```\n/*@\nloop invariant 1 <= x <= 100;\nloop invariant x >= 100 - (x - 1);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant x == (100 - (100 - x));\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant (x - 1) >= 0 ==> (x >= 0);\nloop invariant x >= 0 ==> x > 0;\nloop invariant x == 100 ==> x > 0;\nloop invariant x == 0 ==> x <= 0;\n*/\n```",
+            "```\n/*@\nloop invariant x >= 0;\nloop invariant x <= 100;\nloop invariant x = 100 - y;\nloop invariant x = 100 - y ==> x >= 0;\nloop invariant x = 100 - y ==> x <= 100;\nloop invariant x = 100 - y ==> x = 100 - y;\nloop invariant x = 100 - y ==> x = 100 - y ==> x >= 0;\nloop invariant x = 100 - y ==> x = 100 - y ==> x <= 100;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x >= 0;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x <= 100;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x >= 0;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x <= 100;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x >= 0;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x <= 100;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x >= 0;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x <= 100;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x >= 0;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x <= 100;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 100;\n*/\n```",
+            "```\n/*@\nloop invariant 100 <= x <= 100;\nloop invariant x >= 0;\nloop invariant x <= 100;\nloop invariant (x == 0) ==> true;\nloop invariant (x < 0) ==> false;\nloop invariant (x > 100) ==> false;\nloop invariant (x == 100) ==> false;\nloop invariant (x == 99) ==> true;\nloop invariant (x == 98) ==> true;\nloop invariant (x == 97) ==> true;\nloop invariant (x == 96) ==> true;\nloop invariant (x == 95) ==> true;\nloop invariant (x == 94) ==> true;\nloop invariant (x == 93) ==> true;\nloop invariant (x == 92) ==> true;\nloop invariant (x == 91) ==> true;\nloop invariant (x == 90) ==> true;\nloop invariant (x == 89) ==> true;\nloop invariant (x == 88) ==> true;\nloop invariant (x == 87) ==> true;\nloop invariant (x == 86) ==> true;\nloop invariant (x == 85) ==> true;\nloop invariant (x == 84) ==> true;\nloop invariant (x == 83) ==> true;\nloop invariant (x == 82) ==> true;\nloop invariant (x == 81) ==> true;\nloop invariant (x == 80) ==> true;\nloop invariant (x == 79) ==> true;\nloop invariant (x == 78) ==> true;\nloop invariant (x == 77) ==> true;\nloop invariant (x == 76) ==> true;\nloop invariant (x == 75) ==> true;\nloop invariant (x == 74) ==> true;\nloop invariant (x == 73) ==> true;\nloop invariant (x == 72) ==> true;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant (x - 1) >= 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant x == (100 - (i - 1));\nloop invariant i == (101 - x);\nloop invariant 0 <= i <= 100;\nloop invariant i == (101 - (100 - x));\nloop invariant i == (x + 1);\nloop invariant i == (x + 1);\nloop invariant i == (x + 1);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant x <= 100;\nloop invariant x >= 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant x >= 100 - 1 * (100 - 1) / 2;\nloop invariant x == 0 ==> (x == 0);\nloop invariant x > 0 ==> (x > 0);\nloop invariant x <= 0 ==> (x <= 0);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x > 0 ==> (x > 0);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant x == (100 - y);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 100;\n*/\n```",
+            "```\n/*@\nloop invariant x > 0;\n*/\n```"
+        ],
+        "completions": [
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant x >= 1;\nloop invariant x <= 100;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 100);\n  \n  /*@\n\nloop invariant i2: x <= 100;\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 100;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 100);\n  \n  /*@\nloop invariant i1: 0 <= x <= 100;\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 1 <= x <= 100;\nloop invariant x >= 100 - (x - 1);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 100);\n  \n  /*@\n\n\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant x == (100 - (100 - x));\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 100);\n  \n  /*@\nloop invariant i1: 0 <= x <= 100;\nloop invariant i2: x == (100 - (100 - x));\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant (x - 1) >= 0 ==> (x >= 0);\nloop invariant x >= 0 ==> x > 0;\nloop invariant x == 100 ==> x > 0;\nloop invariant x == 0 ==> x <= 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 100);\n  \n  /*@\nloop invariant i1: 0 <= x <= 100;\nloop invariant i2: (x - 1) >= 0 ==> (x >= 0);\n\nloop invariant i4: x == 100 ==> x > 0;\nloop invariant i5: x == 0 ==> x <= 0;\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 22,
+                "annotations": "```\n/*@\nloop invariant x >= 0;\nloop invariant x <= 100;\nloop invariant x = 100 - y;\nloop invariant x = 100 - y ==> x >= 0;\nloop invariant x = 100 - y ==> x <= 100;\nloop invariant x = 100 - y ==> x = 100 - y;\nloop invariant x = 100 - y ==> x = 100 - y ==> x >= 0;\nloop invariant x = 100 - y ==> x = 100 - y ==> x <= 100;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x >= 0;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x <= 100;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x >= 0;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x <= 100;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x >= 0;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x <= 100;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x >= 0;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x <= 100;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x >= 0;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x <= 100;\nloop invariant x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 100);\n  \n  /*@\nloop invariant i1: x >= 0;\nloop invariant i2: x <= 100;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 100;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 100);\n  \n  /*@\nloop invariant i1: 0 <= x <= 100;\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 33,
+                "annotations": "```\n/*@\nloop invariant 100 <= x <= 100;\nloop invariant x >= 0;\nloop invariant x <= 100;\nloop invariant (x == 0) ==> true;\nloop invariant (x < 0) ==> false;\nloop invariant (x > 100) ==> false;\nloop invariant (x == 100) ==> false;\nloop invariant (x == 99) ==> true;\nloop invariant (x == 98) ==> true;\nloop invariant (x == 97) ==> true;\nloop invariant (x == 96) ==> true;\nloop invariant (x == 95) ==> true;\nloop invariant (x == 94) ==> true;\nloop invariant (x == 93) ==> true;\nloop invariant (x == 92) ==> true;\nloop invariant (x == 91) ==> true;\nloop invariant (x == 90) ==> true;\nloop invariant (x == 89) ==> true;\nloop invariant (x == 88) ==> true;\nloop invariant (x == 87) ==> true;\nloop invariant (x == 86) ==> true;\nloop invariant (x == 85) ==> true;\nloop invariant (x == 84) ==> true;\nloop invariant (x == 83) ==> true;\nloop invariant (x == 82) ==> true;\nloop invariant (x == 81) ==> true;\nloop invariant (x == 80) ==> true;\nloop invariant (x == 79) ==> true;\nloop invariant (x == 78) ==> true;\nloop invariant (x == 77) ==> true;\nloop invariant (x == 76) ==> true;\nloop invariant (x == 75) ==> true;\nloop invariant (x == 74) ==> true;\nloop invariant (x == 73) ==> true;\nloop invariant (x == 72) ==> true;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 100);\n  \n  /*@\n\nloop invariant i2: x >= 0;\nloop invariant i3: x <= 100;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant (x - 1) >= 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 100);\n  \n  /*@\nloop invariant i1: 0 <= x <= 100;\n\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 5,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant x == (100 - (i - 1));\nloop invariant i == (101 - x);\nloop invariant 0 <= i <= 100;\nloop invariant i == (101 - (100 - x));\nloop invariant i == (x + 1);\nloop invariant i == (x + 1);\nloop invariant i == (x + 1);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 100);\n  \n  /*@\nloop invariant i1: 0 <= x <= 100;\n\n\n\n\n\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant x <= 100;\nloop invariant x >= 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 100);\n  \n  /*@\nloop invariant i1: 0 <= x <= 100;\nloop invariant i2: x <= 100;\nloop invariant i3: x >= 0;\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant x >= 100 - 1 * (100 - 1) / 2;\nloop invariant x == 0 ==> (x == 0);\nloop invariant x > 0 ==> (x > 0);\nloop invariant x <= 0 ==> (x <= 0);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x > 0 ==> (x > 0);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\nloop invariant x == 100 ==> (x == 100);\nloop invariant x < 100 ==> (x < 100);\nloop invariant x >= 100 ==> (x >= 100);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 100);\n  \n  /*@\nloop invariant i1: 0 <= x <= 100;\n\nloop invariant i3: x == 0 ==> (x == 0);\nloop invariant i4: x > 0 ==> (x > 0);\nloop invariant i5: x <= 0 ==> (x <= 0);\nloop invariant i6: x == 100 ==> (x == 100);\nloop invariant i7: x < 100 ==> (x < 100);\nloop invariant i8: x >= 100 ==> (x >= 100);\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 100;\nloop invariant x == (100 - y);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 100);\n  \n  /*@\nloop invariant i1: 0 <= x <= 100;\n\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 100;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 100);\n  \n  /*@\nloop invariant i1: 0 <= x <= 100;\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant x > 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 100);\n  \n  /*@\n\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            }
+        ],
+        "checker_output_for_combined_annotations": false,
+        "checker_message_for_combined_annotations": "Annotation error on line 25: Assignment operators not allowed in annotations.",
+        "code_with_combined_annotations": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 100);\n  \n  /*@\nloop invariant i1: x >= 1;\nloop invariant i2: x <= 100;\nloop invariant i3: 0 <= x <= 100;\nloop invariant i4: 1 <= x <= 100;\nloop invariant i5: x >= 100 - (x - 1);\nloop invariant i6: x == (100 - (100 - x));\nloop invariant i7: (x - 1) >= 0 ==> (x >= 0);\nloop invariant i8: x >= 0 ==> x > 0;\nloop invariant i9: x == 100 ==> x > 0;\nloop invariant i10: x == 0 ==> x <= 0;\nloop invariant i11: x >= 0;\nloop invariant i12: x = 100 - y;\nloop invariant i13: x = 100 - y ==> x >= 0;\nloop invariant i14: x = 100 - y ==> x <= 100;\nloop invariant i15: x = 100 - y ==> x = 100 - y;\nloop invariant i16: x = 100 - y ==> x = 100 - y ==> x >= 0;\nloop invariant i17: x = 100 - y ==> x = 100 - y ==> x <= 100;\nloop invariant i18: x = 100 - y ==> x = 100 - y ==> x = 100 - y;\nloop invariant i19: x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x >= 0;\nloop invariant i20: x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x <= 100;\nloop invariant i21: x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y;\nloop invariant i22: x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x >= 0;\nloop invariant i23: x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x <= 100;\nloop invariant i24: x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y;\nloop invariant i25: x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x >= 0;\nloop invariant i26: x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x <= 100;\nloop invariant i27: x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y;\nloop invariant i28: x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x >= 0;\nloop invariant i29: x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x <= 100;\nloop invariant i30: x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y;\nloop invariant i31: x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x >= 0;\nloop invariant i32: x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x <= 100;\nloop invariant i33: x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y ==> x = 100 - y;\nloop invariant i34: 100 <= x <= 100;\nloop invariant i35: (x == 0) ==> true;\nloop invariant i36: (x < 0) ==> false;\nloop invariant i37: (x > 100) ==> false;\nloop invariant i38: (x == 100) ==> false;\nloop invariant i39: (x == 99) ==> true;\nloop invariant i40: (x == 98) ==> true;\nloop invariant i41: (x == 97) ==> true;\nloop invariant i42: (x == 96) ==> true;\nloop invariant i43: (x == 95) ==> true;\nloop invariant i44: (x == 94) ==> true;\nloop invariant i45: (x == 93) ==> true;\nloop invariant i46: (x == 92) ==> true;\nloop invariant i47: (x == 91) ==> true;\nloop invariant i48: (x == 90) ==> true;\nloop invariant i49: (x == 89) ==> true;\nloop invariant i50: (x == 88) ==> true;\nloop invariant i51: (x == 87) ==> true;\nloop invariant i52: (x == 86) ==> true;\nloop invariant i53: (x == 85) ==> true;\nloop invariant i54: (x == 84) ==> true;\nloop invariant i55: (x == 83) ==> true;\nloop invariant i56: (x == 82) ==> true;\nloop invariant i57: (x == 81) ==> true;\nloop invariant i58: (x == 80) ==> true;\nloop invariant i59: (x == 79) ==> true;\nloop invariant i60: (x == 78) ==> true;\nloop invariant i61: (x == 77) ==> true;\nloop invariant i62: (x == 76) ==> true;\nloop invariant i63: (x == 75) ==> true;\nloop invariant i64: (x == 74) ==> true;\nloop invariant i65: (x == 73) ==> true;\nloop invariant i66: (x == 72) ==> true;\nloop invariant i67: (x - 1) >= 0;\nloop invariant i68: x == (100 - (i - 1));\nloop invariant i69: i == (101 - x);\nloop invariant i70: 0 <= i <= 100;\nloop invariant i71: i == (101 - (100 - x));\nloop invariant i72: i == (x + 1);\nloop invariant i73: x >= 100 - 1 * (100 - 1) / 2;\nloop invariant i74: x == 0 ==> (x == 0);\nloop invariant i75: x > 0 ==> (x > 0);\nloop invariant i76: x <= 0 ==> (x <= 0);\nloop invariant i77: x == 100 ==> (x == 100);\nloop invariant i78: x < 100 ==> (x < 100);\nloop invariant i79: x >= 100 ==> (x >= 100);\nloop invariant i80: x == (100 - y);\nloop invariant i81: x > 0;\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+        "combined_annotation_num_solver_calls": 69,
+        "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 100);\n  \n  /*@\n\nloop invariant i2: x <= 100;\nloop invariant i3: 0 <= x <= 100;\n\n\nloop invariant i6: x == (100 - (100 - x));\nloop invariant i7: (x - 1) >= 0 ==> (x >= 0);\n\nloop invariant i9: x == 100 ==> x > 0;\nloop invariant i10: x == 0 ==> x <= 0;\nloop invariant i11: x >= 0;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nloop invariant i74: x == 0 ==> (x == 0);\nloop invariant i75: x > 0 ==> (x > 0);\nloop invariant i76: x <= 0 ==> (x <= 0);\nloop invariant i77: x == 100 ==> (x == 100);\nloop invariant i78: x < 100 ==> (x < 100);\nloop invariant i79: x >= 100 ==> (x >= 100);\n\n\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+        "checker_output_after_prune": true
+    },
+    "stats": {
+        "success": [
+            "../dataset/loop_invariants/code2inv/124.c",
+            "../dataset/loop_invariants/code2inv/125.c",
+            "../dataset/loop_invariants/code2inv/126.c",
+            "../dataset/loop_invariants/code2inv/127.c",
+            "../dataset/loop_invariants/code2inv/128.c",
+            "../dataset/loop_invariants/code2inv/129.c",
+            "../dataset/loop_invariants/code2inv/13.c",
+            "../dataset/loop_invariants/code2inv/132.c",
+            "../dataset/loop_invariants/code2inv/133.c",
+            "../dataset/loop_invariants/code2inv/14.c",
+            "../dataset/loop_invariants/code2inv/16.c",
+            "../dataset/loop_invariants/code2inv/18.c",
+            "../dataset/loop_invariants/code2inv/19.c",
+            "../dataset/loop_invariants/code2inv/2.c",
+            "../dataset/loop_invariants/code2inv/20.c",
+            "../dataset/loop_invariants/code2inv/21.c",
+            "../dataset/loop_invariants/code2inv/22.c",
+            "../dataset/loop_invariants/code2inv/25.c",
+            "../dataset/loop_invariants/code2inv/29.c",
+            "../dataset/loop_invariants/code2inv/3.c",
+            "../dataset/loop_invariants/code2inv/30.c"
+        ],
+        "failure": [
+            "../dataset/loop_invariants/code2inv/131.c",
+            "../dataset/loop_invariants/code2inv/15.c",
+            "../dataset/loop_invariants/code2inv/23.c"
+        ],
+        "skipped": [],
+        "total": 24,
+        "success_count": 21,
+        "failure_count": 3,
+        "success_rate": 0.875
+    }
+}

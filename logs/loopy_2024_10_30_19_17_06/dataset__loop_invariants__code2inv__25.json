@@ -1,0 +1,154 @@
+{
+    "logs": {
+        "file": "../dataset/loop_invariants/code2inv/25.c",
+        "benchmark_code": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 10000);\n  \n  while ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+        "success": true,
+        "annotation_blocks": [
+            "```\n/*@\nloop invariant 0 <= x <= 10000;\nloop invariant x ==> x <= 10000;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 10000;\nloop invariant (x - 1) >= 0;\nloop invariant x >= 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 10000;\nloop invariant x == 10000 - (y - 1);\nloop invariant (x <= 10000) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= y - 1);\nloop invariant (x <= y) ==> (x >= 10000 - (y - 1));\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 10000;\nloop invariant x > 0 ==> x == 0;\n*/\n```",
+            "```\n/*@\nloop invariant 1 <= x <= 10000;\nloop invariant x >= 10000 - (x - 1);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 10000;\nloop invariant x - 1 >= (x - 1);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 10000;\nloop invariant x + (0 - 1) >= 0;\nloop invariant x + (0 - 1) <= 10000;\nloop invariant x - 1 >= 10000;\nloop invariant x - 1 <= 9999;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 10000;\nloop invariant (x == 10000) ==> (x - 1 <= 9999);\nloop invariant (x == 10000) ==> (x - 1 >= 9999);\n*/\n```",
+            "```\n/*@\nloop invariant x <= 10000;\nloop invariant 0 <= x;\nloop invariant x >= 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 100000;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 10000;\n*/\n```",
+            "```\n/*@\nloop invariant x > 0 ==> (x <= 10000);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 10000;\nloop invariant x >= 10000 - (x - 1) * (x - 2) / 2;\n*/\n```",
+            "```\n/*@\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= 10000;\nloop invariant x == 10000 - y;\n*/\n```"
+        ],
+        "completions": [
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 10000;\nloop invariant x ==> x <= 10000;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 10000);\n  \n  /*@\nloop invariant i1: 0 <= x <= 10000;\nloop invariant i2: x ==> x <= 10000;\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 10000;\nloop invariant (x - 1) >= 0;\nloop invariant x >= 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 10000);\n  \n  /*@\nloop invariant i1: 0 <= x <= 10000;\n\nloop invariant i3: x >= 0;\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 5,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 10000;\nloop invariant x == 10000 - (y - 1);\nloop invariant (x <= 10000) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= y - 1);\nloop invariant (x <= y) ==> (x >= 10000 - (y - 1));\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\nloop invariant (x <= y) ==> (x >= 10000 - y);\nloop invariant (x <= y) ==> (x >= 0);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 10000);\n  \n  /*@\nloop invariant i1: 0 <= x <= 10000;\n\nloop invariant i3: (x <= 10000) ==> (x >= 0);\n\n\n\n\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 10000;\nloop invariant x > 0 ==> x == 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 10000);\n  \n  /*@\nloop invariant i1: 0 <= x <= 10000;\n\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 1 <= x <= 10000;\nloop invariant x >= 10000 - (x - 1);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 10000);\n  \n  /*@\n\n\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 10000;\nloop invariant x - 1 >= (x - 1);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 10000);\n  \n  /*@\nloop invariant i1: 0 <= x <= 10000;\nloop invariant i2: x - 1 >= (x - 1);\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 10000;\nloop invariant x + (0 - 1) >= 0;\nloop invariant x + (0 - 1) <= 10000;\nloop invariant x - 1 >= 10000;\nloop invariant x - 1 <= 9999;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 10000);\n  \n  /*@\nloop invariant i1: 0 <= x <= 10000;\n\nloop invariant i3: x + (0 - 1) <= 10000;\n\nloop invariant i5: x - 1 <= 9999;\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 10000;\nloop invariant (x == 10000) ==> (x - 1 <= 9999);\nloop invariant (x == 10000) ==> (x - 1 >= 9999);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 10000);\n  \n  /*@\nloop invariant i1: 0 <= x <= 10000;\nloop invariant i2: (x == 10000) ==> (x - 1 <= 9999);\nloop invariant i3: (x == 10000) ==> (x - 1 >= 9999);\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant x <= 10000;\nloop invariant 0 <= x;\nloop invariant x >= 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 10000);\n  \n  /*@\nloop invariant i1: x <= 10000;\nloop invariant i2: 0 <= x;\nloop invariant i3: x >= 0;\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 100000;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 10000);\n  \n  /*@\nloop invariant i1: 0 <= x <= 100000;\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 10000;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 10000);\n  \n  /*@\nloop invariant i1: 0 <= x <= 10000;\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant x > 0 ==> (x <= 10000);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 10000);\n  \n  /*@\nloop invariant i1: x > 0 ==> (x <= 10000);\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 10000;\nloop invariant x >= 10000 - (x - 1) * (x - 2) / 2;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 10000);\n  \n  /*@\nloop invariant i1: 0 <= x <= 10000;\n\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\nloop invariant x <= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x >= 10000 - y;\nloop invariant x <= 10000 - y;\nloop invariant x >= 0;\nloop invariant x <= 10000;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 10000);\n  \n  /*@\nloop invariant i1: x >= 0;\nloop invariant i2: x <= 10000;\n\n\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= 10000;\nloop invariant x == 10000 - y;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 10000);\n  \n  /*@\nloop invariant i1: 0 <= x <= 10000;\n\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+                "checker_output_after_prune": true
+            }
+        ],
+        "checker_output_for_combined_annotations": false,
+        "checker_message_for_combined_annotations": "Annotation error on line 18: unbound logic variable y. Ignoring loop annotation",
+        "code_with_combined_annotations": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 10000);\n  \n  /*@\nloop invariant i1: 0 <= x <= 10000;\nloop invariant i2: x ==> x <= 10000;\nloop invariant i3: (x - 1) >= 0;\nloop invariant i4: x >= 0;\nloop invariant i5: x == 10000 - (y - 1);\nloop invariant i6: (x <= 10000) ==> (x >= 0);\nloop invariant i7: (x <= y) ==> (x >= y - 1);\nloop invariant i8: (x <= y) ==> (x >= 10000 - (y - 1));\nloop invariant i9: (x <= y) ==> (x >= 0);\nloop invariant i10: (x <= y) ==> (x >= 10000 - y);\nloop invariant i11: x > 0 ==> x == 0;\nloop invariant i12: 1 <= x <= 10000;\nloop invariant i13: x >= 10000 - (x - 1);\nloop invariant i14: x - 1 >= (x - 1);\nloop invariant i15: x + (0 - 1) >= 0;\nloop invariant i16: x + (0 - 1) <= 10000;\nloop invariant i17: x - 1 >= 10000;\nloop invariant i18: x - 1 <= 9999;\nloop invariant i19: (x == 10000) ==> (x - 1 <= 9999);\nloop invariant i20: (x == 10000) ==> (x - 1 >= 9999);\nloop invariant i21: x <= 10000;\nloop invariant i22: 0 <= x;\nloop invariant i23: 0 <= x <= 100000;\nloop invariant i24: x > 0 ==> (x <= 10000);\nloop invariant i25: x >= 10000 - (x - 1) * (x - 2) / 2;\nloop invariant i26: x <= 10000 - y;\nloop invariant i27: x >= 10000 - y;\nloop invariant i28: x == 10000 - y;\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+        "combined_annotation_num_solver_calls": 16,
+        "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main() {\n  \n  int x;\n  \n  (x = 10000);\n  \n  /*@\nloop invariant i1: 0 <= x <= 10000;\nloop invariant i2: x ==> x <= 10000;\n\nloop invariant i4: x >= 0;\n\nloop invariant i6: (x <= 10000) ==> (x >= 0);\n\n\n\n\n\n\n\nloop invariant i14: x - 1 >= (x - 1);\n\nloop invariant i16: x + (0 - 1) <= 10000;\n\nloop invariant i18: x - 1 <= 9999;\nloop invariant i19: (x == 10000) ==> (x - 1 <= 9999);\nloop invariant i20: (x == 10000) ==> (x - 1 >= 9999);\nloop invariant i21: x <= 10000;\nloop invariant i22: 0 <= x;\nloop invariant i23: 0 <= x <= 100000;\nloop invariant i24: x > 0 ==> (x <= 10000);\n\n\n\n\n*/\nwhile ((x > 0)) {\n    {\n    (x  = (x - 1));\n    }\n\n  }\n  \n{;\n//@ assert( (x == 0) );\n}\n\n}",
+        "checker_output_after_prune": true
+    },
+    "stats": {
+        "success": [
+            "../dataset/loop_invariants/code2inv/125.c",
+            "../dataset/loop_invariants/code2inv/128.c",
+            "../dataset/loop_invariants/code2inv/129.c",
+            "../dataset/loop_invariants/code2inv/13.c",
+            "../dataset/loop_invariants/code2inv/132.c",
+            "../dataset/loop_invariants/code2inv/133.c",
+            "../dataset/loop_invariants/code2inv/14.c",
+            "../dataset/loop_invariants/code2inv/15.c",
+            "../dataset/loop_invariants/code2inv/16.c",
+            "../dataset/loop_invariants/code2inv/18.c",
+            "../dataset/loop_invariants/code2inv/19.c",
+            "../dataset/loop_invariants/code2inv/2.c",
+            "../dataset/loop_invariants/code2inv/20.c",
+            "../dataset/loop_invariants/code2inv/21.c",
+            "../dataset/loop_invariants/code2inv/22.c",
+            "../dataset/loop_invariants/code2inv/23.c",
+            "../dataset/loop_invariants/code2inv/25.c"
+        ],
+        "failure": [
+            "../dataset/loop_invariants/code2inv/124.c",
+            "../dataset/loop_invariants/code2inv/126.c",
+            "../dataset/loop_invariants/code2inv/127.c",
+            "../dataset/loop_invariants/code2inv/131.c"
+        ],
+        "skipped": [],
+        "total": 21,
+        "success_count": 17,
+        "failure_count": 4,
+        "success_rate": 0.8095238095238095
+    }
+}

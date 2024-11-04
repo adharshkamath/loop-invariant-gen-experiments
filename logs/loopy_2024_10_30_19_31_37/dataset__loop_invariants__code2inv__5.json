@@ -1,0 +1,175 @@
+{
+    "logs": {
+        "file": "../dataset/loop_invariants/code2inv/5.c",
+        "benchmark_code": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main()\n{\n    int x = 0;\n    int size;\n    int y, z;\n\n    while(x < size) {\n       x += 1;\n       if( z <= y) {\n          y = z;\n       }\n    }\n\n    if(size > 0) {\n       {;\n//@ assert(z >= y);\n}\n\n    }\n}",
+        "success": true,
+        "annotation_blocks": [
+            "```\n/*@\nloop invariant 0 <= x <= size;\nloop invariant y <= z;\nloop invariant y <= z ==> z >= y;\n*/\n```",
+            "```\n/*@\nloop invariant 1 <= x <= size;\nloop invariant 0 <= y <= z;\nloop invariant x >= y;\nloop invariant x >= z;\nloop invariant y <= z;\nloop invariant y <= x;\nloop invariant z >= y;\nloop invariant z >= x;\nloop invariant y >= 0;\nloop invariant x >= 0;\nloop invariant size >= 0;\nloop invariant x <= size;\nloop invariant (x < size) ==> (y <= z);\nloop invariant (x >= size) ==> (z >= y);\nloop invariant (x >= size) ==> (x >= y);\nloop invariant (x >= size) ==> (x >= z);\nloop invariant (x >= size) ==> (y <= z);\nloop invariant (x >= size) ==> (y <= x);\nloop invariant (x >= size) ==> (z >= y);\nloop invariant (x >= size) ==> (z >= x);\nloop invariant (x >= size) ==> (y >= 0);\nloop invariant (x >= size) ==> (x >= 0);\nloop invariant (x >= size) ==> (size >= 0);\nloop invariant (x >= size) ==> (x <= size);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= size;\nloop invariant z >= y;\nloop invariant x == 0 ==> z <= size;\nloop invariant x > 0 ==> y <= z;\nloop invariant x >= size ==> z <= size;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= size;\nloop invariant y <= z;\nloop invariant x <= size;\nloop invariant size > 0 ==> z >= y;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= size;\nloop invariant 0 <= y;\nloop invariant y <= z;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= size;\nloop invariant x >= 0;\nloop invariant y >= 0;\nloop invariant z >= 0;\nloop invariant z <= y ==> (y == z);\nloop invariant z <= y ==> (x == size);\nloop invariant z <= y ==> (x == size ==> size > 0);\nloop invariant z <= y ==> (x == size ==> z >= y);\nloop invariant z <= y ==> (x == size ==> y == z);\nloop invariant z <= y ==> (x == size ==> size > 0 ==> z >= y);\nloop invariant z <= y ==> (x == size ==> size > 0 ==> y == z);\nloop invariant z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z);\nloop invariant z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y);\nloop invariant z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z);\nloop invariant z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y);\nloop invariant z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y);\nloop invariant z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z);\nloop invariant z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y);\nloop invariant z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= size;\nloop invariant y <= z;\nloop invariant (x - y) >= 0;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= size;\nloop invariant 0 <= y;\nloop invariant 0 <= z;\nloop invariant x + 1 >= size ==> z <= y;\nloop invariant x + 1 <= size ==> y <= z;\nloop invariant x + 1 == size ==> y == z;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= size;\nloop invariant size > 0 ==> y >= z;\nloop invariant size > 0 ==> z >= y;\nloop invariant (x > size ==> z >= y);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> z <= y);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= size;\nloop invariant y <= z;\nloop invariant y <= y ==> z >= y;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= size;\nloop invariant y <= z;\nloop invariant y <= x;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= size;\nloop invariant 0 <= y <= z;\nloop invariant y <= x;\nloop invariant z >= y;\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= size;\nloop invariant y <= z;\nloop invariant if size > 0 then z >= y else true;\nloop invariant if size > 0 then y <= size else true;\nloop invariant if size > 0 then size >= 1 else true;\n*/\n```",
+            "```\n/*@\n\n*/\n```",
+            "```\n/*@\nloop invariant 0 <= x <= size;\nloop invariant y <= z;\nloop invariant y <= x;\n*/\n```"
+        ],
+        "completions": [
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= size;\nloop invariant y <= z;\nloop invariant y <= z ==> z >= y;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main()\n{\n    int x = 0;\n    int size;\n    int y, z;\n\n    /*@\n\n\nloop invariant i3: y <= z ==> z >= y;\n*/\nwhile(x < size) {\n       x += 1;\n       if( z <= y) {\n          y = z;\n       }\n    }\n\n    if(size > 0) {\n       {;\n//@ assert(z >= y);\n}\n\n    }\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 7,
+                "annotations": "```\n/*@\nloop invariant 1 <= x <= size;\nloop invariant 0 <= y <= z;\nloop invariant x >= y;\nloop invariant x >= z;\nloop invariant y <= z;\nloop invariant y <= x;\nloop invariant z >= y;\nloop invariant z >= x;\nloop invariant y >= 0;\nloop invariant x >= 0;\nloop invariant size >= 0;\nloop invariant x <= size;\nloop invariant (x < size) ==> (y <= z);\nloop invariant (x >= size) ==> (z >= y);\nloop invariant (x >= size) ==> (x >= y);\nloop invariant (x >= size) ==> (x >= z);\nloop invariant (x >= size) ==> (y <= z);\nloop invariant (x >= size) ==> (y <= x);\nloop invariant (x >= size) ==> (z >= y);\nloop invariant (x >= size) ==> (z >= x);\nloop invariant (x >= size) ==> (y >= 0);\nloop invariant (x >= size) ==> (x >= 0);\nloop invariant (x >= size) ==> (size >= 0);\nloop invariant (x >= size) ==> (x <= size);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main()\n{\n    int x = 0;\n    int size;\n    int y, z;\n\n    /*@\n\n\n\n\n\n\n\n\n\nloop invariant i10: x >= 0;\n\n\n\n\n\n\n\n\n\n\nloop invariant i21: (x >= size) ==> (x >= 0);\n\n\n*/\nwhile(x < size) {\n       x += 1;\n       if( z <= y) {\n          y = z;\n       }\n    }\n\n    if(size > 0) {\n       {;\n//@ assert(z >= y);\n}\n\n    }\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= size;\nloop invariant z >= y;\nloop invariant x == 0 ==> z <= size;\nloop invariant x > 0 ==> y <= z;\nloop invariant x >= size ==> z <= size;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main()\n{\n    int x = 0;\n    int size;\n    int y, z;\n\n    /*@\n\n\n\nloop invariant i4: x > 0 ==> y <= z;\n\n*/\nwhile(x < size) {\n       x += 1;\n       if( z <= y) {\n          y = z;\n       }\n    }\n\n    if(size > 0) {\n       {;\n//@ assert(z >= y);\n}\n\n    }\n}",
+                "checker_output_after_prune": true
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= size;\nloop invariant y <= z;\nloop invariant x <= size;\nloop invariant size > 0 ==> z >= y;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main()\n{\n    int x = 0;\n    int size;\n    int y, z;\n\n    /*@\n\n\n\n\n*/\nwhile(x < size) {\n       x += 1;\n       if( z <= y) {\n          y = z;\n       }\n    }\n\n    if(size > 0) {\n       {;\n//@ assert(z >= y);\n}\n\n    }\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= size;\nloop invariant 0 <= y;\nloop invariant y <= z;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main()\n{\n    int x = 0;\n    int size;\n    int y, z;\n\n    /*@\n\n\n\n*/\nwhile(x < size) {\n       x += 1;\n       if( z <= y) {\n          y = z;\n       }\n    }\n\n    if(size > 0) {\n       {;\n//@ assert(z >= y);\n}\n\n    }\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 4,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= size;\nloop invariant x >= 0;\nloop invariant y >= 0;\nloop invariant z >= 0;\nloop invariant z <= y ==> (y == z);\nloop invariant z <= y ==> (x == size);\nloop invariant z <= y ==> (x == size ==> size > 0);\nloop invariant z <= y ==> (x == size ==> z >= y);\nloop invariant z <= y ==> (x == size ==> y == z);\nloop invariant z <= y ==> (x == size ==> size > 0 ==> z >= y);\nloop invariant z <= y ==> (x == size ==> size > 0 ==> y == z);\nloop invariant z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z);\nloop invariant z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y);\nloop invariant z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z);\nloop invariant z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y);\nloop invariant z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y);\nloop invariant z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z);\nloop invariant z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y);\nloop invariant z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main()\n{\n    int x = 0;\n    int size;\n    int y, z;\n\n    /*@\n\nloop invariant i2: x >= 0;\n\n\n\n\n\n\n\nloop invariant i10: z <= y ==> (x == size ==> size > 0 ==> z >= y);\nloop invariant i11: z <= y ==> (x == size ==> size > 0 ==> y == z);\nloop invariant i12: z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z);\nloop invariant i13: z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y);\nloop invariant i14: z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z);\nloop invariant i15: z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y);\nloop invariant i16: z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y);\nloop invariant i17: z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z);\nloop invariant i18: z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y);\nloop invariant i19: z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y);\n*/\nwhile(x < size) {\n       x += 1;\n       if( z <= y) {\n          y = z;\n       }\n    }\n\n    if(size > 0) {\n       {;\n//@ assert(z >= y);\n}\n\n    }\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= size;\nloop invariant y <= z;\nloop invariant (x - y) >= 0;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main()\n{\n    int x = 0;\n    int size;\n    int y, z;\n\n    /*@\n\n\n\n*/\nwhile(x < size) {\n       x += 1;\n       if( z <= y) {\n          y = z;\n       }\n    }\n\n    if(size > 0) {\n       {;\n//@ assert(z >= y);\n}\n\n    }\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= size;\nloop invariant 0 <= y;\nloop invariant 0 <= z;\nloop invariant x + 1 >= size ==> z <= y;\nloop invariant x + 1 <= size ==> y <= z;\nloop invariant x + 1 == size ==> y == z;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main()\n{\n    int x = 0;\n    int size;\n    int y, z;\n\n    /*@\n\n\n\n\n\n\n*/\nwhile(x < size) {\n       x += 1;\n       if( z <= y) {\n          y = z;\n       }\n    }\n\n    if(size > 0) {\n       {;\n//@ assert(z >= y);\n}\n\n    }\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 4,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= size;\nloop invariant size > 0 ==> y >= z;\nloop invariant size > 0 ==> z >= y;\nloop invariant (x > size ==> z >= y);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> z <= y);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\nloop invariant (x > size ==> y > z);\nloop invariant (x > size ==> y < z);\nloop invariant (x > size ==> y == z);\nloop invariant (x > size ==> y != z);\nloop invariant (x > size ==> y >= z);\nloop invariant (x > size ==> y <= z);\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main()\n{\n    int x = 0;\n    int size;\n    int y, z;\n\n    /*@\n\n\n\n\n\n\n\n\n\n\n\n*/\nwhile(x < size) {\n       x += 1;\n       if( z <= y) {\n          y = z;\n       }\n    }\n\n    if(size > 0) {\n       {;\n//@ assert(z >= y);\n}\n\n    }\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= size;\nloop invariant y <= z;\nloop invariant y <= y ==> z >= y;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main()\n{\n    int x = 0;\n    int size;\n    int y, z;\n\n    /*@\n\n\n\n*/\nwhile(x < size) {\n       x += 1;\n       if( z <= y) {\n          y = z;\n       }\n    }\n\n    if(size > 0) {\n       {;\n//@ assert(z >= y);\n}\n\n    }\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= size;\nloop invariant y <= z;\nloop invariant y <= x;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main()\n{\n    int x = 0;\n    int size;\n    int y, z;\n\n    /*@\n\n\n\n*/\nwhile(x < size) {\n       x += 1;\n       if( z <= y) {\n          y = z;\n       }\n    }\n\n    if(size > 0) {\n       {;\n//@ assert(z >= y);\n}\n\n    }\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 2,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= size;\nloop invariant 0 <= y <= z;\nloop invariant y <= x;\nloop invariant z >= y;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main()\n{\n    int x = 0;\n    int size;\n    int y, z;\n\n    /*@\n\n\n\n\n*/\nwhile(x < size) {\n       x += 1;\n       if( z <= y) {\n          y = z;\n       }\n    }\n\n    if(size > 0) {\n       {;\n//@ assert(z >= y);\n}\n\n    }\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 4,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= size;\nloop invariant y <= z;\nloop invariant if size > 0 then z >= y else true;\nloop invariant if size > 0 then y <= size else true;\nloop invariant if size > 0 then size >= 1 else true;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main()\n{\n    int x = 0;\n    int size;\n    int y, z;\n\n    /*@\n\n\n\n\n\n*/\nwhile(x < size) {\n       x += 1;\n       if( z <= y) {\n          y = z;\n       }\n    }\n\n    if(size > 0) {\n       {;\n//@ assert(z >= y);\n}\n\n    }\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 0,
+                "annotations": "```\n/*@\n\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main()\n{\n    int x = 0;\n    int size;\n    int y, z;\n\n    /*@\n\n*/\nwhile(x < size) {\n       x += 1;\n       if( z <= y) {\n          y = z;\n       }\n    }\n\n    if(size > 0) {\n       {;\n//@ assert(z >= y);\n}\n\n    }\n}",
+                "checker_output_after_prune": false
+            },
+            {
+                "num_solver_calls": 1,
+                "annotations": "```\n/*@\nloop invariant 0 <= x <= size;\nloop invariant y <= z;\nloop invariant y <= x;\n*/\n```",
+                "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main()\n{\n    int x = 0;\n    int size;\n    int y, z;\n\n    /*@\n\n\n\n*/\nwhile(x < size) {\n       x += 1;\n       if( z <= y) {\n          y = z;\n       }\n    }\n\n    if(size > 0) {\n       {;\n//@ assert(z >= y);\n}\n\n    }\n}",
+                "checker_output_after_prune": false
+            }
+        ],
+        "checker_output_for_combined_annotations": false,
+        "checker_message_for_combined_annotations": "Annotation error on line 75: unexpected token 'size'",
+        "code_with_combined_annotations": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main()\n{\n    int x = 0;\n    int size;\n    int y, z;\n\n    /*@\nloop invariant i1: 0 <= x <= size;\nloop invariant i2: y <= z;\nloop invariant i3: y <= z ==> z >= y;\nloop invariant i4: 1 <= x <= size;\nloop invariant i5: 0 <= y <= z;\nloop invariant i6: x >= y;\nloop invariant i7: x >= z;\nloop invariant i8: y <= x;\nloop invariant i9: z >= y;\nloop invariant i10: z >= x;\nloop invariant i11: y >= 0;\nloop invariant i12: x >= 0;\nloop invariant i13: size >= 0;\nloop invariant i14: x <= size;\nloop invariant i15: (x < size) ==> (y <= z);\nloop invariant i16: (x >= size) ==> (z >= y);\nloop invariant i17: (x >= size) ==> (x >= y);\nloop invariant i18: (x >= size) ==> (x >= z);\nloop invariant i19: (x >= size) ==> (y <= z);\nloop invariant i20: (x >= size) ==> (y <= x);\nloop invariant i21: (x >= size) ==> (z >= x);\nloop invariant i22: (x >= size) ==> (y >= 0);\nloop invariant i23: (x >= size) ==> (x >= 0);\nloop invariant i24: (x >= size) ==> (size >= 0);\nloop invariant i25: (x >= size) ==> (x <= size);\nloop invariant i26: x == 0 ==> z <= size;\nloop invariant i27: x > 0 ==> y <= z;\nloop invariant i28: x >= size ==> z <= size;\nloop invariant i29: size > 0 ==> z >= y;\nloop invariant i30: 0 <= y;\nloop invariant i31: z >= 0;\nloop invariant i32: z <= y ==> (y == z);\nloop invariant i33: z <= y ==> (x == size);\nloop invariant i34: z <= y ==> (x == size ==> size > 0);\nloop invariant i35: z <= y ==> (x == size ==> z >= y);\nloop invariant i36: z <= y ==> (x == size ==> y == z);\nloop invariant i37: z <= y ==> (x == size ==> size > 0 ==> z >= y);\nloop invariant i38: z <= y ==> (x == size ==> size > 0 ==> y == z);\nloop invariant i39: z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z);\nloop invariant i40: z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y);\nloop invariant i41: z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z);\nloop invariant i42: z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y);\nloop invariant i43: z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y);\nloop invariant i44: z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z);\nloop invariant i45: z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y);\nloop invariant i46: z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y);\nloop invariant i47: (x - y) >= 0;\nloop invariant i48: 0 <= z;\nloop invariant i49: x + 1 >= size ==> z <= y;\nloop invariant i50: x + 1 <= size ==> y <= z;\nloop invariant i51: x + 1 == size ==> y == z;\nloop invariant i52: size > 0 ==> y >= z;\nloop invariant i53: (x > size ==> z >= y);\nloop invariant i54: (x > size ==> y >= z);\nloop invariant i55: (x > size ==> y <= z);\nloop invariant i56: (x > size ==> z <= y);\nloop invariant i57: (x > size ==> y == z);\nloop invariant i58: (x > size ==> y != z);\nloop invariant i59: (x > size ==> y > z);\nloop invariant i60: (x > size ==> y < z);\nloop invariant i61: y <= y ==> z >= y;\nloop invariant i62: if size > 0 then z >= y else true;\nloop invariant i63: if size > 0 then y <= size else true;\nloop invariant i64: if size > 0 then size >= 1 else true;\n*/\nwhile(x < size) {\n       x += 1;\n       if( z <= y) {\n          y = z;\n       }\n    }\n\n    if(size > 0) {\n       {;\n//@ assert(z >= y);\n}\n\n    }\n}",
+        "combined_annotation_num_solver_calls": 12,
+        "code_after_prune": "#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\n#include <stdlib.h>\n#define assume(e) if(!(e)) exit(-1);\n\nint main()\n{\n    int x = 0;\n    int size;\n    int y, z;\n\n    /*@\n\n\nloop invariant i3: y <= z ==> z >= y;\n\n\n\n\n\n\n\n\nloop invariant i12: x >= 0;\n\n\n\n\n\n\n\n\n\n\nloop invariant i23: (x >= size) ==> (x >= 0);\n\n\n\nloop invariant i27: x > 0 ==> y <= z;\n\n\n\n\n\n\n\n\n\nloop invariant i37: z <= y ==> (x == size ==> size > 0 ==> z >= y);\nloop invariant i38: z <= y ==> (x == size ==> size > 0 ==> y == z);\nloop invariant i39: z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z);\nloop invariant i40: z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y);\nloop invariant i41: z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z);\nloop invariant i42: z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y);\nloop invariant i43: z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y);\nloop invariant i44: z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z);\nloop invariant i45: z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y);\nloop invariant i46: z <= y ==> (x == size ==> size > 0 ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y ==> y == z ==> z >= y);\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n*/\nwhile(x < size) {\n       x += 1;\n       if( z <= y) {\n          y = z;\n       }\n    }\n\n    if(size > 0) {\n       {;\n//@ assert(z >= y);\n}\n\n    }\n}",
+        "checker_output_after_prune": true
+    },
+    "stats": {
+        "success": [
+            "../dataset/loop_invariants/code2inv/124.c",
+            "../dataset/loop_invariants/code2inv/125.c",
+            "../dataset/loop_invariants/code2inv/126.c",
+            "../dataset/loop_invariants/code2inv/127.c",
+            "../dataset/loop_invariants/code2inv/128.c",
+            "../dataset/loop_invariants/code2inv/129.c",
+            "../dataset/loop_invariants/code2inv/13.c",
+            "../dataset/loop_invariants/code2inv/132.c",
+            "../dataset/loop_invariants/code2inv/133.c",
+            "../dataset/loop_invariants/code2inv/14.c",
+            "../dataset/loop_invariants/code2inv/16.c",
+            "../dataset/loop_invariants/code2inv/18.c",
+            "../dataset/loop_invariants/code2inv/19.c",
+            "../dataset/loop_invariants/code2inv/2.c",
+            "../dataset/loop_invariants/code2inv/20.c",
+            "../dataset/loop_invariants/code2inv/21.c",
+            "../dataset/loop_invariants/code2inv/22.c",
+            "../dataset/loop_invariants/code2inv/25.c",
+            "../dataset/loop_invariants/code2inv/29.c",
+            "../dataset/loop_invariants/code2inv/3.c",
+            "../dataset/loop_invariants/code2inv/30.c",
+            "../dataset/loop_invariants/code2inv/35.c",
+            "../dataset/loop_invariants/code2inv/36.c",
+            "../dataset/loop_invariants/code2inv/37.c",
+            "../dataset/loop_invariants/code2inv/38.c",
+            "../dataset/loop_invariants/code2inv/39.c",
+            "../dataset/loop_invariants/code2inv/4.c",
+            "../dataset/loop_invariants/code2inv/40.c",
+            "../dataset/loop_invariants/code2inv/41.c",
+            "../dataset/loop_invariants/code2inv/42.c",
+            "../dataset/loop_invariants/code2inv/43.c",
+            "../dataset/loop_invariants/code2inv/44.c",
+            "../dataset/loop_invariants/code2inv/45.c",
+            "../dataset/loop_invariants/code2inv/46.c",
+            "../dataset/loop_invariants/code2inv/47.c",
+            "../dataset/loop_invariants/code2inv/48.c",
+            "../dataset/loop_invariants/code2inv/49.c",
+            "../dataset/loop_invariants/code2inv/5.c"
+        ],
+        "failure": [
+            "../dataset/loop_invariants/code2inv/131.c",
+            "../dataset/loop_invariants/code2inv/15.c",
+            "../dataset/loop_invariants/code2inv/23.c",
+            "../dataset/loop_invariants/code2inv/34.c"
+        ],
+        "skipped": [],
+        "total": 42,
+        "success_count": 38,
+        "failure_count": 4,
+        "success_rate": 0.9047619047619048
+    }
+}

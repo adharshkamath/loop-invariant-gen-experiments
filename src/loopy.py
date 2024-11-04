@@ -123,16 +123,15 @@ class Loopy:
     @staticmethod
     def prune_wrapper(checker_input):
         checker = LoopyFactory("frama-c").get_checker()
+        success, pruned_code, num_frama_c_calls = False, checker_input, 0
         try:
             success, pruned_code, num_frama_c_calls = checker.houdini(
-                checker_input,
-                features="one_loop_one_method",
-                use_json_dump_for_invariants=True,
+                checker_input, check_variant=False, check_contracts=False
             )
         except Exception as e:
             print(e)
             traceback.print_exc()
-        return success
+        return success, checker_input, pruned_code, num_frama_c_calls
 
     @staticmethod
     def combine_and_prune_with_k(
@@ -1505,70 +1504,47 @@ class Loopy:
                 instance_log_json["annotation_blocks"] = annotation_blocks
 
                 completions = []
-                for block in annotation_blocks:
-                    completion_json = {
-                        "num_solver_calls": 0,
-                    }
-                    if len(block) == 2 and block[0] == (
-                        "ERROR: Output does not contain at least 1 complete code block"
-                    ):
-                        completion_json["success"] = False
-                        completion_json["num_solver_calls"] = 0
-                        completion_json["llm_output"] = block[1]
-                        completion_json["error"] = (
-                            "Output does not contain at least 1 code block"
-                        )
-                        completions.append(completion_json)
-                        continue
-
-                    Logger.log_info(f"Checking completion {len(completions) + 1}")
-
-                    checker_input_with_annotations = self.benchmark.combine_llm_outputs(
+                checker_inputs = [
+                    self.benchmark.combine_llm_outputs(
                         self.benchmark.get_code(benchmark_file),
                         [block],
                         self.benchmark_features,
                     )
-                    completion_json["annotations"] = block
-                    __success, checker_message = self.checker.check(
-                        checker_input_with_annotations,
-                        check_variant=False,
-                        check_contracts=False,
+                    for block in annotation_blocks
+                    if not (
+                        len(block) == 2
+                        and block[0]
+                        == (
+                            "ERROR: Output does not contain at least 1 complete code block"
+                        )
                     )
+                ]
+                checker_input_map = {}
+                for x in annotation_blocks:
+                    if len(x) == 2 and x[0] == (
+                        "ERROR: Output does not contain at least 1 complete code block"
+                    ):
+                        continue
+                    checker_input = self.benchmark.combine_llm_outputs(
+                        self.benchmark.get_code(benchmark_file),
+                        [x],
+                        self.benchmark_features,
+                    )
+                    checker_input_map[checker_input] = x
 
-                    completion_json["num_solver_calls"] += 1
-                    completion_json["checker_output_for_annotations"] = __success
-                    completion_json["checker_message_for_annotations"] = checker_message
-
-                    if not __success:
-                        try:
-                            (
-                                __success,
-                                pruned_code,
-                                num_frama_c_calls,
-                            ) = self.checker.houdini(
-                                checker_input_with_annotations,
-                                check_variant=False,
-                                check_contracts=False,
-                            )
-
-                            completion_json["num_solver_calls"] += num_frama_c_calls
-                            completion_json["code_after_prune"] = pruned_code
-                            completion_json["checker_output_after_prune"] = __success
-                        except Exception as e:
-                            completion_json["houdini_error"] = str(e)
-
-                    success = __success or success
-
-                    if __success:
-                        Logger.log_success(
-                            f"Completion {len(completions) + 1} is correct"
-                        )
-                    else:
-                        Logger.log_error(
-                            f"Completion {len(completions) + 1} is incorrect"
-                        )
-
+                results = Loopy.run_parallel(
+                    checker_inputs,
+                    Loopy.prune_wrapper,
+                )
+                for result in results:
+                    completion_json = {
+                        "num_solver_calls": result[3],
+                    }
+                    completion_json["annotations"] = checker_input_map[result[1]]
+                    completion_json["code_after_prune"] = result[2]
+                    completion_json["checker_output_after_prune"] = result[0]
                     completions.append(completion_json)
+                    success = success or result[0]
 
                 instance_log_json["completions"] = completions
 
